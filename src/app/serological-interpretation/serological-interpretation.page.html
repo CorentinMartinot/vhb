@@ -22,28 +22,69 @@
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="8" offset-sm="2" size-md="5" offset-md="3.5">
+        <ion-card [disabled]="displayResult" class="ion-no-margin">
+          <ion-list>
+            <ion-item (click)="agHbs=!agHbs">
+              <ion-label>Ag HbS</ion-label>
+              <ion-row slot="end" class="ion-align-items-center">
+                <ion-label>-</ion-label>
+                <ion-toggle [checked]="agHbs"></ion-toggle>
+                <ion-label>+</ion-label>
+              </ion-row>
+            </ion-item>
+            <ion-item (click)="acAntiHbs=!acAntiHbs">
+              <ion-label>Ac anti-HbS</ion-label>
+              <ion-row slot="end" class="ion-align-items-center">
+                <ion-label>-</ion-label>
+                <ion-toggle [checked]="acAntiHbs"></ion-toggle>
+                <ion-label>+</ion-label>
+              </ion-row>
+            </ion-item>
+            <ion-item (click)="acAntiHbc=!acAntiHbc">
+              <ion-label>Ac anti-HbC</ion-label>
+              <ion-row slot="end" class="ion-align-items-center">
+                <ion-label>-</ion-label>
+                <ion-toggle [checked]="acAntiHbc"></ion-toggle>
+                <ion-label>+</ion-label>
+              </ion-row>
+            </ion-item>
+          </ion-list>
+          <ion-row class="ion-justify-content-center">
+            <ion-buttons>
+              <ion-button (click)="displayResult = true" shape="round" fill="solid" class="enter-button">Afficher</ion-button>
+            </ion-buttons>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
 
-  <ion-list >
-    <ion-item (click)="agHbs=!agHbs">
-      <ion-label>Ag HbS</ion-label>
-      <ion-toggle slot="end" [checked]="agHbs"></ion-toggle>
-    </ion-item>
-    <ion-item (click)="acAntiHbs=!acAntiHbs">
-      <ion-label>Ac anti-HbS</ion-label>
-      <ion-toggle slot="end" [checked]="acAntiHbs"></ion-toggle>
-    </ion-item>
-    <ion-item (click)="acAntiHbc=!acAntiHbc">
-      <ion-label>Ac anti-HbC</ion-label>
-      <ion-toggle slot="end" [checked]="acAntiHbc"></ion-toggle>
-    </ion-item>
-  </ion-list>
+    <ng-container *ngIf="displayResult">
+      <ion-item-divider></ion-item-divider>
+      <ion-row class="ion-justify-content-end ion-margin-end" >
+        <ion-buttons class="ion-margin-top ion-margin-bottom">
+          <ion-button (click)="resetToggles()" shape="round" fill="outline" class="reset-button">
+            <ion-icon slot="start" name="refresh-outline"></ion-icon>
+            Réinitialiser
+          </ion-button>
+        </ion-buttons>
+      </ion-row>
 
-  <ion-buttons>
-    <ion-button (click)="resetToggles()" color="danger">RESET</ion-button>
-  </ion-buttons>
+      <ion-row class="result">
+        <ion-col>
+          <markdown [data]="markdownContent()"></markdown>
   
-  <markdown [data]="markdownContent()"></markdown>
+          <ion-img src="/assets/img/algo-control-immunization.png" class="image-algo"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+  </ion-grid>
 
-  <ion-img src="/assets/img/algo-control-immunization.png" class="image-algo"></ion-img>
+
+
+
+  
 
 </ion-content>

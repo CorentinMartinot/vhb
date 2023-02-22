@@ -9,6 +9,7 @@ export class SerologicalInterpretationPage implements OnInit {
   agHbs: boolean = false;
   acAntiHbs: boolean = false;
   acAntiHbc: boolean = false;
+  displayResult: boolean = false;
 
   constructor() { }
 
@@ -19,6 +20,7 @@ export class SerologicalInterpretationPage implements OnInit {
     this.agHbs = false;
     this.acAntiHbs = false;
     this.acAntiHbc = false;
+    this.displayResult = false;
   }
 
   markdownContent() {
