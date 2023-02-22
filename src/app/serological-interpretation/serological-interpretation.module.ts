@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { SerologicalInterpretationPageRoutingModule } from './serological-interpretation-routing.module';
 
 import { SerologicalInterpretationPage } from './serological-interpretation.page';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SerologicalInterpretationPageRoutingModule
+    SerologicalInterpretationPageRoutingModule,
+    MarkdownModule,
   ],
   declarations: [SerologicalInterpretationPage]
 })
