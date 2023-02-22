@@ -1,7 +1,12 @@
 
-@media (min-width: 768px) {
+@media (min-width: 576px) {
     ion-header {
         padding: 2vh 0 2vh 0;
+    }
+
+    .image-algo {
+        width: 60vw;
+        margin-left: 20vw;
     }
 }
 
@@ -18,4 +23,3 @@
     border-bottom: 2px solid;
     border-color: black;
 }
-
