@@ -10,7 +10,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'serological-interpretation',
+    loadChildren: () => import('./serological-interpretation/serological-interpretation.module').then( m => m.SerologicalInterpretationPageModule)
   },
+
 ];
 
 @NgModule({
