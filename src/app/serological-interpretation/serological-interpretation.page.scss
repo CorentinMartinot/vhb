@@ -1,3 +1,8 @@
+@media (max-width: 576px) {
+    .image-algo {
+        margin: 2.5vw;
+    }
+}
 
 @media (min-width: 576px) {
     ion-header {
@@ -5,10 +10,10 @@
     }
 
     .image-algo {
-        width: 60vw;
-        margin-left: 20vw;
+        margin: 2vh 20vw 2vh 20vw;
     }
 }
+
 
 .header-content {
     display: flex;
