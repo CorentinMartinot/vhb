@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'serological-interpretation',
     loadChildren: () => import('./serological-interpretation/serological-interpretation.module').then( m => m.SerologicalInterpretationPageModule)
   },
+  {
+    path: 'intention-review',
+    loadChildren: () => import('./intention-review/intention-review.module').then( m => m.IntentionReviewPageModule)
+  },
 
 ];
 
