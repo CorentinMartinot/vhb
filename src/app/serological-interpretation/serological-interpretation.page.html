@@ -23,4 +23,23 @@
 
 <ion-content>
 
+  <ion-list >
+    <ion-item (click)="agHbs=!agHbs">
+      <ion-label>Ag HbS</ion-label>
+      <ion-toggle slot="end" [checked]="agHbs"></ion-toggle>
+    </ion-item>
+    <ion-item (click)="acAntiHbs=!acAntiHbs">
+      <ion-label>Ac anti-HbS</ion-label>
+      <ion-toggle slot="end" [checked]="acAntiHbs"></ion-toggle>
+    </ion-item>
+    <ion-item (click)="acAntiHbc=!acAntiHbc">
+      <ion-label>Ac anti-HbC</ion-label>
+      <ion-toggle slot="end" [checked]="acAntiHbc"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <ion-buttons>
+    <ion-button (click)="resetToggles()" color="danger">RESET</ion-button>
+  </ion-buttons>
+
 </ion-content>

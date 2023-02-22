@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./serological-interpretation.page.scss'],
 })
 export class SerologicalInterpretationPage implements OnInit {
+  agHbs: boolean = false;
+  acAntiHbs: boolean = false;
+  acAntiHbc: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  resetToggles () {
+    this.agHbs = false;
+    this.acAntiHbs = false;
+    this.acAntiHbc = false;
   }
 
 }
