@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/serological-interpretation/serological-interpretation.module').then( m => m.SerologicalInterpretationPageModule)
   },
   {
+    path: 'acute-hepatitis-b',
+    loadChildren: () => import('./pages/acute-hepatitis-b/acute-hepatitis-b.module').then( m => m.AcuteHepatitisBPageModule)
+  },
+  {
     path: 'intention-review',
     loadChildren: () => import('./pages/intention-review/intention-review.module').then( m => m.IntentionReviewPageModule)
   },
