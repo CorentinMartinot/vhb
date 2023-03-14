@@ -21,9 +21,16 @@ const routes: Routes = [
   },
   {
     path: 'intention-review',
-    loadChildren: () => import('./pages/intention-review/intention-review.module').then( m => m.IntentionReviewPageModule)
+    loadChildren: () => import('./pages/chronic-hepatitis-b/intention-review/intention-review.module').then( m => m.IntentionReviewPageModule)
   },
-
+  {
+    path: 'medical-management',
+    loadChildren: () => import('./pages/chronic-hepatitis-b/medical-management/medical-management.module').then( m => m.MedicalManagementPageModule)
+  },
+  {
+    path: 'inactive-or-recovered-carrier',
+    loadChildren: () => import('./pages/inactive-or-recovered-carrier/inactive-or-recovered-carrier.module').then( m => m.InactiveOrRecoveredCarrierPageModule)
+  },
 ];
 
 @NgModule({
