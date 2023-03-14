@@ -1,3 +1,10 @@
 .accordion-header {
     border-radius: 30px;
 }
+
+.alert {
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

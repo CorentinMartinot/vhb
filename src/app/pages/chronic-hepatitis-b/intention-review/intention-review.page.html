@@ -23,21 +23,32 @@
   <ion-accordion-group [multiple]="true">
     <ion-accordion value="first">
       <ion-item slot="header" color="danger" class="accordion-header">
-        <ion-label>First Accordion</ion-label>
+        <ion-label>Intertogatoire et examen clinique</ion-label>
       </ion-item>
-      <div class="ion-padding" slot="content">First Content</div>
+      <div class="ion-padding" slot="content">
+        <markdown [data]="intentionReviewQuestionning"></markdown>
+      </div>
     </ion-accordion>
     <ion-accordion value="second">
       <ion-item slot="header" color="light" class="accordion-header">
-        <ion-label>Second Accordion</ion-label>
+        <ion-label>Biologie</ion-label>
       </ion-item>
-      <div class="ion-padding" slot="content">Second Content</div>
+      <div class="ion-padding" slot="content">
+        <markdown [data]="biology"></markdown>
+      </div>
     </ion-accordion>
     <ion-accordion value="third">
       <ion-item slot="header" color="light" class="accordion-header">
-        <ion-label>Third Accordion</ion-label>
+        <ion-label>Examens para-clinique</ion-label>
       </ion-item>
-      <div class="ion-padding" slot="content">Third Content</div>
+      <div class="ion-padding" slot="content">
+        <markdown [data]="paraclinicalExamination"></markdown>
+      </div>
     </ion-accordion>
   </ion-accordion-group>
+
+  <ion-card class="ion-padding alert">
+    <ion-icon name="warning-outline" size="large"></ion-icon>
+    <ion-text class="ion-margin-start">Dépistage de l'entourage et vaccination si sérologie négative</ion-text>
+  </ion-card>
 </ion-content>

@@ -20,5 +20,17 @@
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+        <ion-col size-sm="8" offset-sm="2" size-md="5" offset-md="3.5">
+          <ion-row *ngFor="let button of buttonList" class="ion-justify-content-center">
+            <ion-button (click)="button.onClick()" class="button"b>
+              <ion-text>{{ button.name }}</ion-text>
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-button>
+          </ion-row>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
