@@ -4,19 +4,20 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'serological-interpretation',
-    loadChildren: () => import('./serological-interpretation/serological-interpretation.module').then( m => m.SerologicalInterpretationPageModule)
+    loadChildren: () => import('./pages/serological-interpretation/serological-interpretation.module').then( m => m.SerologicalInterpretationPageModule)
   },
   {
     path: 'intention-review',
-    loadChildren: () => import('./intention-review/intention-review.module').then( m => m.IntentionReviewPageModule)
+    loadChildren: () => import('./pages/intention-review/intention-review.module').then( m => m.IntentionReviewPageModule)
   },
 
 ];
