@@ -23,11 +23,12 @@
   <ion-grid>
     <ion-row>
         <ion-col size-sm="8" offset-sm="2" size-md="5" offset-md="3.5">
-          <ion-row *ngFor="let button of buttonList" class="ion-justify-content-center">
-            <ion-button (click)="button.onClick()" class="button"b>
-              <ion-text>{{ button.name }}</ion-text>
-              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
-            </ion-button>
+          <ion-row class="ion-justify-content-center">
+            <ion-list class="situation-list">
+              <ion-item button *ngFor="let button of buttonList" (click)="button.onClick()" detail="true" class="situation-item">
+                <ion-text>{{ button.name }}</ion-text>
+              </ion-item>
+            </ion-list>
           </ion-row>
         </ion-col>
     </ion-row>

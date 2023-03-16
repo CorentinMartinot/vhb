@@ -24,13 +24,18 @@ const routes: Routes = [
     loadChildren: () => import('./pages/chronic-hepatitis-b/intention-review/intention-review.module').then( m => m.IntentionReviewPageModule)
   },
   {
-    path: 'medical-management',
-    loadChildren: () => import('./pages/chronic-hepatitis-b/medical-management/medical-management.module').then( m => m.MedicalManagementPageModule)
+    path: 'medical-management-list',
+    loadChildren: () => import('./pages/chronic-hepatitis-b/medical-management-list/medical-management-list.module').then( m => m.MedicalManagementListPageModule)
   },
   {
     path: 'inactive-or-recovered-carrier',
     loadChildren: () => import('./pages/inactive-or-recovered-carrier/inactive-or-recovered-carrier.module').then( m => m.InactiveOrRecoveredCarrierPageModule)
   },
+  {
+    path: 'medical-management-detail',
+    loadChildren: () => import('./pages/chronic-hepatitis-b/medical-management-detail/medical-management-detail.module').then( m => m.MedicalManagementDetailPageModule)
+  },
+
 ];
 
 @NgModule({
