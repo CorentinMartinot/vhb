@@ -12,7 +12,7 @@
               <ion-label>Ag HbS</ion-label>
               <ion-row slot="end" class="ion-align-items-center">
                 <ion-label>-</ion-label>
-                <ion-toggle [checked]="agHbs"></ion-toggle>
+                <ion-toggle [checked]="agHbs" color="cyan"></ion-toggle>
                 <ion-label>+</ion-label>
               </ion-row>
             </ion-item>
@@ -20,7 +20,7 @@
               <ion-label>Ac anti-HbS</ion-label>
               <ion-row slot="end" class="ion-align-items-center">
                 <ion-label>-</ion-label>
-                <ion-toggle [checked]="acAntiHbs"></ion-toggle>
+                <ion-toggle [checked]="acAntiHbs" color="cyan"></ion-toggle>
                 <ion-label>+</ion-label>
               </ion-row>
             </ion-item>
@@ -28,7 +28,7 @@
               <ion-label>Ac anti-HbC</ion-label>
               <ion-row slot="end" class="ion-align-items-center">
                 <ion-label>-</ion-label>
-                <ion-toggle [checked]="acAntiHbc"></ion-toggle>
+                <ion-toggle [checked]="acAntiHbc" color="cyan"></ion-toggle>
                 <ion-label>+</ion-label>
               </ion-row>
             </ion-item>
@@ -46,7 +46,7 @@
       <ion-item-divider></ion-item-divider>
       <ion-row class="ion-justify-content-end ion-margin-end" >
         <ion-buttons class="ion-margin-top ion-margin-bottom">
-          <ion-button (click)="resetToggles()" shape="round" fill="outline" class="reset-button">
+          <ion-button (click)="resetToggles()" color="cyan" shape="round" fill="outline" class="reset-button">
             <ion-icon slot="start" name="refresh-outline"></ion-icon>
             Réinitialiser
           </ion-button>

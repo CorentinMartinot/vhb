@@ -25,7 +25,8 @@
         <ion-col size-sm="8" offset-sm="2" size-md="5" offset-md="3.5">
           <ion-row class="ion-justify-content-center">
             <ion-list class="situation-list">
-              <ion-item button *ngFor="let situation of situationList" (click)="situation.onClick()" detail="true" class="situation-item">
+              <ion-item button *ngFor="let situation of situationList" (click)="situation.onClick()" detail="true" 
+                lines="none" shape="round" fill="outline" color="violet" class="ion-margin-bottom">
                 <ion-text>{{ situation.name }}</ion-text>
               </ion-item>
             </ion-list>
