@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { MedicalManagementDetailPageRoutingModule } from './medical-management-detail-routing.module';
 
 import { MedicalManagementDetailPage } from './medical-management-detail.page';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    MarkdownModule,
     MedicalManagementDetailPageRoutingModule
   ],
   declarations: [MedicalManagementDetailPage]
