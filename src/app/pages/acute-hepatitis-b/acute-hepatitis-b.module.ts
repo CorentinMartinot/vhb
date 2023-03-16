@@ -8,14 +8,12 @@ import { AcuteHepatitisBPageRoutingModule } from './acute-hepatitis-b-routing.mo
 
 import { AcuteHepatitisBPage } from './acute-hepatitis-b.page';
 
-import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MarkdownModule,
     AcuteHepatitisBPageRoutingModule
   ],
   declarations: [AcuteHepatitisBPage]

@@ -1,5 +1,11 @@
+.content {
+    margin-top: 5px;
+}
+
+
 @media (min-width: 576px) {
-    .md-content {
+    .content {
         margin-left: 20px;
+        margin-top: 10px;
     }  
 }

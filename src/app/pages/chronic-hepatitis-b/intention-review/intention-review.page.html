@@ -20,35 +20,42 @@
 </ion-header>
 
 <ion-content>
-  <ion-accordion-group [multiple]="true">
-    <ion-accordion value="first">
-      <ion-item slot="header" color="danger" class="accordion-header">
-        <ion-label>Intertogatoire et examen clinique</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        <markdown [data]="intentionReviewQuestionning"></markdown>
-      </div>
-    </ion-accordion>
-    <ion-accordion value="second">
-      <ion-item slot="header" color="light" class="accordion-header">
-        <ion-label>Biologie</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        <markdown [data]="biology"></markdown>
-      </div>
-    </ion-accordion>
-    <ion-accordion value="third">
-      <ion-item slot="header" color="light" class="accordion-header">
-        <ion-label>Examens para-clinique</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        <markdown [data]="paraclinicalExamination"></markdown>
-      </div>
-    </ion-accordion>
-  </ion-accordion-group>
-
-  <ion-card class="ion-padding alert">
-    <ion-icon name="warning-outline" size="large"></ion-icon>
-    <ion-text class="ion-margin-start">Dépistage de l'entourage et vaccination si sérologie négative</ion-text>
-  </ion-card>
+  <ion-grid>
+    <ion-row>
+        <ion-col size-sm="8" offset-sm="2" size-md="5" offset-md="3.5">
+          <ion-row class="ion-justify-content-center">
+            <ion-accordion-group [multiple]="true" class="accordion-container">
+              <ion-accordion value="first">
+                <ion-item slot="header" color="danger" class="accordion-header">
+                  <ion-label>Interrogatoire et examen clinique</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                  <markdown [data]="intentionReviewQuestionning"></markdown>
+                </div>
+              </ion-accordion>
+              <ion-accordion value="second">
+                <ion-item slot="header" color="light" class="accordion-header">
+                  <ion-label>Biologie</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                  <markdown [data]="biology"></markdown>
+                </div>
+              </ion-accordion>
+              <ion-accordion value="third">
+                <ion-item slot="header" color="light" class="accordion-header">
+                  <ion-label>Examens para-clinique</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                  <markdown [data]="paraclinicalExamination"></markdown>
+                </div>
+              </ion-accordion>
+            </ion-accordion-group>
+          </ion-row>
+            <ion-card class="ion-padding ion-no-margin ion-margin-top alert">
+              <ion-icon name="warning-outline" size="large"></ion-icon>
+              <ion-text class="ion-margin-start">Dépistage de l'entourage et vaccination si sérologie négative</ion-text>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
