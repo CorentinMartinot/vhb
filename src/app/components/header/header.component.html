@@ -1,0 +1,17 @@
+<ion-grid>
+  <ion-row>
+    <ion-col size="2">
+      <ion-buttons class="back-button">
+        <ion-back-button icon="arrow-back-outline" color="dark" [defaultHref]="defaultBackRoute"></ion-back-button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col size="8">
+      <ion-row class="ion-justify-content-center">
+        <div class="header-title ion-align-items-start">
+          <ion-title class="ion-no-padding ion-no-margin header-title-text" color="dark">{{ darkTitle | uppercase }}</ion-title>
+          <ion-title class="ion-no-padding ion-no-margin header-title-text" [color]="color">{{ coloredTitle | uppercase }}</ion-title>
+        </div>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-grid>

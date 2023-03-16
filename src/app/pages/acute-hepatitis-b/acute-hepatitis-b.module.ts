@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AcuteHepatitisBPageRoutingModule } from './acute-hepatitis-b-routing.module';
 
 import { AcuteHepatitisBPage } from './acute-hepatitis-b.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { AcuteHepatitisBPage } from './acute-hepatitis-b.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    AcuteHepatitisBPageRoutingModule
+    AcuteHepatitisBPageRoutingModule,
+    ComponentsModule,
   ],
   declarations: [AcuteHepatitisBPage]
 })
