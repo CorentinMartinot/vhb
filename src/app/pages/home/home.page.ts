@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  extentVHBChronicle = false;
+
   constructor() {}
+
+  switchExtentVHBChronicle () {
+    this.extentVHBChronicle = !this.extentVHBChronicle;
+  }
 
 }
