@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HomeSubbuttonComponent implements OnInit {
 
   @Input() label = '';
+  @Input() navigationRoute = '';
 
   constructor() { }
 

@@ -4,10 +4,10 @@
     <app-home-button darkTitle="Interprétation" coloredTitle="sérologique" color="cyan" navigationRoute="/serological-interpretation"></app-home-button>
     <app-home-button darkTitle="Hépatite B" coloredTitle="aigüe" color="indigo" navigationRoute="/acute-hepatitis-b"></app-home-button>
     <div class="vhb-chronicle-section">
-      <app-home-button darkTitle="Hépatite B" coloredTitle="chronique" color="violet" (click)="switchExtentVHBChronicle()"></app-home-button>
+      <app-home-button darkTitle="Hépatite B" coloredTitle="chronique" color="violet" (switch)="switchExtentVHBChronicle()"></app-home-button>
       <div *ngIf="extentVHBChronicle" class="sub-button-container">
-        <app-home-subbutton label="Bilan d'intention"></app-home-subbutton>
-        <app-home-subbutton label="Prise en charge"></app-home-subbutton>
+        <app-home-subbutton label="Bilan d'intention" navigationRoute="/intention-review"></app-home-subbutton>
+        <app-home-subbutton label="Prise en charge" navigationRoute="/medical-management-list"></app-home-subbutton>
       </div>
     </div>
     <app-home-button darkTitle="Porteur" coloredTitle="inactif ou guéri" color="nepal" navigationRoute="/inactive-or-recovered-carrier"></app-home-button>

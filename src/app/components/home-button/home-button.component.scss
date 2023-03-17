@@ -1,7 +1,18 @@
 ion-item {
+    --inner-padding-end: 0px;
+
     width: 210px;
     border-bottom: 1.5px solid;
     border-color: var(--ion-color-dark);
+}
+
+.item-container {
+    padding-right: 8px;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .title-text {
