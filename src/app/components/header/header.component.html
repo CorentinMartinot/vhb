@@ -7,9 +7,12 @@
     </ion-col>
     <ion-col size="8">
       <ion-row class="ion-justify-content-center">
-        <div class="header-title ion-align-items-start">
-          <ion-title class="ion-no-padding ion-no-margin header-title-text" color="dark">{{ darkTitle | uppercase }}</ion-title>
-          <ion-title class="ion-no-padding ion-no-margin header-title-text" [color]="color">{{ coloredTitle | uppercase }}</ion-title>
+        <div>
+          <div class="header-title">
+            <ion-title class="ion-no-padding ion-no-margin header-title-text" color="dark">{{ darkTitle | uppercase }}</ion-title>
+            <ion-title class="ion-no-padding ion-no-margin header-title-text" [color]="color">{{ coloredTitle | uppercase }}</ion-title>
+          </div>
+          <ion-text *ngIf="subTitle" class="ion-no-padding ion-no-margin header-subtitle-text">· {{ subTitle }}</ion-text>
         </div>
       </ion-row>
     </ion-col>

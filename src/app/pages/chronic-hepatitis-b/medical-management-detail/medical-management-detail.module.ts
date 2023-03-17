@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -8,6 +8,7 @@ import { MedicalManagementDetailPageRoutingModule } from './medical-management-d
 
 import { MedicalManagementDetailPage } from './medical-management-detail.page';
 import { MarkdownModule } from 'ngx-markdown';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { MarkdownModule } from 'ngx-markdown';
     FormsModule,
     IonicModule,
     MarkdownModule,
-    MedicalManagementDetailPageRoutingModule
+    MedicalManagementDetailPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [MedicalManagementDetailPage]
 })

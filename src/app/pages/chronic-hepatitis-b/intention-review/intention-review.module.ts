@@ -8,6 +8,7 @@ import { IntentionReviewPageRoutingModule } from './intention-review-routing.mod
 
 import { IntentionReviewPage } from './intention-review.page';
 import { MarkdownModule } from 'ngx-markdown';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { MarkdownModule } from 'ngx-markdown';
     FormsModule,
     IonicModule,
     MarkdownModule,
-    IntentionReviewPageRoutingModule
+    IntentionReviewPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [IntentionReviewPage]
 })

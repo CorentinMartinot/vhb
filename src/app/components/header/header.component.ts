@@ -9,6 +9,7 @@ export class HeaderComponent implements OnInit {
 
   @Input() darkTitle: string = '';
   @Input() coloredTitle: string = '';
+  @Input() subTitle: string = '';
   @Input() color: string = '';
   @Input() defaultBackRoute: string = '/home';
   

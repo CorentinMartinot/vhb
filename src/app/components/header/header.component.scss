@@ -1,5 +1,6 @@
 .header-title {
     padding: 0 30px 4px 0;
+    margin-bottom: 7px;
     border-bottom: 1.5px solid;
     border-color: var(--ion-color-dark);
 }
@@ -7,4 +8,8 @@
 .header-title-text {
     font-family: 'Inter-SemiBold';
     font-size: large;
+}
+
+.header-subtitle-text {
+    font-size: 17px;
 }
