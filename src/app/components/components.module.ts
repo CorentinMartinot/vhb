@@ -5,12 +5,14 @@ import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './header/header.component';
 import { HomeButtonComponent } from './home-button/home-button.component';
+import { HomeSubbuttonComponent } from './home-subbutton/home-subbutton.component';
 
 
 @NgModule({
     declarations: [
         HeaderComponent,
-        HomeButtonComponent
+        HomeButtonComponent,
+        HomeSubbuttonComponent
     ],
     imports: [
         CommonModule,
@@ -20,6 +22,7 @@ import { HomeButtonComponent } from './home-button/home-button.component';
     exports: [
         HeaderComponent,
         HomeButtonComponent,
+        HomeSubbuttonComponent
     ],
     entryComponents: [
     ],
