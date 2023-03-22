@@ -23,10 +23,10 @@ export class MedicalManagementDetailPage implements OnInit {
   situation = '';
   markdownContent = '';
 
-  constructor(private router: Router, private activeRoute: ActivatedRoute) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.activeRoute.paramMap.subscribe(() => {
+    this.activatedRoute.paramMap.subscribe(() => {
       this.situation = this.router?.getCurrentNavigation()?.extras?.state?.['situation'];
 
       switch (this.situation) {

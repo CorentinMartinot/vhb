@@ -24,7 +24,19 @@
                 <ion-label class="ion-text-wrap">Interrogatoire et examen clinique</ion-label>
               </ion-item>
               <div class="ion-padding" slot="content" class="accordion-content">
-                <markdown [data]="intentionReviewQuestionning"></markdown>
+                <ul>
+                  <li>antécédents personnels surtout :</li>
+                  <li>immunodéprimé ?</li>
+                  <li>origine géographique</li>
+                  <li>connaissance statut vacciné </li>
+                  <li>consommation d'alcool chronique</li>
+                  <li>facteurs de risque des autres hépatites (VHC : drogues IV, transfusions)</li>
+                  <li>comorbidités hépatiques (OH, diabète, surpoids)</li>
+                  <li>antécédents familiaux :</li>
+                  <li>carcinome hépatocellulaire +++,</li>
+                  <li>hépatopathie chronique, maladies hépatiques</li>
+                  <li>recherche de signes cliniques d'hépatopathie chronique</li>
+                </ul>
               </div>
             </ion-accordion>
             <ion-accordion value="second" class="accordion-container">
@@ -32,7 +44,17 @@
                 <ion-label>Biologie</ion-label>
               </ion-item>
               <div class="ion-padding" slot="content" class="accordion-content">
-                <markdown [data]="biology"></markdown>
+                <ul>
+                  <li>NFS,plaquettes</li>
+                  <li>ionogramme, créatininémie</li>
+                  <li>TP,INR</li>
+                  <li>bilan hépatique complet : ASAT/ALAT, PAL/GGT, bilirubine totale et conjuguée</li>
+                  <li>albuminémie</li>
+                  <li>protéinurie sur échantillon</li>
+                  <li>AFP</li>
+                  <li>sérologies VIH,VHC, VHD, VHA</li>
+                  <li>dosage quantitatif Ag HbS, charge virale VHB quantitative, Ag HBE et anticorps anti HBE</li>
+                </ul>
               </div>
             </ion-accordion>
             <ion-accordion value="third" class="accordion-container">
@@ -40,7 +62,15 @@
                 <ion-label>Examens para-clinique</ion-label>
               </ion-item>
               <div class="ion-padding" slot="content" class="accordion-content">
-                <markdown [data]="paraclinicalExamination"></markdown>
+                <ul>
+                  <li>échographie hépatique</li>
+                  <li>
+                    fibroscan (ou fibrotest ou fibromètre)
+                    <ul>
+                      <li>/!\ à ne pas utiliser si ASAT et/ou ALAT > 5N (biopsie du foie optionnelle)</li>
+                    </ul>
+                  </li>
+                </ul>
               </div>
             </ion-accordion>
           </ion-accordion-group>
