@@ -62,7 +62,7 @@ export class MarkdownContent {
     Situation complexe : patient à adresser en consultation d'hépatologie.
     * traitements possibles : interféron pegylé alpha si pas de contre indication ou bulévirtide acétate (si indication)
     * discuter un traitement par analogues si réplication virale VHB persistante
-    - méthodes non invasives (fibroscan, fibrotest, fibromètre...) non validées dans l'hépatite delta /!\\
+    * méthodes non invasives (fibroscan, fibrotest, fibromètre...) non validées dans l'hépatite delta /!\\
     `
 
     static careStaff = `

@@ -16,7 +16,6 @@
     .result {
         margin-left: 20px;
     }
-    
 }
 
 .enter-button {
@@ -28,4 +27,12 @@
 
 .reset-button {
     text-transform: none;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+a {
+    color: var(--ion-color-cyan);
 }

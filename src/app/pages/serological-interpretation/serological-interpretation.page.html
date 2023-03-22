@@ -55,9 +55,107 @@
 
       <ion-row class="result">
         <ion-col>
-          <markdown [data]="markdownContent()"></markdown>
+
+          <div *ngIf="agHbs && acAntiHbs">
+            <b>Erreur ou séroconversion HBs en cours.</b>
+            <br/><br/>
+            À recontrôler dans un autre laboratoire avec charge virale.
+          </div>
+
+          <div *ngIf="agHbs && !acAntiHbs && acAntiHbc">
+            <ul>
+              <li class="app-mb-sm">
+                Si Ac&nbsp;HBc positif avec, IgM positif et transaminases élevées : <b>hépatite&nbsp;B aiguë</b>
+              </li>
+              <li>
+                Sinon, avec persistance de ce profil&nbsp;>&nbsp;6&nbsp;mois&nbsp;: <b>hépatite chronique</b>
+              </li>
+            </ul>
+          </div>
+
+          <div *ngIf="agHbs && !acAntiHbs && !acAntiHbc">
+            <b>Cas rare : probable hépatite&nbsp;B aiguë.</b>
+            <br/><br/>
+            Recontrôler la sérologie
+          </div>
+
+          <div *ngIf="!agHbs && acAntiHbs && acAntiHbc">
+            <b>Personne guérie.</b>
+            <br/><br/>
+            Pas de risque sauf si traitement immunosuppresseur.
+          </div>
+
+
+          <div *ngIf="!agHbs && acAntiHbs && !acAntiHbc">
+            <b>Personne vaccinée.</b> Taux d'anti-HbS protecteur&nbsp;>&nbsp;10UI/L.
+            <br/><br/>
+            Indications de dosage quantitatif&nbsp;:
+            <ul>
+              <li class="app-mb-sm">
+                personnes qui, dans le cadre d'activités professionnelles ou bénévoles, sont susceptibles d'être en contact direct avec des 
+                patients et/ou d'être exposées au sang et autres produits biologiques.
+              </li>
+              <li class="app-mb-sm">
+                personnes susceptibles de recevoir des transfusions massives et/ou itératives ou des médicaments dérivés du sang (hémophiles,
+                dialysés, insuffisants rénaux...)
+              </li>
+              <li class="app-mb-sm">personnes candidates à une greffe d'organe, de tissu ou de cellules</li>
+              <li class="app-mb-sm">partenaires sexuels d'une personne infectée par le virus de l'hépatite&nbsp;B</li>
+              <li>personnes immunodéprimées</li>
+            </ul>
+            <br/>
+            <b>Algorithme pour le personnel soignant : </b><i>Avis du Haut Conseil de la santé publique du 7&nbsp;novembre 2014, mis en ligne le 19&nbsp;janvier 2015.</i>
+            <ion-img src="/assets/img/algo-control-immunization.png" class="image-algo"></ion-img>
+          </div>
+
+          <div *ngIf="!agHbs && !acAntiHbs && acAntiHbc">
+            <b>Rencontre avec le virus</b>
+            <br/><br/>
+            Compléter la sérologie par un test <b>IgM anti-HbC</b>&nbsp;: 
+            <ul>
+              <li>si positif :  hépatite&nbsp;B aiguë</li>
+              <li>si négatif : infection chronique ou porteur inactif</li>
+            </ul>
+          </div>
+
+          <div *ngIf="!agHbs && !acAntiHbs && !acAntiHbc">
+            <b>Pas de contact avec le virus, non vacciné. Personne à vacciner&nbsp;!</b>
+            <br/><br/>
+            <b>Schémas vaccinaux possibles chez l'adulte&nbsp;:</b>
+            <ul>
+              <li>
+                <span class="underline">Adultes, adolescents et enfants</span>&nbsp;:
+                3&nbsp;doses, administrées en respectant un intervalle&nbsp;:
+                <ul>
+                  <li>d'au moins un mois entre la 1re et la 2e&nbsp;dose</li>
+                  <li>d'au moins six mois entre la 2e et la 3e&nbsp;dose</li>
+                </ul>
+              </li>
+              <br/>
+              <li>
+                <span class="underline">Adolescents de 11 à 15&nbsp;ans non vaccinés</span>&nbsp;:
+                <ul>
+                  <li>2 doses, intervalle de six mois entre les 2&nbsp;doses</li>
+                  <li>/!\ ssi risque faible d'infection&nbsp;: + 2&nbsp;doses assurées</li>
+                </ul>
+              </li>
+              <br/>
+              <li>
+                <span class="underline">Adultes avec la nécéssité de protection vaccinale rapide</span>&nbsp;:
+                <ul>
+                  <li>3&nbsp;doses sur 21&nbsp;jours + rappel un an après</li>
+                </ul>
+              </li>
+            </ul>
+            <br/>
+            <a href="https://vaccination-info-service.fr/Les-maladies-et-leurs-vaccins/Hepatite-B" target="_blank">
+              https://vaccination-info-service.fr/Les-maladies-et-leurs-vaccins/Hepatite-B
+            </a>
+            <br/><br/><br/>
+            Aperçu des vaccins actuellement disponibles contre l'hépatite&nbsp;B&nbsp;:
+            <ion-img src="/assets/img/list-vaccines.png" class="image-algo"></ion-img>
+          </div>
   
-          <ion-img src="/assets/img/algo-control-immunization.png" class="image-algo"></ion-img>
         </ion-col>
       </ion-row>
     </ng-container>
