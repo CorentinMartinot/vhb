@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { MedicalManagementDetailPageRoutingModule } from './medical-management-detail-routing.module';
 
 import { MedicalManagementDetailPage } from './medical-management-detail.page';
-import { MarkdownModule } from 'ngx-markdown';
 import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { ComponentsModule } from 'src/app/components/components.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    MarkdownModule,
     MedicalManagementDetailPageRoutingModule,
     ComponentsModule
   ],

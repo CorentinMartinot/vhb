@@ -7,11 +7,131 @@
   <ion-grid>
     <ion-row class="md-content">
       <ion-col>
-        <ion-title class="ion-margin-top ion-no-padding">{{ situation }}</ion-title>
-        <markdown [data]="markdownContent"></markdown>
+      
+        <div *ngIf="situation === PREGNANT">
+          <ion-title class="ion-margin-top ion-no-padding">Femme enceinte</ion-title>
+          <ul>
+            <li class="app-mb-sm">
+              <div class="app-mb-sm"><b>Recherche d'antigène HbS</b></div>
+              <ul>
+                <li class="app-mb-sm">recommandée dès le premier trimestre de grossesse</li>
+                <li>obligatoire en France au 6ème mois</li>
+              </ul>
+            </li>
+            <li class="app-mb-sm">si <b>sérologie&nbsp;B positive</b> chez la mère&nbsp; réaliser l'ensemble du bilan de première intention</li>
+            <li class="app-mb-sm">
+              <div class="app-mb-sm"><b>Tenofovir</b></div>
+              <ul>
+                <li class="app-mb-sm">si patiente déjà traitée par Tenofovir&nbsp;; poursuivre le traitement.</li>
+                <li>
+                  Si autre analogue&nbsp;; switch pour Tenofovir.
+                  <br/>
+                  /!\ interféron pégylé contre indiqué pendant la grossesse +++
+                </li>
+              </ul>
+            </li>
+            <li class="app-mb-sm">si découverte récente chez patiente <b>voulant être enceinte</b> prochainement SANS FIBROSE&nbsp;; retarder le traitement</li>
+            <li class="app-mb-sm">
+              si le taux d'ADN VHB&nbsp;>&nbsp;200.000&nbsp;IU/mL ou HBsAg&nbsp;>&nbsp;4&nbsp;log10&nbsp;IU/ml&nbsp;; commencer 
+              un traitement par Ténofovir entre la 24 et 48ème semaine de grossesse et continuer 12&nbsp;semaines après l'accouchement.
+            </li>
+            <li class="app-mb-sm">
+              <div class="app-mb-sm">schéma chez le <b>nouveau-né</b>&nbsp;:</div>
+              <ul>
+                <li class="app-mb-sm">3&nbsp;doses de vaccin</li>
+                <li class="app-mb-sm">1&nbsp;dose à la naissance (dans les 12h) associée à l'administration d'immunoglobulines spécifiques</li>
+                <li>puis à 1&nbsp;mois et 6&nbsp;mois</li>
+
+              </ul>
+            <li class="app-mb-sm">pas de contre-indication à l'<b>allaitement</b> avec ou sans traitement</li>
+            <li>ne pas oublier d'arrêter ensuite le ténofovir chez la mère si pas d'indication après les 12 semaines (se référer à la prise en chrage sans situation particulière)</li>
+          </ul>
+        </div>
+
+        <div *ngIf="situation === CO_VIH">
+          <ion-title class="ion-margin-top ion-no-padding ion-margin-bottom">Co - Infection VIH</ion-title>
+          Beaucoup de trithérapies comportent un antiviral actif sur l'hépatite&nbsp;B.
+          <br/>
+          Vérifier que c'est le cas.
+          <br/><br/>
+          /!\ ne pas oublier le dépistage du CHC chez les patients à risque&nbsp;:
+          <br/><br/>
+
+          <div style="background-color: var(--ion-color-danger);">
+            TO DO :
+            Il faudrait mettre un calculateur du score PAGE B (en annexe à la fin) et si score > ou = à 10 :
+            - échogrpahie abdominale avec doppler et dosage de l'alpha foetoprotéine tous les 6 mois.
+          </div>
+
+        </div>
+
+        <div *ngIf="situation === CO_VHC">
+          <ion-title class="ion-margin-top ion-no-padding ion-margin-bottom">Co - Infection VHC</ion-title>
+          Situation complexe&nbsp;; patient à adresser en consultation d'hépatologie.
+          <ul>
+            <li class="app-mb-sm">
+              Si patient traité par analogues&nbsp;; pas d'interaction avec les agents antiviraux directs.<br/>
+              Risque pour la fonction rénale si ténofovir et sofosbuvir, à surveiller.
+            </li>
+            <li class="app-mb-sm">
+              Si Ag HbS + ou Ac anti-HbC isolé&nbsp;; risque de réactivation virale&nbsp;B (élévation modérée de la charge virale VHB ou cytolyse) pendant le traitement de
+              l'hépatite&nbsp;C.<br/>
+              Recommandations : surveillance ADN du VHB et transaminases pendant le traitement par agent antiviral direct.
+            </li>
+            <li>Si suspicion de réactivation virale&nbsp;B sous traitement VHC&nbsp;; avis spécialisé</li>
+          </ul>
+        </div>
+
+        <div *ngIf="situation === CO_VHD">
+          <ion-title class="ion-margin-top ion-no-padding ion-margin-bottom">Co - Infection VHD</ion-title>
+          Situation complexe ; patient à adresser en consultation d'hépatologie.
+          <ul>
+            <li class="app-mb-sm">
+              traitements possibles&nbsp;: interféron pegylé alpha si pas de contre indication ou bulévirtide acétate (si indication)
+            </li>
+            <li class="app-mb-sm">discuter un traitement par analogues si réplication virale VHB persistante</li>
+            <li>méthodes non invasives (fibroscan, fibrotest, fibromètre...) non validées dans l'hépatite delta&nbsp;/!\</li>
+          </ul>
+        </div>
+
+        <div *ngIf="situation === CARE_STAFF">
+          <ion-title class="ion-margin-top ion-no-padding ion-margin-bottom">Personnel soignant</ion-title>
+          <ul>
+            <li>
+              Si personnel réalisant des gestes à risque de transmission ET taux D'ADN VHB&nbsp;>&nbsp;200&nbsp;IU/mL (seuil EASL)&nbsp;; indication à un
+              traitement par analogue pour réduire le risque de transmission.
+            </li>
+            <br>
+            <li>En France, seuil&nbsp;=&nbsp;10000UI/m</li>
+          </ul>
+        </div>
+
+        <div *ngIf="situation === FAMILY_HISTORY_OF_CIRRHOSIS">
+          <ion-title class="ion-margin-top ion-no-padding ion-margin-bottom">Antécédent familial de cirrhose au CHC</ion-title>
+          Indication à un traitement par analogues et un dépistage par échographie abdominale, avec doppler + dosage de l'alpha-foetoprotéine tous les 6&nbsp;mois.
+        </div>
+
+        <div *ngIf="situation === EXTRAHEPATIC_HBV">
+          <ion-title class="ion-margin-top ion-no-padding ion-margin-bottom">Manifestation extra-hépatique du VHB</ion-title>
+          Indication à un traitement par analogues.
+        </div>
+
+        <div *ngIf="situation === CIRRHOSE">
+          <ion-title class="ion-margin-top ion-no-padding ion-margin-bottom">Cirrhose</ion-title>
+          <ul>
+            <li class="app-mb-sm">Indication à un traitement par analogues.</li>
+            <li>
+              <div class="app-mb-sm">Suivi tous les 6 mois&nbsp;:</div>
+              <ul>
+                <li class="app-mb-sm">Échographie abdominale avec doppler + dosage de l'alpha-foetoprotéine</li>
+                <li class="app-mb-sm">Surveillance de la fonction hépatique et de la fonction rénale</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
       </ion-col>
     </ion-row>
   </ion-grid>
-
 
 </ion-content>

@@ -1,12 +1,14 @@
-export const PREGNANT = 'Femme enceinte';
-export const CO_VIH = 'Co - Infection VIH';
-export const CO_VHC = 'Co - Infection VHC';
-export const CO_VHD = 'Co - Infection VHD';
-export const CARE_STAFF = 'Personne soignant';
-export const FAMILY_HISTORY_OF_CIRRHOSIS = 'Antécédent familial de cirrhose au CHC';
-export const EXTRAHEPATIC_HBV = 'Manifestation extra-hépatique du VHB';
-export const CIRRHOSE = 'Cirrhose';
+// MEDICAL MANAGEMENT
+export const PREGNANT = 'pregnant';
+export const CO_VIH = 'co_vih';
+export const CO_VHC = 'co_vhc';
+export const CO_VHD = 'co_vhd';
+export const CARE_STAFF = 'care-staff';
+export const FAMILY_HISTORY_OF_CIRRHOSIS = 'family_history_of_cirrhosis';
+export const EXTRAHEPATIC_HBV = 'extrahepatic_hbv';
+export const CIRRHOSE = 'cirrhose';
 
+// HOME BUTTON
 export const CHEVRON_FORWARD = 'chevron-forward-outline';
 export const CHEVRON_UP = 'chevron-up-outline';
 export const CHEVRON_DOWN = 'chevron-down-outline';

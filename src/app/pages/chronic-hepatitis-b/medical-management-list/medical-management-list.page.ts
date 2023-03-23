@@ -20,35 +20,35 @@ export class MedicalManagementListPage implements OnInit {
 
   situationList = [
     { 
-      name: PREGNANT,
+      name: 'Femme enceinte',
       onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: PREGNANT } }),
     },
     { 
-      name: CO_VIH,
+      name: 'Co - Infection VIH',
       onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: CO_VIH } }),
     },
     { 
-      name: CO_VHC,
+      name: 'Co - Infection VHC',
       onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: CO_VHC } }),
     },
     { 
-      name: CO_VHD,
+      name: 'Co - Infection VHD',
       onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: CO_VHD } }),
     },
     { 
-      name: CARE_STAFF,
+      name: 'Personnel soignant',
       onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: CARE_STAFF } }),
     },
     { 
-      name: FAMILY_HISTORY_OF_CIRRHOSIS,
+      name: 'Antécédent familial de cirrhose au CHC',
       onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: FAMILY_HISTORY_OF_CIRRHOSIS } }),
     },
     { 
-      name: EXTRAHEPATIC_HBV,
+      name: 'Manifestation extra-hépatique du VHB',
       onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: EXTRAHEPATIC_HBV } }),
     },
     { 
-      name: CIRRHOSE,
+      name: 'Cirrhose',
       onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: CIRRHOSE } }),
     },
     {
