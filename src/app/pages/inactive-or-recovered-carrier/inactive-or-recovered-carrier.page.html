@@ -1,23 +1,59 @@
 <ion-header class="ion-no-border">
-  <ion-grid>
-    <ion-row>
-      <ion-col size="2">
-        <ion-buttons class="back-button">
-          <ion-back-button icon="arrow-back-outline" defaultHref="/home"></ion-back-button>
-        </ion-buttons>
-      </ion-col>
-      <ion-col size="8">
-        <ion-row class="ion-justify-content-center">
-          <div class="header-title ion-align-items-start">
-            <ion-title class="ion-no-padding ion-no-margin">Porteur</ion-title>
-            <ion-title class="ion-no-padding ion-no-margin">inactif ou guéri</ion-title>
-          </div>
-        </ion-row>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <app-header darkTitle="porteur" coloredTitle="inactif ou guéri" color="nepal"></app-header>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row class="content">
+      <ion-col>
+        Si indication de chimiothérapie ou traitement immunosuppresseur&nbsp;; faire une sérologie VHB
+        <ul>
+          <li>
+            <div class="app-mb-sm">Si <b>Ag&nbsp;HbS&nbsp;+</b> : traitement ou si pas d'indication prophylaxie par ténofovir ou entécavir</div>
+            <ul>
+              <li class="app-mb-sm">poursuivre la prophylaxie pendant 12&nbsp;mois (ou 18&nbsp;mois si rituximab) après arrêt du traitement</li>
+              <li>
+                surveillance fonction hépatique et charge virale VHB tous les 3 à 6&nbsp;mois pendant prophylaxie puis 
+                jusqu'à 1&nbsp;an après arrêt de la prophylaxie
+              </li>
+            </ul>
+          </li>
+          <br>
+          <li>
+            Si <b>Ag&nbsp;HbS&nbsp;-</b> et <b>Ac&nbsp;anti-HbC&nbsp;+</b> et charge virale <b>détectable</b>&nbsp;; à considérer comme Ag HbS&nbsp;+
+          </li>
+          <br>
+          <li>
+            <div class="app-mb-sm">Si <b>Ag&nbsp;HbS&nbsp;-</b> et <b>Ac&nbsp;anti-HbC&nbsp;+</b> et charge virale <b>indétectable</b>&nbsp;:</div>
+            <ol>
+              <li class="app-mb-sm">
+                <div class="app-mb-sm">prophylaxie si haut risque de réactivation&nbsp;:</div>
+                <ul>
+                  <li class="app-mb-sm">
+                    traitement par rituximab = prophylaxie + à poursuivre 18&nbsp;mois post-traitement et surveillance
+                    12&nbsp;mois après arrêt
+                  </li>
+                  <li class="app-mb-sm">
+                    traitement hématologique ou transplantation de cellules souches = prophylaxie + à poursuivre
+                    18&nbsp;mois posttraitement et surveillance 12&nbsp;mois après arrêt
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <div class="app-mb-sm">traitement pré-emptif si risque modéré ou faible de réactivation&nbsp;:</div>
+                <ul>
+                  <li class="app-mb-sm">surveillance Ag&nbsp;HBS et/ou charge virale VHB tous les 1 à 3&nbsp;mois</li>
+                  <li class="app-mb-sm">débuter traitement par analogues dès que charge virale détectable ou Ag&nbsp;HbS&nbsp;+</li>
+                  <li>
+                    si durée d'immunosuppression longue, compliance limitée&nbsp;; risque non connue de réactivation, préférer
+                    prophylaxie
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </li>
+        </ul>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

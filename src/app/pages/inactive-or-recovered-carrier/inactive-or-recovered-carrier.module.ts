@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { InactiveOrRecoveredCarrierPageRoutingModule } from './inactive-or-recovered-carrier-routing.module';
 
 import { InactiveOrRecoveredCarrierPage } from './inactive-or-recovered-carrier.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InactiveOrRecoveredCarrierPageRoutingModule
+    InactiveOrRecoveredCarrierPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [InactiveOrRecoveredCarrierPage]
 })
