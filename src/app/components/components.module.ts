@@ -6,13 +6,15 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { HomeButtonComponent } from './home-button/home-button.component';
 import { HomeSubbuttonComponent } from './home-subbutton/home-subbutton.component';
+import { RadioAreaComponent } from './radio-area/radio-area.component';
 
 
 @NgModule({
     declarations: [
         HeaderComponent,
         HomeButtonComponent,
-        HomeSubbuttonComponent
+        HomeSubbuttonComponent,
+        RadioAreaComponent,
     ],
     imports: [
         CommonModule,
@@ -22,7 +24,8 @@ import { HomeSubbuttonComponent } from './home-subbutton/home-subbutton.componen
     exports: [
         HeaderComponent,
         HomeButtonComponent,
-        HomeSubbuttonComponent
+        HomeSubbuttonComponent,
+        RadioAreaComponent,
     ],
     entryComponents: [
     ],

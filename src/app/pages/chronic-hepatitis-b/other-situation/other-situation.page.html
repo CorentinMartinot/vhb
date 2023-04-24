@@ -4,5 +4,13 @@
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <div>{{adnVhb}}</div>
+    <ion-row>
+      <ion-col size-sm="10" offset-sm="1" size-md="7" offset-md="2.5">
+          <radio-area title="ADN VHB" (change)="setAdnVhb($event)" selectedValue="1" [options]="[{ label: 'valeur1', value: '1'}, { label: 'valeur2', value: '2' }, { label: 'valeur3', value: '3' }]"></radio-area>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-other-situation',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OtherSituationPage implements OnInit {
 
+  @Input() adnVhb: string = '1';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  setAdnVhb($event: any) {
+    this.adnVhb = $event.detail.value;
   }
 
 }
