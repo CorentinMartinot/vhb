@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MedicalManagementListPageRoutingModule } from './medical-management-list-routing.module';
+import { OtherSituationPageRoutingModule } from './other-situation-routing.module';
 
-import { MedicalManagementListPage } from './medical-management-list.page';
+import { OtherSituationPage } from './other-situation.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { ComponentsModule } from 'src/app/components/components.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    MedicalManagementListPageRoutingModule,
+    OtherSituationPageRoutingModule,
     ComponentsModule,
   ],
-  declarations: [MedicalManagementListPage]
+  declarations: [OtherSituationPage]
 })
-export class MedicalManagementListPageModule {}
+export class OtherSituationPageModule { }

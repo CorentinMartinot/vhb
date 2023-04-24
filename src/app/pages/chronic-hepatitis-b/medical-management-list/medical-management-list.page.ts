@@ -53,7 +53,7 @@ export class MedicalManagementListPage implements OnInit {
     },
     {
       name: 'Aucune des situations ci-dessus',
-      onClick: () => this.navCtrl.navigateForward('/medical-management-detail'),
+      onClick: () => this.navCtrl.navigateForward('/other-situation'),
     },
   ]
 
