@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeButtonComponent } from './home-button/home-button.component';
 import { HomeSubbuttonComponent } from './home-subbutton/home-subbutton.component';
 import { RadioAreaComponent } from './radio-area/radio-area.component';
+import { HomeBackgroundSvgComponent } from './home-background-svg/home-background-svg.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { RadioAreaComponent } from './radio-area/radio-area.component';
         HomeButtonComponent,
         HomeSubbuttonComponent,
         RadioAreaComponent,
+        HomeBackgroundSvgComponent,
     ],
     imports: [
         CommonModule,
@@ -26,6 +28,7 @@ import { RadioAreaComponent } from './radio-area/radio-area.component';
         HomeButtonComponent,
         HomeSubbuttonComponent,
         RadioAreaComponent,
+        HomeBackgroundSvgComponent,
     ],
     entryComponents: [
     ],
