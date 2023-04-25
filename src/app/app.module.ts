@@ -7,12 +7,16 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { navTransitionAnimation } from './animations/nav-transition.animation';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    IonicModule.forRoot({ mode: 'md' }),
+    IonicModule.forRoot({
+      navAnimation: navTransitionAnimation,
+      mode: 'md',
+    }),
     AppRoutingModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
