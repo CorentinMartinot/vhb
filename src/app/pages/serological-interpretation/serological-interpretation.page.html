@@ -8,7 +8,7 @@
       <ion-col size-sm="8" offset-sm="2" size-md="5" offset-md="3.5">
         <ion-card [disabled]="displayResult" class="ion-no-margin">
           <ion-list>
-            <ion-item (click)="agHbs=!agHbs">
+            <ion-item button (click)="agHbs=!agHbs">
               <ion-label>Ag HbS</ion-label>
               <ion-row slot="end" class="ion-align-items-center">
                 <ion-label>-</ion-label>
@@ -16,7 +16,7 @@
                 <ion-label>+</ion-label>
               </ion-row>
             </ion-item>
-            <ion-item (click)="acAntiHbs=!acAntiHbs">
+            <ion-item button (click)="acAntiHbs=!acAntiHbs">
               <ion-label>Ac anti-HbS</ion-label>
               <ion-row slot="end" class="ion-align-items-center">
                 <ion-label>-</ion-label>
@@ -24,7 +24,7 @@
                 <ion-label>+</ion-label>
               </ion-row>
             </ion-item>
-            <ion-item (click)="acAntiHbc=!acAntiHbc">
+            <ion-item button (click)="acAntiHbc=!acAntiHbc">
               <ion-label>Ac anti-HbC</ion-label>
               <ion-row slot="end" class="ion-align-items-center">
                 <ion-label>-</ion-label>

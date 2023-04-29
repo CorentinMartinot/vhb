@@ -2,18 +2,11 @@
     flex: 1;
 }
 
-ion-item::part(native) {
-    background: var(--ion-color-light);
+.button {
     color: var(--ion-color-dark);
 
     border-color: var(--ion-color-violet);
     border-style: solid;
     border-width: 2px;
-    border-radius: 20px;
-    --background-activated: #68295D19;
-}
-
-ion-item::part(native):hover {
-    background: #68295D19;
-    
+    border-radius: 24px;
 }

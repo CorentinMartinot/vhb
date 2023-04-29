@@ -9,7 +9,7 @@
           <ion-row class="ion-justify-content-center">
             <ion-list class="situation-list">
               <ion-item button *ngFor="let situation of situationList" (click)="situation.onClick()" detail="true" 
-                lines="none" shape="round" fill="outline" color="violet" class="ion-margin-bottom">
+                lines="none" class="ion-margin-bottom button">
                 <ion-text>{{ situation.name }}</ion-text>
               </ion-item>
             </ion-list>

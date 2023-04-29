@@ -8,7 +8,6 @@ import { option } from 'src/app/models/model';
 })
 export class RadioAreaComponent implements OnInit {
 
-  @Input() title: string = '';
   @Input() options: option[] = [];
   @Input() selectedValue: string = '';
   @Output() change = new EventEmitter();

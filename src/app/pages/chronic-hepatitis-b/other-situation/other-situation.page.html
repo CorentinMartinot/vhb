@@ -5,12 +5,59 @@
 
 <ion-content>
   <ion-grid>
-    <div>{{adnVhb}}</div>
     <ion-row>
-      <ion-col size-sm="10" offset-sm="1" size-md="7" offset-md="2.5">
-          <radio-area title="ADN VHB" (change)="setAdnVhb($event)" selectedValue="1" [options]="[{ label: 'valeur1', value: '1'}, { label: 'valeur2', value: '2' }, { label: 'valeur3', value: '3' }]"></radio-area>
+      <ion-col size-sm="8" offset-sm="2" size-md="5" offset-md="3.5">
+        <ion-card class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="showResult">
+          <div class="card-header">
+            <ion-label class="card-title">ADN VHB</ion-label>
+          </div>
+          <radio-area (change)="setAdnVhb($event)" [options]="adnVhbOptions" [selectedValue]="adnVhb"></radio-area>
+        </ion-card>
+        <ion-card *ngIf="adnVhb" class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="showResult">
+          <div class="card-header">
+            <ion-label class="card-title">ALAT</ion-label>
+          </div>
+          <radio-area (change)="setAlat($event)" [options]="alatOptions" [selectedValue]="alat"></radio-area>
+        </ion-card>
+        <ion-card *ngIf="alat" class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="showResult">
+          <div class="card-header">
+            <ion-label class="card-title">fibrose</ion-label>
+          </div>
+          <div class="sub-card">
+            <div class="card-sub-title">biopsie</div>
+            <radio-area (change)="setBiopsie($event)" [options]="biopsieOptions" [selectedValue]="biopsie"></radio-area>
+          </div>
+          <div *ngIf="noBiopsie" class="sub-card margin-top">
+            <div class="card-sub-title">fibroscan</div>
+            <radio-area (change)="setFibroscan($event)" [options]="fibroscanOptions" [selectedValue]="fibroscan"></radio-area>
+          </div>
+          <div *ngIf="noBiopsie && showAlatMoreSpecific" class="sub-card margin-top">
+            <div class="card-sub-title">Précision sur le taux ALAT</div>
+            <radio-area (change)="setAlatMoreSpecific($event)" [options]="alatMoreSpecificOptions" [selectedValue]="alatMoreSpecific"></radio-area>
+          </div>
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ng-container *ngIf="showResult">
+    <ion-item-divider></ion-item-divider>
+    <ion-row class="ion-justify-content-end ion-margin-end" >
+      <ion-buttons class="ion-margin-top ion-margin-bottom">
+        <ion-button (click)="reset()" color="violet" shape="round" fill="outline" class="reset-button">
+          <ion-icon slot="start" name="refresh-outline"></ion-icon>
+          Réinitialiser
+        </ion-button>
+      </ion-buttons>
+    </ion-row>
+
+    <ion-row class="result">
+      <ion-col>
+
+        RESULT !!!
+
+      </ion-col>
+    </ion-row>
+  </ng-container>
 
 </ion-content>
