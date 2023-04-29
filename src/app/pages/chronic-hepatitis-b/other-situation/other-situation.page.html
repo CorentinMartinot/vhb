@@ -54,7 +54,30 @@
     <ion-row class="result">
       <ion-col>
 
-        RESULT !!!
+        <div *ngIf="result === 'oui'">
+          <span>Patient a traiter.</span>
+          <br/><br/>
+          <span>Utilisation d’analogues en monothérapie :</span>
+          <ul>
+            <li class="app-mb-sm">
+              <span>ENTECAVIR (BARACLUDE)&nbsp;: 0.5&nbsp;mg/j à adapter à la fonction rénale</span>
+            </li>
+            <li>
+              <span>TENOFOVIR DISOPROXIL (VIREAD)&nbsp;: 245&nbsp;mg/j à adapter à la fonction rénale</span>
+            </li>
+            <li>
+              <span>Tenofovir alafenamide (non disponible en France)</span>
+            </li>
+          </ul>
+        </div>
+
+        <div *ngIf="result === 'non'">
+          <span>Pas besoin de traitement</span>
+        </div>
+
+        <div *ngIf="result === 'ininterpretable'">
+          <span>Fibroscan ininterpretable. On fait quoi alors ??</span>
+        </div>
 
       </ion-col>
     </ion-row>
