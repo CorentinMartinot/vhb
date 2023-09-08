@@ -2,8 +2,7 @@
   <ion-radio-group [value]="selectedValue" (ionChange)="onChange($event)">
     <ion-list class="ion-no-padding">
       <ion-item *ngFor="let option of extendedOptions" [lines]="option.lines">
-        <ion-label color="black">{{ option.label }}</ion-label>
-        <ion-radio [value]="option.value" color="violet"></ion-radio>
+        <ion-radio [value]="option.value" color="violet">{{ option.label }}</ion-radio>
       </ion-item>
     </ion-list>
   </ion-radio-group>

@@ -7,19 +7,19 @@
   <ion-grid>
     <ion-row>
       <ion-col size-sm="8" offset-sm="2" size-md="5" offset-md="3.5">
-        <ion-card class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="showResult">
+        <ion-card class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="displayResult">
           <div class="card-header">
             <ion-label class="card-title">ADN VHB</ion-label>
           </div>
           <radio-area (change)="setAdnVhb($event)" [options]="adnVhbOptions" [selectedValue]="adnVhb"></radio-area>
         </ion-card>
-        <ion-card *ngIf="adnVhb" class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="showResult">
+        <ion-card *ngIf="adnVhb" class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="displayResult">
           <div class="card-header">
             <ion-label class="card-title">ALAT</ion-label>
           </div>
           <radio-area (change)="setAlat($event)" [options]="alatOptions" [selectedValue]="alat"></radio-area>
         </ion-card>
-        <ion-card *ngIf="alat" class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="showResult">
+        <ion-card *ngIf="alat" class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="displayResult">
           <div class="card-header">
             <ion-label class="card-title">fibrose</ion-label>
           </div>
@@ -36,11 +36,31 @@
             <radio-area (change)="setAlatMoreSpecific($event)" [options]="alatMoreSpecificOptions" [selectedValue]="alatMoreSpecific"></radio-area>
           </div>
         </ion-card>
+        <ng-container *ngIf="fibroseCompleted">
+          <ion-card class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="displayResult">
+            <div class="card-header">
+              <ion-label class="card-title">Age</ion-label>
+            </div>
+            <radio-area (change)="setAge($event)" [options]="ageOptions" [selectedValue]="age"></radio-area>
+          </ion-card>
+          <ion-card *ngIf="(age && !pageBCompleted) || !!sexe" class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="displayResult">
+            <div class="card-header">
+              <ion-label class="card-title">Sexe</ion-label>
+            </div>
+            <radio-area (change)="setSexe($event)" [options]="sexeOptions" [selectedValue]="sexe"></radio-area>
+          </ion-card>
+          <ion-card *ngIf="(sexe && !pageBCompleted) || !!platelets" class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="displayResult">
+            <div class="card-header">
+              <ion-label class="card-title">Plaquettes</ion-label>
+            </div>
+            <radio-area (change)="setPlatelets($event)" [options]="plateletsOptions" [selectedValue]="platelets"></radio-area>
+          </ion-card>
+        </ng-container>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ng-container *ngIf="showResult">
+  <ng-container *ngIf="displayResult">
     <ion-item-divider></ion-item-divider>
     <ion-row class="ion-justify-content-end ion-margin-end" >
       <ion-buttons class="ion-margin-top ion-margin-bottom">
@@ -54,10 +74,10 @@
     <ion-row class="result">
       <ion-col>
 
-        <div *ngIf="result === 'oui'">
+        <div *ngIf="treatment === 'oui'">
           <span>Patient a traiter.</span>
           <br/><br/>
-          <span>Utilisation d’analogues en monothérapie :</span>
+          <span>Utilisation d'analogues en monothérapie :</span>
           <ul>
             <li class="app-mb-sm">
               <span>ENTECAVIR (BARACLUDE)&nbsp;: 0.5&nbsp;mg/j à adapter à la fonction rénale</span>
@@ -71,12 +91,20 @@
           </ul>
         </div>
 
-        <div *ngIf="result === 'non'">
+        <div *ngIf="treatment === 'non'">
           <span>Pas besoin de traitement</span>
         </div>
 
-        <div *ngIf="result === 'ininterpretable'">
+        <div *ngIf="treatment === 'ininterpretable'">
           <span>Fibroscan ininterpretable. On fait quoi alors ??</span>
+        </div>
+
+        <div *ngIf="surveyance">
+          <span>SURVEILLANCE</span>
+        </div>
+
+        <div *ngIf="!surveyance">
+          <span>pas de surveillance particuliere</span>
         </div>
 
       </ion-col>
