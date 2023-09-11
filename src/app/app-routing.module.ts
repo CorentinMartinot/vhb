@@ -34,9 +34,14 @@ const routes: Routes = [
   {
     path: 'medical-management-detail',
     loadChildren: () => import('./pages/chronic-hepatitis-b/medical-management-detail/medical-management-detail.module').then( m => m.MedicalManagementDetailPageModule)
-  },  {
+  },
+  {
     path: 'other-situation',
     loadChildren: () => import('./pages/chronic-hepatitis-b/other-situation/other-situation.module').then( m => m.OtherSituationPageModule)
+  },
+  {
+    path: 'privacy-policy',
+    loadChildren: () => import('./pages/privacy-policy/privacy-policy.module').then( m => m.PrivacyPolicyPageModule)
   },
 
 
