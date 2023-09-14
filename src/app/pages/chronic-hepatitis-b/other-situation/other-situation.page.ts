@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-other-situation',
@@ -16,6 +17,8 @@ export class OtherSituationPage implements OnInit {
   sexeOptions = [{ label: 'Homme', value: 'M' }, { label: 'Femme', value: 'F' }];
   plateletsOptions = [{ label: '< 100 g/L', value: 'lt100' }, { label: '100 - 199 g/L', value: 'btw100-200' }, { label: '> 200 g/L', value: 'gt200' }];
 
+  @ViewChild(IonContent) content: IonContent | undefined;
+  
   adnVhb: string = '';
   alat: string = '';
   biopsie: string = '';
@@ -38,47 +41,81 @@ export class OtherSituationPage implements OnInit {
   ngOnInit() {
   }
 
+  async waitAndScrollToBottom() {
+    await new Promise(resolve => setTimeout(resolve, 100));
+
+    this.content?.scrollToBottom(500);
+  }
+
   setAdnVhb($event: any) {
     this.adnVhb = $event.detail.value;
   }
 
   setAlat($event: any) {
+    const firstChange = !this.alat;
+
     this.alat = $event.detail.value;
     this.showAlatMoreSpecific = this.alat === 'gt2n';
     this.alatMoreSpecific = '';
     this.computeDisplayResult()
+
+    if (firstChange) this.waitAndScrollToBottom();
   }
 
   setBiopsie($event: any) {
+    const firstChange = !this.biopsie;
+
     this.biopsie = $event.detail.value;
     this.noBiopsie = this.biopsie === 'nobiopsie';
     this.fibroscan = '';
     this.computeDisplayResult()
+
+    if (firstChange) this.waitAndScrollToBottom();
   }
 
   setFibroscan($event: any) {
+    const firstChange = !this.fibroscan;
+
     this.fibroscan = $event.detail.value;
     this.computeDisplayResult();
+
+    if (firstChange) this.waitAndScrollToBottom();
   }
 
   setAlatMoreSpecific($event: any) {
+    const firstChange = !this.alatMoreSpecific;
+
     this.alatMoreSpecific = $event.detail.value;
     this.computeDisplayResult();
+
+    if (firstChange) this.waitAndScrollToBottom();
   }
 
   setAge($event: any) {
+    const firstChange = !this.age;
+
     this.age = $event.detail.value;
     this.computeDisplayResult();
+
+    if (firstChange) this.waitAndScrollToBottom();
   }
 
   setSexe($event: any) {
+    const firstChange = !this.sexe;
+
     this.sexe = $event.detail.value;
     this.computeDisplayResult();
+
+    if (firstChange) this.waitAndScrollToBottom();
   }
 
   setPlatelets($event: any) {
+    const firstChange = !this.platelets;
+
     this.platelets = $event.detail.value;
     this.computeDisplayResult();
+
+    if (firstChange) this.waitAndScrollToBottom();
   }
 
   computeDisplayResult () {
