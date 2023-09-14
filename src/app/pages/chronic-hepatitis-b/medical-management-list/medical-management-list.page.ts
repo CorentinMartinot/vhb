@@ -36,7 +36,7 @@ export class MedicalManagementListPage implements OnInit {
       onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: CO_VHD } }),
     },
     { 
-      name: 'Personnel soignant',
+      name: 'Professionnel de santé',
       onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: CARE_STAFF } }),
     },
     { 

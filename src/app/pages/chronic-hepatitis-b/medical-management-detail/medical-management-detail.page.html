@@ -11,120 +11,211 @@
         <div *ngIf="situation === PREGNANT">
           <ion-title class="ion-margin-top ion-no-padding">Femme enceinte</ion-title>
           <ul>
+            <li class="app-mb-sm">But&nbsp;: prévention de la transmission mère-enfant</li>
+            <li class="app-mb-sm">Recherche d'antigène HBs recommandée dès le premier trimestre de grossesse et obligatoire en France au 6ème mois.</li>
+            <li class="app-mb-sm">Proposer la vaccination à la femme enceinte et son compagnon si leur sérologie de dépistage négative</li>
+            <li class="app-mb-sm">Si sérologie&nbsp;B positive chez la mère&nbsp;; réaliser l'ensemble du bilan de première intention</li>
             <li class="app-mb-sm">
-              <div class="app-mb-sm"><b>Recherche d'antigène HbS</b></div>
-              <ul>
-                <li class="app-mb-sm">recommandée dès le premier trimestre de grossesse</li>
-                <li>obligatoire en France au 6ème mois</li>
-              </ul>
-            </li>
-            <li class="app-mb-sm">si <b>sérologie&nbsp;B positive</b> chez la mère&nbsp; réaliser l'ensemble du bilan de première intention</li>
-            <li class="app-mb-sm">
-              <div class="app-mb-sm"><b>Tenofovir</b></div>
-              <ul>
-                <li class="app-mb-sm">si patiente déjà traitée par Tenofovir&nbsp;; poursuivre le traitement.</li>
-                <li>
-                  Si autre analogue&nbsp;; switch pour Tenofovir.
-                  <br/>
-                  /!\ interféron pégylé contre indiqué pendant la grossesse +++
-                </li>
-              </ul>
-            </li>
-            <li class="app-mb-sm">si découverte récente chez patiente <b>voulant être enceinte</b> prochainement SANS FIBROSE&nbsp;; retarder le traitement</li>
-            <li class="app-mb-sm">
-              si le taux d'ADN VHB&nbsp;>&nbsp;200.000&nbsp;IU/mL ou HBsAg&nbsp;>&nbsp;4&nbsp;log10&nbsp;IU/ml&nbsp;; commencer 
-              un traitement par Ténofovir entre la 24 et 48ème semaine de grossesse et continuer 12&nbsp;semaines après l'accouchement.
+              Si patiente déjà traitée par Tenofovir&nbsp;; poursuivre le traitement. Si autre analogue, switch pour Tenofovir.<br />
+              <b>/!\ interféron pégylé contre indiqué pendant la grossesse +++</b>
             </li>
             <li class="app-mb-sm">
-              <div class="app-mb-sm">schéma chez le <b>nouveau-né</b>&nbsp;:</div>
-              <ul>
-                <li class="app-mb-sm">3&nbsp;doses de vaccin</li>
-                <li class="app-mb-sm">1&nbsp;dose à la naissance (dans les 12h) associée à l'administration d'immunoglobulines spécifiques</li>
-                <li>puis à 1&nbsp;mois et 6&nbsp;mois</li>
-
-              </ul>
-            <li class="app-mb-sm">pas de contre-indication à l'<b>allaitement</b> avec ou sans traitement</li>
-            <li>ne pas oublier d'arrêter ensuite le ténofovir chez la mère si pas d'indication après les 12 semaines (se référer à la prise en chrage sans situation particulière)</li>
+              Si le taux d'ADN VHB&nbsp;>&nbsp;200.000&nbsp;IU/mL&nbsp;; commencer un traitement par Ténofovir entre la 24 et 28ème semaine de grossesse et continuer jusqu'à 12&nbsp;semaines après l'accouchement.
+            </li>
+            <li class="app-mb-sm">
+              Sérovaccination à la naissance de l'enfant&nbsp;: 3&nbsp;doses de vaccin. 1&nbsp;dose à la naissance (dans les 12h) associée à l'administration d'immunoglobulines spécifiques, puis à 1&nbsp;mois et 6&nbsp;mois. (ainsi qu'à 2&nbsp;mois en cas de prématurité &lt;32&nbsp;SA ou d'un poids inférieur à 2kg)
+            </li>
+            <li>Pas de contre-indication à l'allaitement et AVB avec ou sans traitement</li>
           </ul>
         </div>
 
         <div *ngIf="situation === CO_VIH">
           <ion-title class="ion-margin-top ion-no-padding ion-margin-bottom">Co - Infection VIH</ion-title>
-          Beaucoup de trithérapies comportent un antiviral actif sur l'hépatite&nbsp;B.
-          <br/>
-          Vérifier que c'est le cas.
-          <br/><br/>
-          /!\ ne pas oublier le dépistage du CHC chez les patients à risque&nbsp;:
+          Profil évolutif plus sévère de l'hépatite&nbsp;B en cas de co-infection VHB/VIH avec augmentation du risque de progression de la fibrose hépatique, de cirrhose et de survenue du carcinome hépatocellulaire. 
+          <br /><br />
+          Indication à un traitement antirétroviral chez tous les patients VIH&nbsp;+ quel que soit le taux de CD4+. 
+          <br /><br />
+          Préférer le ténofovir car action antirétrovirale contre le VIH commune avec son action antivirale contre le VHB même si pas de contre-indication à l'utilisation de l'entécavir chez le patient VIH+.
+          <br /><br />
+          Le score PAGE-B semble validé pour le dépistage du carcinome hépatocellulaire.
           <br/><br/>
 
           <div style="background-color: var(--ion-color-danger);">
-            TO DO :
-            Il faudrait mettre un calculateur du score PAGE B (en annexe à la fin) et si score > ou = à 10 :
-            - échogrpahie abdominale avec doppler et dosage de l'alpha foetoprotéine tous les 6 mois.
+            + mettre un calculateur du score Page B et si > ou = 10, mettre message : indication à réaliser une par échographie abdominale et dosage de l'Alpha-foetoprotéine tous les 6 mois..
           </div>
 
         </div>
 
         <div *ngIf="situation === CO_VHC">
           <ion-title class="ion-margin-top ion-no-padding ion-margin-bottom">Co - Infection VHC</ion-title>
-          Situation complexe&nbsp;; patient à adresser en consultation d'hépatologie.
           <ul>
-            <li class="app-mb-sm">
-              Si patient traité par analogues&nbsp;; pas d'interaction avec les agents antiviraux directs.<br/>
-              Risque pour la fonction rénale si ténofovir et sofosbuvir, à surveiller.
+            <li>
+              Si patient déja traité par analogues&nbsp;; pas d'interaction avec les agents antiviraux d'action directs (AAD).
+              Risque pour la fonction rénale si ténofovir et sofosbuvir, à surveiller avec créatininémie en cours de traitement par AAD.
             </li>
-            <li class="app-mb-sm">
-              Si Ag HbS + ou Ac anti-HbC isolé&nbsp;; risque de réactivation virale&nbsp;B (élévation modérée de la charge virale VHB ou cytolyse) pendant le traitement de
-              l'hépatite&nbsp;C.<br/>
-              Recommandations : surveillance ADN du VHB et transaminases pendant le traitement par agent antiviral direct.
+            <br />
+            <li>
+              Risque de réactivation virale B pendant le traitement de l'hépatite&nbsp;C.
+              <ul>
+                <li class="app-mb-sm">
+                  Traitement par analogue chez les patients AgHBs+ traités par AAD ainsi que 12&nbsp;semaines après l'arrêt de ce dernier. 
+                </li>
+                <li>
+                  En cas d'Ac&nbsp;HbC&nbsp;+ isolé, la surveillance rapprochée des transaminases tous les mois est conseillée avec un dosage de l'ADN du VHB
+                  en cas d'augmentation de l'ALAT pendant le traitement par AAD. Si suspicion de réactivation virale&nbsp;B sous traitement VHC:
+                  introduction d'un traitement antiviral&nbsp;B par analogue. 
+                </li>
+              </ul>
             </li>
-            <li>Si suspicion de réactivation virale&nbsp;B sous traitement VHC&nbsp;; avis spécialisé</li>
+            <br />
+            <li>Le statut VHB ne doit pas faire retarder le traitement d'une hépatite&nbsp;C associée vu le taux de guérison très élevé du C avec traitement court. </li>
+            <br />
+            <li>
+              Dépistage semestriel du CHC par dosage de l'Alpha-foetoprotéine + échographie hépatique&nbsp;:
+              <ul>
+                <li class="app-mb-sm">
+                  si Fibroscan&nbsp;>&nbsp;10 avant traitement de l'hépatite&nbsp;C par AAD 
+                </li>
+                <li>si score PAGE B > = 10</li>
+              </ul>
+            </li>
           </ul>
         </div>
 
         <div *ngIf="situation === CO_VHD">
           <ion-title class="ion-margin-top ion-no-padding ion-margin-bottom">Co - Infection VHD</ion-title>
-          Situation complexe ; patient à adresser en consultation d'hépatologie.
           <ul>
-            <li class="app-mb-sm">
-              traitements possibles&nbsp;: interféron pegylé alpha si pas de contre indication ou bulévirtide acétate (si indication)
+            <li>
+              Situation complexe : patient à adresser en consultation d'hépatologie spécialisée, traitement à valider en RCP
+              (fiche disponible sur le site de l'AFEF).
             </li>
-            <li class="app-mb-sm">discuter un traitement par analogues si réplication virale VHB persistante</li>
-            <li>méthodes non invasives (fibroscan, fibrotest, fibromètre...) non validées dans l'hépatite delta&nbsp;/!\</li>
+            <br />
+            <li>
+              Profil évolutif de la co-infection virale B/Delta&nbsp;: progression plus rapide vers la cirrhose et augmentation du risque de CHC. 
+            </li>
+            <br />
+            <li>
+              Traitements possibles de la co-infection VHB/Delta&nbsp;:
+              <ul>
+                <li class="app-mb-sm">
+                  interféron pégylé alpha&nbsp;2a si pas de contre-indication associé au bulévirtide acétate (si indication)
+                </li>
+                <li class="app-mb-sm">bulévirtide acétate seul.</li>
+                <li>traitement par analogues pour le VHB nécessaire si réplication virale du B. </li>
+              </ul>
+            </li>
+            <br />
+            <li>
+              évaluation pré-thérapeutique de la fibrose hépatique est nécessaire par ponction-biopsie hépatique car méthodes non invasives non validées. Dépistage du CHC si patients F3 ou F4.
+            </li>
           </ul>
         </div>
 
         <div *ngIf="situation === CARE_STAFF">
-          <ion-title class="ion-margin-top ion-no-padding ion-margin-bottom">Personnel soignant</ion-title>
+          <ion-title class="ion-margin-top ion-no-padding ion-margin-bottom">Professionel de santé</ion-title>
           <ul>
             <li>
-              Si personnel réalisant des gestes à risque de transmission ET taux D'ADN VHB&nbsp;>&nbsp;200&nbsp;IU/mL (seuil EASL)&nbsp;; indication à un
-              traitement par analogue pour réduire le risque de transmission.
+              Professionnels de santé porteurs d'un VHB chronique avec AND VHB positif&nbsp;: 
+              traitement antiviral à proposer si situation à risque de transmission. 
             </li>
             <br>
-            <li>En France, seuil&nbsp;=&nbsp;10000UI/m</li>
+            <li>
+              situations à risque de transmission = contact potentiel entre la peau du professionnel de santé et des instruments tranchants, 
+              des aiguilles ou des structures anatomiques pointues dans le corps humain (os, dents).
+            </li>
           </ul>
         </div>
 
         <div *ngIf="situation === FAMILY_HISTORY_OF_CIRRHOSIS">
           <ion-title class="ion-margin-top ion-no-padding ion-margin-bottom">Antécédent familial de cirrhose au CHC</ion-title>
-          Indication à un traitement par analogues et un dépistage par échographie abdominale, avec doppler + dosage de l'alpha-foetoprotéine tous les 6&nbsp;mois.
+          <ul>
+            <li>
+              Indication à un traitement par analogues quel que soit l'âge, le sexe du patient ou le statut de fibrose.
+            </li>
+            <br>
+            <li>
+              Dépistage du CHC&nbsp;:
+              <ul>
+                <li class="app-mb-sm">Systématique si antécédent familial au premier degré de CHC</li>
+                <li>Selon score PAGE-B si antécédent familial de cirrhose</li>
+              </ul>
+
+            </li>
+          </ul>
+          <div style="background-color: var(--ion-color-danger);">
+            + mettre un calculateur du score Page B et si > ou = 10, mettre message : indication à réaliser une par échographie abdominale et dosage de l'Alpha-foetoprotéine tous les 6 mois..
+          </div>
         </div>
 
         <div *ngIf="situation === EXTRAHEPATIC_HBV">
           <ion-title class="ion-margin-top ion-no-padding ion-margin-bottom">Manifestation extra-hépatique du VHB</ion-title>
-          Indication à un traitement par analogues.
+          <ul>
+            <li>
+              Manifestations variées&nbsp;: vascularites, purpuras, périartérites noueuses, arthralgies, neuropathies périphériques, glomérulopathies, cryoglobulinémies mixtes…
+            </li>
+            <br>
+            <li>
+              Indication à part entière au traitement par analogues si ADN VHB détectable, quelle que soit l'atteinte hépatique.
+            </li>
+            <br>
+            <li>
+              Traitement par interféron contre-indiqué si manifestations immuno-médiées&nbsp;; risque d'aggravation.
+            </li>
+          </ul>
         </div>
 
         <div *ngIf="situation === CIRRHOSE">
           <ion-title class="ion-margin-top ion-no-padding ion-margin-bottom">Cirrhose</ion-title>
           <ul>
-            <li class="app-mb-sm">Indication à un traitement par analogues.</li>
             <li>
-              <div class="app-mb-sm">Suivi tous les 6 mois&nbsp;:</div>
+              <div class="app-mb-sm">Cirrhose compensée :</div>
               <ul>
-                <li class="app-mb-sm">Échographie abdominale avec doppler + dosage de l'alpha-foetoprotéine</li>
-                <li class="app-mb-sm">Surveillance de la fonction hépatique et de la fonction rénale</li>
+                <li class="app-mb-sm">si ADN détectable = traitement</li>
+                <li>si ADN indétectable sans coinfection&nbsp;: traitement à discuter</li>
+              </ul>
+            </li>
+            <br />
+            <li>Carcinome hépato-celullaire = traitement</li>
+            <br />
+            <li>Cirrhose décompensée&nbsp;:  adresser le patient à un centre de transplantation hépatique en parallèle de l'instauration du traitement</li>
+            <br />
+            <li>
+              Traitements :
+              <ul>
+                <li class="app-mb-sm">ENTECAVIR (BARACLUDE) : 0.5 mg/j à adapter à la fonction rénale</li>
+                <li class="app-mb-sm">Si cirrhose décompensée&nbsp;: ENTECAVIR 1mg/j</li>
+                <li>TENOFOVIR DISOPROXIL (VIREAD) : 245 mg/j</li>
+              </ul>
+            </li>
+            <br />
+            <li>
+              Suivi tous les 6&nbsp;mois :
+              <ul>
+                <li class="app-mb-sm">Échographie abdominale avec doppler + dosage de l'alphafoetoprotéine</li>
+                <li>Surveillance de la fonction hépatique et de la fonction rénale</li>
+              </ul>
+            </li>
+            <br />
+            <li>
+              Cirrhose décompensée :
+              <ul>
+                <li class="app-mb-sm">Traitement par analogues&nbsp;; entécavir : 1mg/j, ténofovir : 245mg/j</li>
+                <li class="app-mb-sm">Interféron pégylé contre indiqué</li>
+                <li class="app-mb-sm">
+                  Les patients doivent être traités immédiatement par analogue quel que soit le niveau de la charge virale VHB. 
+                  L'IFN PEG est contre indiqué. Si un traitement par entécavir est choisi, la dose doit être de 1mg/jour.
+                  S'il s'agit du ténofovir, la dose est celle habituelle de 245mg/jour. Le patient doit avoir une ùùùùùùùù?????
+                </li>
+                <li class="app-mb-sm">Surveillance régulière de la tolérance du traitement en raison d'un risque d'acidose lactique ou d'insuffisance rénale.</li>
+                <li class="app-mb-sm">Discussion avec un centre de greffe hépatique concernant l'indication d'une transplantation hépatique.</li>
+              </ul>
+            </li>
+            <li>
+              Cirrhose compensée :
+              <ul>
+                <li class="app-mb-sm">ADN VHB détectable : Traitement par analogues : entécavir : 1mg/j, ténofovir : 245mg/j</li>
+                <li class="app-mb-sm">ADN VHB indétectable : pas de traitement sous réserve de la possibilité de suivi.</li>
+                <li class="app-mb-sm">Dépistage tous les 6 mois du CHC par échographie hépatique et alpha-foetoprotéine.</li>
               </ul>
             </li>
           </ul>
