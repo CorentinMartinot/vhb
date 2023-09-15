@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-serological-interpretation',
@@ -11,16 +12,23 @@ export class SerologicalInterpretationPage implements OnInit {
   acAntiHbc: boolean = false;
   displayResult: boolean = false;
 
-  constructor() { }
+  constructor(private navCtrl: NavController) {}
 
   ngOnInit() {
   }
 
-  resetToggles () {
+  resetToggles() {
     this.agHbs = false;
     this.acAntiHbs = false;
     this.acAntiHbc = false;
     this.displayResult = false;
   }
 
+  goToVhbResolved() {
+    this.navCtrl.navigateForward('inactive-or-recovered-carrier');
+  }
+
+  goToHome() {
+    this.navCtrl.navigateForward('home?extent-vhb-chronicle=${true}');
+  }
 }

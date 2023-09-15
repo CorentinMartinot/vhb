@@ -1,5 +1,5 @@
 <ion-header class="ion-no-border ion-margin-bottom">
-  <app-header darkTitle="Hépatite B" coloredTitle="chronique" color="violet" subTitle="Bilan d'intention"></app-header>
+  <app-header darkTitle="Hépatite B" coloredTitle="chronique" color="violet" subTitle="Bilan de 1ère intention"></app-header>
 
   <ion-grid>
     <ion-row>
@@ -47,38 +47,68 @@
                 </ul>
               </div>
             </ion-accordion>
-            <ion-accordion value="second" class="accordion-container">
+            <br />
+            <ion-accordion value="second" class="accordion-container" fill="outline">
               <ion-item slot="header" color="violet" class="accordion-header">
-                <ion-label>Biologie</ion-label>
+                <ion-label class="ion-text-wrap">Examens paracliniques</ion-label>
               </ion-item>
-              <div class="ion-padding" slot="content" class="accordion-content">
-                <ul>
-                  <li class="app-mb-sm">NFS,plaquettes</li>
-                  <li class="app-mb-sm">ionogramme, créatininémie</li>
-                  <li class="app-mb-sm">TP,INR</li>
-                  <li class="app-mb-sm">bilan hépatique complet : ASAT/ALAT, PAL/GGT, bilirubine totale et conjuguée</li>
-                  <li class="app-mb-sm">albuminémie</li>
-                  <li class="app-mb-sm">protéinurie sur échantillon</li>
-                  <li class="app-mb-sm">AFP</li>
-                  <li class="app-mb-sm">sérologies VIH,VHC, VHD, VHA</li>
-                  <li>dosage quantitatif Ag HbS, charge virale VHB quantitative, Ag HBE et anticorps anti HBE</li>
-                </ul>
-              </div>
-            </ion-accordion>
-            <ion-accordion value="third" class="accordion-container">
-              <ion-item slot="header" color="violet" class="accordion-header">
-                <ion-label>Examens para-clinique</ion-label>
-              </ion-item>
-              <div class="ion-padding" slot="content" class="accordion-content">
-                <ul>
-                  <li class="app-mb-sm">échographie hépatique</li>
-                  <li>
-                    <div class="app-mb-sm">fibroscan (ou fibrotest ou fibromètre)</div>
+              <div class="ion-padding" slot="content" class="accordion-embedded">
+                <ion-accordion value="sub-first" class="accordion-container">
+                  <ion-item slot="header" color="light-violet" class="accordion-header">
+                    <ion-label>Biologie</ion-label>
+                  </ion-item>
+                  <div class="ion-padding" slot="content" class="accordion-content">
                     <ul>
-                      <li>/!\ à ne pas utiliser si ASAT et/ou ALAT&nbsp;>&nbsp;5N (biopsie du foie optionnelle)</li>
+                      <li class="app-mb-sm">NFS, plaquettes</li>
+                      <li class="app-mb-sm">ionogramme, clairance de la créatininémie</li>
+                      <li class="app-mb-sm">TP</li>
+                      <li class="app-mb-sm">bilan hépatique complet : ASAT/ALAT, PAL/GGT, bilirubine totale et conjuguée</li>
+                      <li class="app-mb-sm">albuminémie</li>
+                      <li class="app-mb-sm">protéinurie sur échantillon si facteurs de risques de pathologie rénale</li>
+                      <li class="app-mb-sm">Alpha-foetoprotéine</li>
+                      <li class="app-mb-sm">sérologies VIH, VHC, VHD</li>
+                      <li>ADN VHB quantitatif, Ag&nbsp;HBe et anticorps anti-HBe</li>
                     </ul>
-                  </li>
-                </ul>
+                  </div>
+                </ion-accordion>
+                <ion-accordion value="sub-second" class="accordion-container">
+                  <ion-item slot="header" color="light-violet" class="accordion-header">
+                    <ion-label>Autres</ion-label>
+                  </ion-item>
+                  <div class="ion-padding" slot="content" class="accordion-content">
+                    <ul>
+                      <li><b>Echodoppler hépatique&nbsp;:</b> recherche de dysmorphie, de signes d'hypertension portale, de nodule hépatique </li>
+                      <br />
+                      <li>
+                        <b>Évaluation de la fibrose hépatique</b>
+                        <ol>
+                          <li class="app-mb-sm">
+                            non invasive
+                            <ol type="A">
+                              <li class="app-mb-sm">Fibroscan ou élastométrie hépatique</li>
+                              <li>
+                                Fibrotest ou fibromètre (tests sériques).<br/>
+                                Attention au risque de sous-estimation de la fibrose.<br/>
+                                Attention, examens non remboursés.
+                              </li>
+                            </ol>
+                          </li>
+                          <li>
+                            invasive
+                            <ul>
+                              <li>
+                                Ponction biopsie hépatique ou PBH.<br/>
+                                Examen gold-standard d'évaluation de la fibrose hépatique.<br/>
+                                À réserver dans les situations ou les tests non invasifs ne permettent pas de définir le statut 
+                                de fibrose sévère et où le résultat de la biopsie hépatique conditionne l'indication à un	traitement par analogue. 
+                              </li>
+                            </ul>
+                          </li>
+                        </ol>
+                      </li>
+                    </ul>
+                  </div>
+                </ion-accordion>
               </div>
             </ion-accordion>
           </ion-accordion-group>

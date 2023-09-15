@@ -1,5 +1,5 @@
 <ion-header class="ion-no-border">
-  <app-header darkTitle="porteur" coloredTitle="inactif ou guéri" color="nepal"></app-header>
+  <app-header darkTitle="Hépatite B" coloredTitle="résolue" color="nepal"></app-header>
 </ion-header>
 
 <ion-content>
@@ -8,51 +8,35 @@
       <ion-col>
         Si indication de chimiothérapie ou traitement immunosuppresseur&nbsp;; faire une sérologie VHB
         <ul>
+          <li class="app-mb-sm">
+            si sérologie naïve il est recommandé de proposer une vaccination contre le VHB. Un schéma accéléré peut être
+            proposé dans les situations où l'obtention rapide d'une protection vaccinale est souhaitable.
+          </li>
+          <br>
           <li>
-            <div class="app-mb-sm">Si <b>Ag&nbsp;HbS&nbsp;+</b> : traitement ou si pas d'indication prophylaxie par ténofovir ou entécavir</div>
+            si sérologie en faveur d'un antécédent d'infection contre le VHB le traitement antiviral doit être discuté au
+            cas par cas selon le risque de réactivation. Il est recommandé en cas de&nbsp;:
             <ul>
-              <li class="app-mb-sm">poursuivre la prophylaxie pendant 12&nbsp;mois (ou 18&nbsp;mois si rituximab) après arrêt du traitement</li>
-              <li>
-                surveillance fonction hépatique et charge virale VHB tous les 3 à 6&nbsp;mois pendant prophylaxie puis 
-                jusqu'à 1&nbsp;an après arrêt de la prophylaxie
+              <li class="app-mb-sm">réplication virale avant de débuter l'immunosuppresseur</li>
+              <li class="app-mb-sm">
+                sans réplication virale si le risque de réactivation est au moins modérée (> 1%) dans les 3&nbsp;semaines précédant 
+                l'immunosuppresseur et jusqu'à 12&nbsp;mois après la fin de l'immunosuppresseur ou 18&nbsp;mois si rituximab ou 
+                traitement hématologique ou transplantation de cellules souche.
               </li>
             </ul>
           </li>
-          <br>
-          <li>
-            Si <b>Ag&nbsp;HbS&nbsp;-</b> et <b>Ac&nbsp;anti-HbC&nbsp;+</b> et charge virale <b>détectable</b>&nbsp;; à considérer comme Ag HbS&nbsp;+
-          </li>
-          <br>
-          <li>
-            <div class="app-mb-sm">Si <b>Ag&nbsp;HbS&nbsp;-</b> et <b>Ac&nbsp;anti-HbC&nbsp;+</b> et charge virale <b>indétectable</b>&nbsp;:</div>
-            <ol>
-              <li class="app-mb-sm">
-                <div class="app-mb-sm">prophylaxie si haut risque de réactivation&nbsp;:</div>
-                <ul>
-                  <li class="app-mb-sm">
-                    traitement par rituximab = prophylaxie + à poursuivre 18&nbsp;mois post-traitement et surveillance
-                    12&nbsp;mois après arrêt
-                  </li>
-                  <li class="app-mb-sm">
-                    traitement hématologique ou transplantation de cellules souches = prophylaxie + à poursuivre
-                    18&nbsp;mois posttraitement et surveillance 12&nbsp;mois après arrêt
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <div class="app-mb-sm">traitement pré-emptif si risque modéré ou faible de réactivation&nbsp;:</div>
-                <ul>
-                  <li class="app-mb-sm">surveillance Ag&nbsp;HBS et/ou charge virale VHB tous les 1 à 3&nbsp;mois</li>
-                  <li class="app-mb-sm">débuter traitement par analogues dès que charge virale détectable ou Ag&nbsp;HbS&nbsp;+</li>
-                  <li>
-                    si durée d'immunosuppression longue, compliance limitée&nbsp;; risque non connue de réactivation, préférer
-                    prophylaxie
-                  </li>
-                </ul>
-              </li>
-            </ol>
-          </li>
         </ul>
+        Si pas de prophylaxie : ALAT et ADN VHB tous les 1 à 3 mois jusqu'à 12 mois après fin IS
+
+        <br /><br />
+        <div style="background-color: var(--ion-color-danger);">
+          + faire un clic avec : quel traitement souhaitez-vous initier ?
+          → afficher la liste des traitements (cf tableau 1ère colonne)
+          → faire un menu déroulant pour chaque traitement avec 3 propositions :
+          ADN VHB : détectable, indetectable
+          Ag HbS : + ou -
+          Anticorps anti-HbC : + ou -
+        </div>
       </ion-col>
     </ion-row>
   </ion-grid>
