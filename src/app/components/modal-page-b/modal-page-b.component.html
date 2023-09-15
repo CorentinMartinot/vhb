@@ -1,0 +1,67 @@
+<ion-modal trigger="open-modal" (ionModalDidDismiss)="reset()">
+  <ng-template>
+    <ion-header class="ion-no-border">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()" color="dark">
+            <ion-icon slot="icon-only" color="dark" name="close-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-title>Calculateur score PAGE-B</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <div class="container">
+        <ion-card class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="displayResult">
+          <div class="card-header">
+            <ion-label class="card-title">Age</ion-label>
+          </div>
+          <radio-area (change)="setAge($event)" [options]="ageOptions" [selectedValue]="age"></radio-area>
+        </ion-card>
+        <ion-card *ngIf="(!!age && !displayResult) || !!sexe" class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="displayResult">
+          <div class="card-header">
+            <ion-label class="card-title">Sexe</ion-label>
+          </div>
+          <radio-area (change)="setSexe($event)" [options]="sexeOptions" [selectedValue]="sexe"></radio-area>
+        </ion-card>
+        <ion-card *ngIf="(!!sexe && !displayResult) || !!platelets" class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="displayResult">
+          <div class="card-header">
+            <ion-label class="card-title">Plaquettes</ion-label>
+          </div>
+          <radio-area (change)="setPlatelets($event)" [options]="plateletsOptions" [selectedValue]="platelets"></radio-area>
+        </ion-card>
+        
+        <ng-container *ngIf="displayResult">
+        <ion-item-divider></ion-item-divider>
+        <ion-row class="ion-justify-content-end ion-margin-end" >
+          <ion-buttons class="ion-margin-top ion-margin-bottom">
+            <ion-button (click)="reset()" color="violet" shape="round" fill="outline" class="reset-button">
+              <ion-icon slot="start" name="refresh-outline"></ion-icon>
+              Réinitialiser
+            </ion-button>
+          </ion-buttons>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col>  
+            <div *ngIf="result">
+              <b>score : ≥ 10</b><br /><br />
+              {{messageGt10}}
+            </div>
+            
+            <div *ngIf="!result">
+              <b>score : &lt; 10</b><br /><br />
+              {{messageLt10}}
+            </div>
+
+            <ion-buttons class="ion-justify-content-center">
+              <ion-button (click)="cancel()" color="violet" shape="round" fill="solid" class="ok-button">Ok</ion-button>
+            </ion-buttons>
+          </ion-col>
+        </ion-row>
+        </ng-container>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>

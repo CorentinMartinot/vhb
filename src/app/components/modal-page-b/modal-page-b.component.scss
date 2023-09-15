@@ -1,0 +1,44 @@
+ion-card {
+    border-radius: 20px;
+    border: 1.5px solid;
+    border-color: var(--ion-color-violet);
+    padding: 10px 0 15px 0;
+}
+
+.container {
+    margin: 10px 30px 10px 30px;
+}
+
+.card-header {
+    padding: 8px 16px 8px 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.card-title {
+    font-size: 20px;
+    color: var(--ion-color-violet);
+    border-bottom: 1px solid;
+    border-color: var(--ion-color-violet);
+}
+
+.card-sub-title {
+    font-size: 18px;
+    color: var(--ion-color-violet);
+    margin: 0px 0px 6px 12px;
+}
+
+.sub-card {
+    padding: 10px 10px 8px 10px;
+    margin: 10px 10px 5px 10px;
+    border-radius: 10px;
+    background-color: #68295D21;
+}
+
+.ok-button {
+    margin-top: 80px;
+    margin-bottom: 40px;
+    width: 140px;
+    height: 45px;
+}

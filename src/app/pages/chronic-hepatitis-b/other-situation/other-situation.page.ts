@@ -133,7 +133,7 @@ export class OtherSituationPage implements OnInit {
       (this.age === 'btw60-69' && this.sexe === 'M') ||
       this.age === '70more';
 
-      this.displayResult = this.fibroseCompleted && this.pageBCompleted
+      this.displayResult = this.fibroseCompleted && this.pageBCompleted;
       
       if (this.displayResult) {
         this.treatment = this.computeTreatment();

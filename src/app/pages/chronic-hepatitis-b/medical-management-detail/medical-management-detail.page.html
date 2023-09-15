@@ -41,8 +41,16 @@
           <br/><br/>
 
           <div style="background-color: var(--ion-color-danger);">
-            + mettre un calculateur du score Page B et si > ou = 10, mettre message : indication à réaliser une par échographie abdominale et dosage de l'Alpha-foetoprotéine tous les 6 mois..
+            Quoi mettre ici pour inciter l'utilisateur, en fonction des situations, à calculer le score ?
+            <!-- + mettre un calculateur du score Page B et si > ou = 10, mettre message : indication à réaliser une par échographie abdominale et dosage de l'Alpha-foetoprotéine tous les 6 mois.. -->
           </div>
+          <ion-buttons>
+            <ion-button id="open-modal" class="button-page-b">Calculer le score PAGE-B</ion-button>
+          </ion-buttons>
+          <app-modal-page-b
+            messageGt10="Indication à réaliser une par échographie abdominale et dosage de l'Alpha-foetoprotéine tous les 6 mois."
+            messageLt10="Pas d'indication particulière."
+          ></app-modal-page-b>
 
         </div>
 
@@ -136,15 +144,20 @@
             <li>
               Dépistage du CHC&nbsp;:
               <ul>
-                <li class="app-mb-sm">Systématique si antécédent familial au premier degré de CHC</li>
-                <li>Selon score PAGE-B si antécédent familial de cirrhose</li>
+                <li class="app-mb-sm app-mt-sm">Systématique si antécédent familial au premier degré de CHC</li>
+                <li>
+                  Selon score PAGE-B si antécédent familial de cirrhose
+                  <ion-buttons class="app-mt-sm">
+                    <ion-button id="open-modal" class="button-page-b">Calculer le score PAGE-B</ion-button>
+                  </ion-buttons>
+                </li>
               </ul>
-
             </li>
           </ul>
-          <div style="background-color: var(--ion-color-danger);">
-            + mettre un calculateur du score Page B et si > ou = 10, mettre message : indication à réaliser une par échographie abdominale et dosage de l'Alpha-foetoprotéine tous les 6 mois..
-          </div>
+          <app-modal-page-b
+            messageGt10="Réaliser un dépistage CHC"
+            messageLt10="Pas besoin dépistage CHC"
+          ></app-modal-page-b>
         </div>
 
         <div *ngIf="situation === EXTRAHEPATIC_HBV">

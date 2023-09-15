@@ -8,6 +8,8 @@ import { HomeButtonComponent } from './home-button/home-button.component';
 import { HomeSubbuttonComponent } from './home-subbutton/home-subbutton.component';
 import { RadioAreaComponent } from './radio-area/radio-area.component';
 import { HomeBackgroundSvgComponent } from './home-background-svg/home-background-svg.component';
+import { ModalPageBComponent } from './modal-page-b/modal-page-b.component';
+
 
 
 @NgModule({
@@ -17,6 +19,7 @@ import { HomeBackgroundSvgComponent } from './home-background-svg/home-backgroun
         HomeSubbuttonComponent,
         RadioAreaComponent,
         HomeBackgroundSvgComponent,
+        ModalPageBComponent,
     ],
     imports: [
         CommonModule,
@@ -29,6 +32,7 @@ import { HomeBackgroundSvgComponent } from './home-background-svg/home-backgroun
         HomeSubbuttonComponent,
         RadioAreaComponent,
         HomeBackgroundSvgComponent,
+        ModalPageBComponent,
     ],
     entryComponents: [
     ],
