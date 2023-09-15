@@ -68,9 +68,9 @@
               <li class="app-mb-sm">
                 Très probable Hépatite aiguë si Ac&nbsp;HBc&nbsp;+ type&nbsp;IgM et transaminases très élevées mais des réactivations virales&nbsp;B peuvent avoir ce profil. À discuter avec virologue.
                 <br/>
-                Si tableau évocateur d'hépatite B aigüe, cf chapitre correspondant. 
+                Si tableau évocateur d'hépatite B aigüe, <a class="link-button color-violet" (click)="goToHome()">cf chapitre hépatite B chronique</a>. 
               </li>
-              <li>Hépatite chronique si ce profil persiste >&nbsp;6&nbsp;mois avec bilan hépatique normal ou surnormal.  Bilan d'hépatite chronique à faire (cf chapitre correspondant)</li>
+              <li>Hépatite chronique si ce profil persiste >&nbsp;6&nbsp;mois avec bilan hépatique normal ou subnormal.  Bilan d'hépatite chronique à faire <a class="link-button color-violet" (click)="goToHome()">(cf chapitre hépatite B chronique)</a>.</li>
             </ul>
           </div>
 
@@ -83,7 +83,7 @@
           <div *ngIf="!agHbs && acAntiHbs && acAntiHbc">
             <b>Hépatite résolue.</b>
             <br/><br/>
-            Pas de surveillance ou de traitement mais attention aux situations à risque de réactivation possible (cf chapitre correspondant).
+            Pas de surveillance ou de traitement mais attention aux situations à risque de réactivation possible <a class="link-button color-nepal" (click)="goToVhbResolved()">(cf chapitre hépatite B résolue)</a>.
           </div>
 
 
@@ -120,7 +120,7 @@
             <br/><br/>
             Faire contrôle de la sérologie dans 2ème laboratoire et réaliser un dosage de l'ADN VHB pour éliminer hépatite&nbsp;B occulte.
             <br/>
-            Si situation d'hépatite résolue confirmée, pas de surveillance ou traitement mais attention aux situations à risque de réactivation possible (cf chapitre correspondant)
+            Si situation d'hépatite résolue confirmée, pas de surveillance ou traitement mais attention aux situations à risque de réactivation possible <a class="link-button color-nepal" (click)="goToVhbResolved()">(cf chapitre hépatite B résolue)</a>.
           </div>
 
           <div *ngIf="!agHbs && !acAntiHbs && !acAntiHbc">

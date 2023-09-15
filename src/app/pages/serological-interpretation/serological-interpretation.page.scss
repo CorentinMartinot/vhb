@@ -29,6 +29,20 @@
     text-transform: none;
 }
 
+.link-button {
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.color-violet {
+    color: var(--ion-color-violet);
+}
+
+.color-nepal {
+    color: var(--ion-color-nepal);
+}
+
 .underline {
     text-decoration: underline;
 }
