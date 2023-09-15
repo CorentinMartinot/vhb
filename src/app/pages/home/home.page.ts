@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IonPopover, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +8,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+  @ViewChild('infopopover') infoPopover: IonPopover | undefined;
 
   extentVHBChronicle = false;
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute, private navCtrl: NavController) {}
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -22,6 +24,11 @@ export class HomePage implements OnInit {
 
   switchExtentVHBChronicle () {
     this.extentVHBChronicle = !this.extentVHBChronicle;
+  }
+
+  goToPrivacyPolicy() {
+    this.navCtrl.navigateForward('privacy-policy');
+    this.infoPopover?.dismiss();
   }
 
 }

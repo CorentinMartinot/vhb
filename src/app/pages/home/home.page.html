@@ -12,5 +12,19 @@
       </div>
     </div>
     <app-home-button darkTitle="Hépatite B" coloredTitle="résolue" color="nepal" navigationRoute="/inactive-or-recovered-carrier"></app-home-button>
+    <ion-buttons class="ion-justify-content-end info-button">
+      <ion-button id="click-trigger">
+        <ion-icon slot="icon-only" color="light" name="help-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-popover #infopopover trigger="click-trigger" triggerAction="click">
+      <ng-template>
+        <ion-content class="ion-padding">
+          <ion-list>
+            <ion-item class="cursor-pointer" detail (click)="goToPrivacyPolicy()">Politique de Confidentialité</ion-item>
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-popover>
   </div>
 </ion-content>
