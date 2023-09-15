@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-header',
@@ -13,11 +14,13 @@ export class HeaderComponent implements OnInit {
   @Input() color: string = '';
   @Input() icon: string = 'arrow-back-outline';
   @Input() defaultBackRoute: string = '/home';
-  
-  
 
-  constructor() { }
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit() {}
+
+  goHome() {
+    this.navCtrl.navigateForward('home');
+  }
 
 }
