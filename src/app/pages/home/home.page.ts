@@ -26,8 +26,8 @@ export class HomePage implements OnInit {
     this.extentVHBChronicle = !this.extentVHBChronicle;
   }
 
-  goToPrivacyPolicy() {
-    this.navCtrl.navigateForward('privacy-policy');
+  goToAbout() {
+    this.navCtrl.navigateForward('about');
     this.infoPopover?.dismiss();
   }
 

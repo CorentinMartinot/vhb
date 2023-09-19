@@ -46,6 +46,10 @@ const routes: Routes = [
     path: 'gtu',
     loadChildren: () => import('./pages/gtu/gtu.module').then( m => m.GtuPageModule)
   },
+  {
+    path: 'about',
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+  },
 
 
 
