@@ -112,7 +112,7 @@
             Pour les non répondeurs
             <br/><br/>
             <b>Algorithme pour le personnel soignant&nbsp;: </b>
-            <ion-img src="/assets/img/algo-control-immunization.png" class="image-algo"></ion-img>
+            <ion-img src="/assets/img/algo-control-immunization.png" (click)="viewImg('/assets/img/algo-control-immunization.png')" class="image-algo"></ion-img>
           </div>
 
           <div *ngIf="!agHbs && !acAntiHbs && acAntiHbc">
@@ -169,7 +169,7 @@
             <a href="https://vaccination-info-service.fr/Les-maladies-et-leurs-vaccins/Hepatite-B" target="_blank">
               https://vaccination-info-service.fr/Les-maladies-et-leurs-vaccins/Hepatite-B
             </a>
-            <ion-img src="/assets/img/list-vaccines.png" class="image-algo"></ion-img>
+            <ion-img src="/assets/img/list-vaccines.png" (click)="viewImg('/assets/img/list-vaccines.png')" class="image-algo"></ion-img>
           </div>
   
         </ion-col>
