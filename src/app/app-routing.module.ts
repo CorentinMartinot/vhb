@@ -42,7 +42,11 @@ const routes: Routes = [
   {
     path: 'privacy-policy',
     loadChildren: () => import('./pages/privacy-policy/privacy-policy.module').then( m => m.PrivacyPolicyPageModule)
+  },  {
+    path: 'gtu',
+    loadChildren: () => import('./pages/gtu/gtu.module').then( m => m.GtuPageModule)
   },
+
 
 
 ];

@@ -12,8 +12,8 @@ export class HeaderComponent implements OnInit {
   @Input() coloredTitle: string = '';
   @Input() subTitle: string = '';
   @Input() color: string = '';
-  @Input() icon: string = 'arrow-back-outline';
   @Input() defaultBackRoute: string = '/home';
+  @Input() disableNav: boolean = false;
 
   constructor(private navCtrl: NavController) { }
 
