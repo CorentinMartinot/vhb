@@ -2,7 +2,7 @@
   <ion-row>
     <ion-col size="2">
       <ion-buttons *ngIf="!disableNav" class="back-button">
-        <ion-back-button icon="arrow-back-outline" color="dark" [defaultHref]="defaultBackRoute"></ion-back-button>
+        <ion-back-button src="/assets/svg/arrow-back-outline.svg" color="dark" [defaultHref]="defaultBackRoute"></ion-back-button>
       </ion-buttons>
     </ion-col>
     <ion-col size="8">
@@ -19,7 +19,7 @@
     <ion-col size="2">
       <ion-buttons class="ion-justify-content-end" *ngIf="!disableNav">
         <ion-button (click)="goHome()">
-          <ion-icon slot="icon-only" color="dark" name="home-outline"></ion-icon>
+          <ion-icon slot="icon-only" color="dark" src="/assets/svg/home-outline.svg"></ion-icon>
         </ion-button>
       </ion-buttons>
     </ion-col>

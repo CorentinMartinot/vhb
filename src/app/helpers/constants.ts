@@ -9,6 +9,6 @@ export const EXTRAHEPATIC_HBV = 'extrahepatic_hbv';
 export const CIRRHOSE = 'cirrhose';
 
 // HOME BUTTON
-export const CHEVRON_FORWARD = 'chevron-forward-outline';
-export const CHEVRON_UP = 'chevron-up-outline';
-export const CHEVRON_DOWN = 'chevron-down-outline';
+export const CHEVRON_FORWARD = '/assets/svg/chevron-forward-outline.svg';
+export const CHEVRON_UP = '/assets/svg/chevron-up-outline.svg';
+export const CHEVRON_DOWN = '/assets/svg/chevron-down-outline.svg';
