@@ -2,7 +2,7 @@
   <div id="click-trigger">
     <ion-img [src]="src" class="image"></ion-img>
   </div>
-  <ion-popover #imgpopover trigger="click-trigger"  reference="event" triggerAction="click">
+  <ion-popover #imgpopover trigger="click-trigger" reference="event" triggerAction="click" size="auto">
     <ng-template>
       <ion-content class="ion-padding">
           <ion-item class="cursor-pointer" [detail]="false" (click)="viewImg()">Ouvrir dans navigateur au format zoomable</ion-item>

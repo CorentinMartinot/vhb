@@ -40,13 +40,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/chronic-hepatitis-b/other-situation/other-situation.module').then( m => m.OtherSituationPageModule)
   },
   {
-    path: 'privacy-policy',
-    loadChildren: () => import('./pages/privacy-policy/privacy-policy.module').then( m => m.PrivacyPolicyPageModule)
-  },  {
-    path: 'gtu',
-    loadChildren: () => import('./pages/gtu/gtu.module').then( m => m.GtuPageModule)
-  },
-  {
     path: 'about',
     loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
   },
