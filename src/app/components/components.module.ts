@@ -9,6 +9,7 @@ import { HomeSubbuttonComponent } from './home-subbutton/home-subbutton.componen
 import { RadioAreaComponent } from './radio-area/radio-area.component';
 import { HomeBackgroundSvgComponent } from './home-background-svg/home-background-svg.component';
 import { ModalPageBComponent } from './modal-page-b/modal-page-b.component';
+import { ImageComponent } from './image/image.component';
 
 
 
@@ -20,6 +21,7 @@ import { ModalPageBComponent } from './modal-page-b/modal-page-b.component';
         RadioAreaComponent,
         HomeBackgroundSvgComponent,
         ModalPageBComponent,
+        ImageComponent,
     ],
     imports: [
         CommonModule,
@@ -33,6 +35,7 @@ import { ModalPageBComponent } from './modal-page-b/modal-page-b.component';
         RadioAreaComponent,
         HomeBackgroundSvgComponent,
         ModalPageBComponent,
+        ImageComponent,
     ],
     entryComponents: [
     ],

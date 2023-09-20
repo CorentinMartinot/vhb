@@ -31,8 +31,4 @@ export class SerologicalInterpretationPage implements OnInit {
   goToHome() {
     this.navCtrl.navigateForward('home?extent-vhb-chronicle=${true}');
   }
-
-  viewImg(src: string) {
-    window.open(`https://vhb.netlify.app${src}`, '_blank');
-  }
 }

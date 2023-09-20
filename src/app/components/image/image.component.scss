@@ -1,0 +1,15 @@
+@media (max-width: 576px) {
+    .image {
+        margin: 2.5vw;
+    }
+}
+
+@media (min-width: 576px) {
+    .image {
+        margin: 2vh 20vw 2vh 20vw;
+    }
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
