@@ -88,9 +88,11 @@
 
 
           <div *ngIf="!agHbs && acAntiHbs && !acAntiHbc">
-            <b>Personne vaccinée.</b> Taux d'anti-HbS protecteur&nbsp;>&nbsp;10UI/L.
+            <b>Personne vaccinée.</b>
             <br/><br/>
-            Indications de dosage quantitatif&nbsp;:
+            Si taux &lt;&nbsp;10UI/L sur une personne à risque, proposer un nouveau rappel.
+            <br/><br/>
+            Personnes à risque&nbsp;:
             <ul>
               <li class="app-mb-sm">
                 personnes qui, dans le cadre d'activités professionnelles ou bénévoles, sont susceptibles d'être en contact direct avec des 
@@ -104,15 +106,10 @@
               <li class="app-mb-sm">partenaires sexuels d'une personne infectée par le virus de l'hépatite&nbsp;B</li>
               <li>personnes immunodéprimées</li>
             </ul>
-            <br/>
-            Si taux &lt;&nbsp;10UI/L, proposer un nouveau rappel
             <br/><br/>
-            <i>Avis du Haut Conseil de la santé publique du 7&nbsp;novembre 2014, mis en ligne le 19&nbsp;janvier 2015.</i>
-            <br/>
-            Pour les non répondeurs
-            <br/><br/>
-            <b>Algorithme pour le personnel soignant&nbsp;: </b>
+            <b>Pour le personnel soignant</b>, suivre l'algorithme&nbsp;: 
             <app-image src="/assets/img/algo-control-immunization.png"></app-image>
+            <i>Avis du Haut Conseil de la santé publique du 7&nbsp;novembre 2014, mis en ligne le 19&nbsp;janvier 2015.</i>
           </div>
 
           <div *ngIf="!agHbs && !acAntiHbs && acAntiHbc">

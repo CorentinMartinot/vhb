@@ -4,6 +4,10 @@
     }  
 }
 
+a {
+    color: var(--ion-color-violet);
+}
+
 
 .button-page-b {
     color: var(--ion-color-dark);
@@ -13,4 +17,8 @@
     border-style: solid;
     border-width: 2px;
     border-radius: 24px;
+}
+
+.color-violet {
+    color: var(--ion-color-violet);
 }

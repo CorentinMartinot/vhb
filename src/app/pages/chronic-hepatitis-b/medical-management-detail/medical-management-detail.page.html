@@ -39,16 +39,11 @@
           <br /><br />
           Le score PAGE-B semble validé pour le dépistage du carcinome hépatocellulaire.
           <br/><br/>
-
-          <div style="background-color: var(--ion-color-danger);">
-            Quoi mettre ici pour inciter l'utilisateur, en fonction des situations, à calculer le score ?
-            <!-- + mettre un calculateur du score Page B et si > ou = 10, mettre message : indication à réaliser une par échographie abdominale et dosage de l'Alpha-foetoprotéine tous les 6 mois.. -->
-          </div>
           <ion-buttons>
             <ion-button id="open-modal" class="button-page-b">Calculer le score PAGE-B</ion-button>
           </ion-buttons>
           <app-modal-page-b
-            messageGt10="Indication à réaliser une par échographie abdominale et dosage de l'Alpha-foetoprotéine tous les 6 mois."
+            messageGt10="Indication à réaliser une échographie abdominale et dosage de l'Alpha-foetoprotéine tous les 6 mois."
             messageLt10="Pas d'indication particulière."
           ></app-modal-page-b>
 
@@ -57,6 +52,10 @@
         <div *ngIf="situation === CO_VHC">
           <ion-title class="ion-margin-top ion-no-padding ion-margin-bottom">Co - Infection VHC</ion-title>
           <ul>
+            <li>
+              Indication de traitement antiviral du VHB&nbsp;: identique à celle des patients mono-infectés par le VHB.
+            </li>
+            <br />
             <li>
               Si patient déja traité par analogues&nbsp;; pas d'interaction avec les agents antiviraux d'action directs (AAD).
               Risque pour la fonction rénale si ténofovir et sofosbuvir, à surveiller avec créatininémie en cours de traitement par AAD.
@@ -86,6 +85,13 @@
                 </li>
                 <li>si score PAGE B > = 10</li>
               </ul>
+              <ion-buttons class="app-mt-sm">
+                <ion-button id="open-modal" class="button-page-b">Calculer le score PAGE-B</ion-button>
+              </ion-buttons>
+              <app-modal-page-b
+                messageGt10="Indication à réaliser une échographie abdominale et dosage de l'Alpha-foetoprotéine tous les 6 mois."
+                messageLt10="Pas d'indication particulière."
+              ></app-modal-page-b>
             </li>
           </ul>
         </div>
@@ -95,7 +101,7 @@
           <ul>
             <li>
               Situation complexe : patient à adresser en consultation d'hépatologie spécialisée, traitement à valider en RCP
-              (fiche disponible sur le site de l'AFEF).
+              (fiche disponible sur <a href="https://afef.asso.fr/article_actu/fiche-rcp-hepatite-delta/" target="_blank">le site de l'AFEF</a>).
             </li>
             <br />
             <li>
@@ -181,57 +187,31 @@
           <ion-title class="ion-margin-top ion-no-padding ion-margin-bottom">Cirrhose</ion-title>
           <ul>
             <li>
-              <div class="app-mb-sm">Cirrhose compensée :</div>
+              <div class="app-mb-sm">cirrhose décompensée :</div>
               <ul>
-                <li class="app-mb-sm">si ADN détectable = traitement</li>
-                <li>si ADN indétectable sans coinfection&nbsp;: traitement à discuter</li>
-              </ul>
-            </li>
-            <br />
-            <li>Carcinome hépato-celullaire = traitement</li>
-            <br />
-            <li>Cirrhose décompensée&nbsp;:  adresser le patient à un centre de transplantation hépatique en parallèle de l'instauration du traitement</li>
-            <br />
-            <li>
-              Traitements :
-              <ul>
-                <li class="app-mb-sm">ENTECAVIR (BARACLUDE) : 0.5 mg/j à adapter à la fonction rénale</li>
-                <li class="app-mb-sm">Si cirrhose décompensée&nbsp;: ENTECAVIR 1mg/j</li>
-                <li>TENOFOVIR DISOPROXIL (VIREAD) : 245 mg/j</li>
-              </ul>
-            </li>
-            <br />
-            <li>
-              Suivi tous les 6&nbsp;mois :
-              <ul>
-                <li class="app-mb-sm">Échographie abdominale avec doppler + dosage de l'alphafoetoprotéine</li>
-                <li>Surveillance de la fonction hépatique et de la fonction rénale</li>
-              </ul>
-            </li>
-            <br />
-            <li>
-              Cirrhose décompensée :
-              <ul>
-                <li class="app-mb-sm">Traitement par analogues&nbsp;; entécavir : 1mg/j, ténofovir : 245mg/j</li>
+                <li class="app-mb-sm">Traitement par analogues&nbsp;; entécavir:&nbsp;1mg/j, ténofovir:&nbsp;245mg/j</li>
                 <li class="app-mb-sm">Interféron pégylé contre indiqué</li>
                 <li class="app-mb-sm">
                   Les patients doivent être traités immédiatement par analogue quel que soit le niveau de la charge virale VHB. 
-                  L'IFN PEG est contre indiqué. Si un traitement par entécavir est choisi, la dose doit être de 1mg/jour.
+                  L'IFN&nbsp;PEG est contre indiqué. Si un traitement par entécavir est choisi, la dose doit être de 1mg/jour.
                   S'il s'agit du ténofovir, la dose est celle habituelle de 245mg/jour. Le patient doit avoir une surveillance
                   régulière de la tolérance du traitement en raison d'un risque d'acidose lactique ou d'insuffisance rénale.
                 </li>
                 <li class="app-mb-sm">Discussion avec un centre de greffe hépatique concernant l'indication d'une transplantation hépatique.</li>
+                <li>Dépistage tous les 6 mois du CHC par échographie hépatique et alpha-foetoprotéine</li>
               </ul>
             </li>
+            <br />
             <li>
-              Cirrhose compensée :
+              <div class="app-mb-sm">cirrhose compensée :</div>
               <ul>
-                <li class="app-mb-sm">ADN VHB détectable : Traitement par analogues : entécavir : 1mg/j, ténofovir : 245mg/j</li>
-                <li class="app-mb-sm">ADN VHB indétectable : pas de traitement sous réserve de la possibilité de suivi.</li>
-                <li class="app-mb-sm">Dépistage tous les 6 mois du CHC par échographie hépatique et alpha-foetoprotéine.</li>
+                <li class="app-mb-sm">ADN VHB détectable : Traitement par analogues; entécavir:&nbsp;1mg/j, ténofovir:&nbsp;245mg/j</li>
+                <li class="app-mb-sm">ADN VHB indétectable : pas de traitement sous réserve de la possibilité de suivi</li>
+                <li class="app-mb-sm">Dépistage tous les 6&nbsp;mois du CHC par échographie hépatique et alpha-foetoprotéine</li>
               </ul>
             </li>
           </ul>
+          <span class="color-violet">/!\ Cas particulier du CHC : traitement par analogues quelque que soit le stade de l'infection virale B et de la cirrhose</span>
         </div>
 
       </ion-col>
