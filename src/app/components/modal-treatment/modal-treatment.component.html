@@ -1,0 +1,48 @@
+<ion-modal trigger="open-modal-treatment">
+  <ng-template>
+    <ion-header class="ion-no-border">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()" color="dark">
+            <ion-icon slot="icon-only" color="dark" src="/assets/svg/close-outline.svg"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-title>Traitement</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <div class="container">
+        <h4>I/ Quel traitement choisir&nbsp;?</h4>
+        <h6>a. Analogues nucléos(t)idiques à haute barrière de résistance</h6>
+        <ul>
+          <li class="app-mb-sm">ENTÉCAVIR&nbsp;: 0,5&nbsp;mg/j à adapter à la fonction rénale</li>
+          <li>TÉNOFOVIR DISOPROXIL&nbsp;: 245&nbsp;mg/j</li>
+        </ul>
+        Le traitement antiviral est recommandé jusqu'à disparition de l'Ag&nbsp;Hbs.<br/><br/>
+        Préférer l'entécavir si&nbsp;:
+        <ul class="app-mt-sm">
+          <li class="app-mb-sm">Altération de la fonction rénale</li>
+          <li>Facteurs de risque de maladie rénale ou osseuse (cirrhose décompensée, insuffisance rénale chronique avec Cl &lt; 60&nbsp;ml/mn, HTA peu contrôlée, protéinurie, diabète déséquilibré́, glomérulonéphrite, traitements néphrotoxiques, ATCD de transplantation d'organes solides, ATCD fracture de fatigue, ostéoporose, corticothérapie associée chez les plus de 60 ans)</li>
+        </ul>
+        <h6 class="app-mt-lg">b. Interféron pégylé (IFN-PEG)&nbsp;:</h6>
+          Ce traitement peut être proposé s'il existe des facteurs prédictifs favorables (génotype A, ADN VHB&nbsp;&lt;&nbsp;200.000&nbsp;UI/mL, ALAT&nbsp;&gt;&nbsp;5N).
+          <br/><br/>
+          Avantage : durée de traitement finie (48&nbsp;sem) mais présence de contre-indications et d'effets indésirables notables nécessitant une surveillance clinico-biologique rapprochée.
+
+        <h4 class="app-mt-lg">II/ Quel rythme de surveillance pour les patients traités par un analogue&nbsp;:</h4>
+        <ol>
+          <li class="app-mb-sm">Bilan hépatique complet + ADN&nbsp;VHB tous les 3&nbsp;mois jusqu'à indétectabilité de la charge virale puis tous les 6 mois.</li>
+          <li class="app-mb-sm">Surveillance du risque rénal notamment sous ténofovir avec ionogramme sanguin, créatininémie et phosphorémie après 2 à 4&nbsp;semaines de traitement puis tous les 3 à 6&nbsp;mois puis tous les 6&nbsp;mois. Risque de syndrome de Fanconi.</li>
+          <li class="app-mb-sm">NFS-Plaquettes régulière pour calcul du score PAGE-B</li>
+          <li class="app-mb-sm">Surveillance de la fibrose hépatique par méthode non invasive type fibroscan : tous les 1 à 3&nbsp;ans selon l'élasticité initiale et la présence éventuelle de comorbidités hépatiques</li>
+          <li>Surveillance de la quantification de l'Ag HbS tous les 3&nbsp;ans si &gt; 1000 UI/ml ou tous les ans si &lt; 1000 UI/ml.<br />En cas de négativation de l'AgHBs, faire la recherche des anticorps anti-HbS à 6&nbsp;mois avant d'envisager l'arrêt du traitement en cas de positivité (séroconversion système HBs)</li>
+        </ol>
+        
+      </div>
+      <ion-buttons class="ion-justify-content-center">
+        <ion-button (click)="cancel()" color="violet" shape="round" fill="solid" class="ok-button">Ok</ion-button>
+      </ion-buttons>
+    </ion-content>
+  </ng-template>
+</ion-modal>

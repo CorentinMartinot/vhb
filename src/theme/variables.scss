@@ -475,3 +475,13 @@
 .app-mt-sm {
   margin-top: 6px;
 }
+
+.app-mt-lg {
+  margin-top: 30px;
+}
+
+@media (max-width: 576px) {
+  ul, ol {
+    padding-left: 20px;
+  }
+}

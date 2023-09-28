@@ -40,7 +40,7 @@
           Le score PAGE-B semble validé pour le dépistage du carcinome hépatocellulaire.
           <br/><br/>
           <ion-buttons>
-            <ion-button id="open-modal" class="button-page-b">Calculer le score PAGE-B</ion-button>
+            <ion-button id="open-modal-page-b" class="button-page-b">Calculer le score PAGE-B</ion-button>
           </ion-buttons>
           <app-modal-page-b
             messageGt10="Indication à réaliser une échographie abdominale et dosage de l'Alpha-foetoprotéine tous les 6 mois."
@@ -86,7 +86,7 @@
                 <li>si score PAGE B > = 10</li>
               </ul>
               <ion-buttons class="app-mt-sm">
-                <ion-button id="open-modal" class="button-page-b">Calculer le score PAGE-B</ion-button>
+                <ion-button id="open-modal-page-b" class="button-page-b">Calculer le score PAGE-B</ion-button>
               </ion-buttons>
               <app-modal-page-b
                 messageGt10="Indication à réaliser une échographie abdominale et dosage de l'Alpha-foetoprotéine tous les 6 mois."
@@ -138,6 +138,10 @@
               des aiguilles ou des structures anatomiques pointues dans le corps humain (os, dents).
             </li>
           </ul>
+          <ion-buttons class="button-treatment-container">
+            <ion-button id="open-modal-treatment" color="violet" shape="round" fill="solid" class="button-treatment">Voir infos traitement</ion-button>
+          </ion-buttons>
+          <app-modal-treatment></app-modal-treatment>
         </div>
 
         <div *ngIf="situation === FAMILY_HISTORY_OF_CIRRHOSIS">
@@ -154,7 +158,7 @@
                 <li>
                   Selon score PAGE-B si antécédent familial de cirrhose
                   <ion-buttons class="app-mt-sm">
-                    <ion-button id="open-modal" class="button-page-b">Calculer le score PAGE-B</ion-button>
+                    <ion-button id="open-modal-page-b" class="button-page-b">Calculer le score PAGE-B</ion-button>
                   </ion-buttons>
                 </li>
               </ul>

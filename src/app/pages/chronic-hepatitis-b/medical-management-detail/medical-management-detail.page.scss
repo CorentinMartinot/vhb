@@ -19,6 +19,19 @@ a {
     border-radius: 24px;
 }
 
+@media (max-width: 576px) {
+    .button-treatment-container {
+        justify-content: center;
+    }
+}
+
+.button-treatment {
+    margin-top: 20px;
+    text-transform: none;
+    height: 45px;
+    width: 250px;
+}
+
 .color-violet {
     color: var(--ion-color-violet);
 }

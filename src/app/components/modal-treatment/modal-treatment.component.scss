@@ -1,0 +1,29 @@
+@media (max-width: 576px) {
+    .container {
+        margin: 10px
+    }
+}
+
+@media (min-width: 576px) {
+    .container {
+        margin: 30px;
+    }
+}
+
+.ok-button {
+    margin-top: 80px;
+    margin-bottom: 40px;
+    width: 140px;
+    height: 45px;
+}
+
+h4 {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+h6 {
+    font-size:large;
+    font-weight: bold;
+    color: var(--ion-color-violet);
+}
