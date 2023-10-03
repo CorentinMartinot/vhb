@@ -7,18 +7,19 @@ import { IonContent } from '@ionic/angular';
   styleUrls: ['./other-situation.page.scss'],
 })
 export class OtherSituationPage implements OnInit {
-  adnVhbOptions = [{ label: '< 2000', value: 'lt2000'}, { label: '2000 - 20.000', value: 'btw2000-20000' }, { label: '> 20.000', value: 'gt20000' }];
-  // < N ou N tout court ??
-  alatOptions = [{ label: 'normal (N)', value: 'normal'}, { label: 'N - 2N', value: 'btwn-2n' }, { label: '> 2N', value: 'gt2n' }];
-  biopsieOptions = [{ label: '< F2', value: 'ltf2'}, { label: '> F2', value: 'gtf2' }, { label: 'biopsie non realisée', value: 'nobiopsie' }];
-  fibroscanOptions = [{ label: '< 9', value: 'lt9'}, { label: '9 - 12', value: 'btw9-12' }, { label: '> 12', value: 'gt12' }];
-  alatMoreSpecificOptions = [{ label: '2N - 5N', value: 'btw2n-5n' }, { label: '> 5N', value: 'gt5n' }];
+  agHbeOptions = [{ label: '-', value: 'neg'}, { label: '+', value: 'pos' }];
+  adnVhbOptions = [{ label: '⩽ 2000 UI/mL', value: 'lt2000'}, { label: '2000 < _ ⩽ 20.000 UI/mL', value: 'btw2000-20000' }, { label: '20.000 < _ ⩽ 1.000.000 UI/mL', value: 'btw20000-1M' }, { label: '> 1.000.000 UI/mL', value: 'gt1M' }];
+  alatOptions = [{ label: 'normal (N)', value: 'normal'}, { label: 'N < _ ⩽ 2N', value: 'btwn-2n' }, { label: '> 2N', value: 'gt2n' }];
+  biopsieOptions = [{ label: '< F2', value: 'ltf2'}, { label: '⩾ F2', value: 'gtf2' }, { label: 'biopsie non realisée', value: 'nobiopsie' }];
+  fibroscanOptions = [{ label: '< 6 kPa', value: 'lt6'}, { label: '6 ⩽ _ < 9 kPa', value: 'btw6-9'}, { label: '⩾ 9 kPa', value: 'gt9' }];
+  alatMoreSpecificOptions = [{ label: '2N < _ < 5N', value: 'btw2n-5n' }, { label: '⩾ 5N', value: 'gt5n' }];
   ageOptions = [{ label: '16 - 29 ans', value: 'btw16-29' }, { label: '30 - 39 ans', value: 'btw30-39' }, { label: '40 - 49 ans', value: 'btw40-49' }, { label: '50 - 59 ans', value: 'btw50-59' }, { label: '60 - 69 ans', value: 'btw60-69' }, { label: '60 et plus', value: '70more' }];
   sexeOptions = [{ label: 'Homme', value: 'M' }, { label: 'Femme', value: 'F' }];
-  plateletsOptions = [{ label: '< 100 g/L', value: 'lt100' }, { label: '100 - 199 g/L', value: 'btw100-200' }, { label: '> 200 g/L', value: 'gt200' }];
+  plateletsOptions = [{ label: '< 100 g/L', value: 'lt100' }, { label: '100 - 199 g/L', value: 'btw100-200' }, { label: '⩾ 200 g/L', value: 'gt200' }];
 
   @ViewChild(IonContent) content: IonContent | undefined;
   
+  agHbe: string = '';
   adnVhb: string = '';
   alat: string = '';
   biopsie: string = '';
@@ -30,11 +31,12 @@ export class OtherSituationPage implements OnInit {
 
   showAlatMoreSpecific = false;
   noBiopsie = false;
+  fibroscanResult = '';
   fibroseCompleted = false;
   pageBCompleted = false;
   displayResult = false;
   treatment = '';
-  surveyance: boolean | undefined = undefined;
+  resultPageB: boolean | undefined = undefined;
 
   constructor() { }
 
@@ -47,8 +49,16 @@ export class OtherSituationPage implements OnInit {
     this.content?.scrollToBottom(500);
   }
 
+  setAgHbe($event: any) {
+    this.agHbe = $event.detail.value;
+  }
+  
   setAdnVhb($event: any) {
+    const firstChange = !this.agHbe;
+    
     this.adnVhb = $event.detail.value;
+    this.computeDisplayResult();
+    if (firstChange) this.waitAndScrollToBottom();
   }
 
   setAlat($event: any) {
@@ -119,43 +129,73 @@ export class OtherSituationPage implements OnInit {
   }
 
   computeDisplayResult () {
-    this.fibroseCompleted = !!this.adnVhb && !!this.alat && !!this.biopsie &&
+    this.fibroseCompleted = !!this.agHbe && !!this.adnVhb && !!this.alat && !!this.biopsie &&
     (
       (this.biopsie !== 'nobiopsie') ||
       (!!this.fibroscan && (this.alat !== 'gt2n' || !!this.alatMoreSpecific))
-      );
+    );
     
     this.pageBCompleted = (!!this.age && !!this.sexe && !!this.platelets) ||
-      this.age === 'btw16-29' ||
-      (this.age === 'btw30-39' && this.sexe === 'F') ||
-      (this.age === 'btw40-49' && !!this.sexe) ||
-      (this.age === 'btw50-59' && !!this.sexe) ||
-      (this.age === 'btw60-69' && this.sexe === 'M') ||
-      this.age === '70more';
-
-      this.displayResult = this.fibroseCompleted && this.pageBCompleted;
-      
-      if (this.displayResult) {
-        this.treatment = this.computeTreatment();
-        this.surveyance = this.computeSurveyance();
-      }
-  }
-
-  computeTreatment () {
-    const alatValue = this.alat === 'gt2n' ? this.alatMoreSpecific : this.alat;
-    if (alatValue === 'gt5n') return 'ininterpretable'; // le fibroscan, mettre un enum plus tard
-
-    const hasFibrose = this.biopsie === 'gtf2' ||
-      (this.fibroscan === 'btw9-12' && alatValue === 'normal') ||
-      this.fibroscan === 'gt12';
-
-    const noTreatment = !hasFibrose && 
-      (alatValue === 'normal' || (alatValue === 'btwn-2n' && this.adnVhb !== 'btw2000-20000'));
+    this.age === 'btw16-29' ||
+    (this.age === 'btw30-39' && this.sexe === 'F') ||
+    (this.age === 'btw40-49' && !!this.sexe) ||
+    (this.age === 'btw50-59' && !!this.sexe) ||
+    (this.age === 'btw60-69' && this.sexe === 'M') ||
+    this.age === '70more';
     
-    return noTreatment ? 'non' : 'oui';
+    this.displayResult = this.fibroseCompleted && this.pageBCompleted;
+    
+    if (this.displayResult) {
+      this.treatment = this.computeTreatment();
+      this.resultPageB = this.computePageB();
+    }
   }
 
-  computeSurveyance () {
+  computeFibroscan () {
+    if (this.fibroscan === 'lt6') return 'no';
+    if (this.fibroscan === 'btw6-9') return 'uninterpretable-fibroscan-btw6-9';
+
+    const alatValue = this.alat === 'gt2n' ? this.alatMoreSpecific : this.alat;
+    if (alatValue === 'gt5n') return 'uninterpretable-alat-gt5n';
+    return 'yes';
+  }
+  
+  computeTreatment () {
+    if (this.biopsie === 'nobiopsie') {
+      this.fibroscanResult = this.computeFibroscan();
+
+      const isFibroscanUninterpretable = this.fibroscanResult === 'uninterpretable-fibroscan-btw6-9' || this.fibroscanResult === 'uninterpretable-alat-gt5n'
+
+      // On met ici les cas où ; ne pas savoir si il y a fibrose ou non, empeche de conclure sur le traitement
+      const isFibroscanNeeded = 
+        (this.agHbe === 'neg' && this.adnVhb !== 'lt2000' && this.alat === 'normal') ||
+        (
+          this.agHbe === 'pos' &&
+          (this.adnVhb === 'btw20000-1M' || this.adnVhb === 'gt1M') &&
+          (this.alat === 'normal' || this.alat === 'btwn-2n')
+        )
+      if (isFibroscanUninterpretable && isFibroscanNeeded) return 'not-defined';
+    }
+
+    const hasInterpretedFibrose = this.biopsie === 'gtf2' || this.fibroscanResult === 'yes';
+
+    if (
+      this.agHbe === 'pos' && 
+      this.adnVhb === 'gt1M' 
+      && (this.alat === 'normal' || this.alat === 'btwn-2n') 
+      && !hasInterpretedFibrose
+      && this.age !== 'btw16-29'
+    ) return 'optionnal';
+
+    const noTreatment = 
+    (this.adnVhb === 'lt2000') ||
+    (this.alat === 'normal' && !hasInterpretedFibrose) ||
+    (this.agHbe === 'pos' && (this.adnVhb === 'btw2000-20000' || (this.alat === 'btwn-2n' && !hasInterpretedFibrose)))
+    
+    return noTreatment ? 'no' : 'yes';
+  }
+
+  computePageB () {
     return this.age === '70more' ||
       (this.age === 'btw60-69' && this.sexe === 'M') ||
       (this.age === 'btw60-69' && this.sexe === 'F' && this.platelets === 'lt100') ||
@@ -165,6 +205,7 @@ export class OtherSituationPage implements OnInit {
   }
 
   reset () {
+    this.agHbe = '';
     this.adnVhb = '';
     this.alat = '';
     this.biopsie = '';
@@ -179,6 +220,7 @@ export class OtherSituationPage implements OnInit {
     this.pageBCompleted = false;
     this.displayResult = false;
     this.treatment = '';
-    this.surveyance = undefined;
+    this.resultPageB = undefined;
+    this.fibroscanResult = '';
   }
 }
