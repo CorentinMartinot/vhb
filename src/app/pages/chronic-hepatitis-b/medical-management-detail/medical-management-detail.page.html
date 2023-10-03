@@ -141,7 +141,7 @@
           <ion-buttons class="button-treatment-container">
             <ion-button id="open-modal-treatment" color="violet" shape="round" fill="solid" class="button-treatment">Voir infos traitement</ion-button>
           </ion-buttons>
-          <app-modal-treatment></app-modal-treatment>
+          <app-modal-treatment title="Traitements professionnel de santé"></app-modal-treatment>
         </div>
 
         <div *ngIf="situation === FAMILY_HISTORY_OF_CIRRHOSIS">
@@ -164,6 +164,11 @@
               </ul>
             </li>
           </ul>
+          <ion-buttons class="button-treatment-container">
+            <ion-button id="open-modal-treatment" color="violet" shape="round" fill="solid" class="button-treatment">Voir infos traitement</ion-button>
+          </ion-buttons>
+          <app-modal-treatment title="Traitements antécédent familial au premier degré de CHC" [noInterferon]="true"></app-modal-treatment>
+
           <app-modal-page-b
             messageGt10="Réaliser un dépistage CHC"
             messageLt10="Pas besoin dépistage CHC"
@@ -185,6 +190,11 @@
               Traitement par interféron contre-indiqué si manifestations immuno-médiées&nbsp;; risque d'aggravation.
             </li>
           </ul>
+
+          <ion-buttons class="button-treatment-container">
+            <ion-button id="open-modal-treatment" color="violet" shape="round" fill="solid" class="button-treatment">Voir infos traitement</ion-button>
+          </ion-buttons>
+          <app-modal-treatment title="Traitements VHB extra-hépatique" [noInterferon]="true"></app-modal-treatment>
         </div>
 
         <div *ngIf="situation === CIRRHOSE">

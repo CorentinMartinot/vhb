@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 
 @Component({
@@ -8,6 +8,8 @@ import { IonModal } from '@ionic/angular';
 })
 export class ModalTreatmentComponent implements OnInit {
   @ViewChild(IonModal) modal: IonModal | undefined;
+  @Input() title: string = 'Traitements';
+  @Input() noInterferon: boolean = false;
 
   constructor() { }
 

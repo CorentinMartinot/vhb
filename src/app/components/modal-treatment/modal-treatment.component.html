@@ -7,14 +7,15 @@
             <ion-icon slot="icon-only" color="dark" src="/assets/svg/close-outline.svg"></ion-icon>
           </ion-button>
         </ion-buttons>
-        <ion-title>Traitement</ion-title>
+        <ion-title>{{title}}</ion-title>
       </ion-toolbar>
     </ion-header>
 
     <ion-content>
       <div class="container">
         <h4>I/ Quel traitement choisir&nbsp;?</h4>
-        <h6>a. Analogues nucléos(t)idiques à haute barrière de résistance</h6>
+        <span *ngIf="noInterferon">Analogues nucléos(t)idiques à haute barrière de résistance&nbsp;:</span>
+        <h6 *ngIf="!noInterferon">a. Analogues nucléos(t)idiques à haute barrière de résistance</h6>
         <ul>
           <li class="app-mb-sm">ENTÉCAVIR&nbsp;: 0,5&nbsp;mg/j à adapter à la fonction rénale</li>
           <li>TÉNOFOVIR DISOPROXIL&nbsp;: 245&nbsp;mg/j</li>
@@ -25,10 +26,12 @@
           <li class="app-mb-sm">Altération de la fonction rénale</li>
           <li>Facteurs de risque de maladie rénale ou osseuse (cirrhose décompensée, insuffisance rénale chronique avec Cl &lt; 60&nbsp;ml/mn, HTA peu contrôlée, protéinurie, diabète déséquilibré́, glomérulonéphrite, traitements néphrotoxiques, ATCD de transplantation d'organes solides, ATCD fracture de fatigue, ostéoporose, corticothérapie associée chez les plus de 60 ans)</li>
         </ul>
-        <h6 class="app-mt-lg">b. Interféron pégylé (IFN-PEG)&nbsp;:</h6>
-          Ce traitement peut être proposé s'il existe des facteurs prédictifs favorables (génotype A, ADN VHB&nbsp;&lt;&nbsp;200.000&nbsp;UI/mL, ALAT&nbsp;&gt;&nbsp;5N).
-          <br/><br/>
-          Avantage : durée de traitement finie (48&nbsp;sem) mais présence de contre-indications et d'effets indésirables notables nécessitant une surveillance clinico-biologique rapprochée.
+        <div *ngIf="!noInterferon">
+          <h6 class="app-mt-lg">b. Interféron pégylé (IFN-PEG)&nbsp;:</h6>
+            Ce traitement peut être proposé s'il existe des facteurs prédictifs favorables (génotype A, ADN VHB&nbsp;&lt;&nbsp;200.000&nbsp;UI/mL, ALAT&nbsp;&gt;&nbsp;5N).
+            <br/><br/>
+            Avantage : durée de traitement finie (48&nbsp;sem) mais présence de contre-indications et d'effets indésirables notables nécessitant une surveillance clinico-biologique rapprochée.
+        </div>
 
         <h4 class="app-mt-lg">II/ Quel rythme de surveillance pour les patients traités par un analogue&nbsp;:</h4>
         <ol>
