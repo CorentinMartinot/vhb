@@ -40,7 +40,7 @@ export class MedicalManagementListPage implements OnInit {
       onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: CARE_STAFF } }),
     },
     { 
-      name: 'Antécédent familial de cirrhose au CHC',
+      name: 'Antécédent familial de cirrhose ou de CHC',
       onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: FAMILY_HISTORY_OF_CIRRHOSIS } }),
     },
     { 
