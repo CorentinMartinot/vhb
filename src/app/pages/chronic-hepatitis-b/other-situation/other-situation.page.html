@@ -9,6 +9,12 @@
       <ion-col size-sm="8" offset-sm="2" size-md="5" offset-md="3.5">
         <ion-card class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="displayResult">
           <div class="card-header">
+            <ion-label class="card-title">Ag HBe</ion-label>
+          </div>
+          <radio-area (change)="setAgHbe($event)" [options]="agHbeOptions" [selectedValue]="agHbe"></radio-area>
+        </ion-card>
+        <ion-card *ngIf="agHbe" class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="displayResult">
+          <div class="card-header">
             <ion-label class="card-title">ADN VHB</ion-label>
           </div>
           <radio-area (change)="setAdnVhb($event)" [options]="adnVhbOptions" [selectedValue]="adnVhb"></radio-area>
@@ -59,8 +65,9 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
+  
   <ng-container *ngIf="displayResult">
+    
     <ion-item-divider></ion-item-divider>
     <ion-row class="ion-justify-content-end ion-margin-end" >
       <ion-buttons class="ion-margin-top ion-margin-bottom">
@@ -70,41 +77,72 @@
         </ion-button>
       </ion-buttons>
     </ion-row>
-
-    <ion-row>
+    
+    <ion-row class="result-container">
       <ion-col>
 
-        <div *ngIf="treatment === 'oui'">
-          <span>Patient a traiter.</span>
-          <br/><br/>
-          <span>Utilisation d'analogues en monothérapie :</span>
-          <ul>
-            <li class="app-mb-sm">
-              <span>ENTECAVIR (BARACLUDE)&nbsp;: 0.5&nbsp;mg/j à adapter à la fonction rénale</span>
-            </li>
-            <li>
-              <span>TENOFOVIR DISOPROXIL (VIREAD)&nbsp;: 245&nbsp;mg/j à adapter à la fonction rénale</span>
-            </li>
-            <li>
-              <span>Tenofovir alafenamide (non disponible en France)</span>
-            </li>
-          </ul>
+        <div *ngIf="!!fibroscanResult" class="fibroscan-result">
+          Interprétation du fibroscan&nbsp;: 
+            <span *ngIf="fibroscanResult === 'yes'">Patient atteint de fibrose</span>
+            <span *ngIf="fibroscanResult === 'no'">Pas de fibrose</span>
+            <span *ngIf="fibroscanResult === 'uninterpretable-fibroscan-btw6-9'">Valeur en zone grise, on ne peut conclure au degré de fibrose</span>
+            <span *ngIf="fibroscanResult === 'uninterpretable-alat-gt5n'">La valeur du fibroscan n'est pas interprétable en cas de cytolyse importante</span>
+        </div>
+        
+        <div *ngIf="treatment === 'yes'">
+          <h5>Patient à traiter.</h5>
+          <ion-buttons class="button-treatment-container">
+            <ion-button id="open-modal-treatment" color="violet" shape="round" fill="solid" class="button-treatment">Voir infos traitement</ion-button>
+          </ion-buttons>
+          <app-modal-treatment title="Traitements autre situtation"></app-modal-treatment>
         </div>
 
-        <div *ngIf="treatment === 'non'">
-          <span>Pas besoin de traitement</span>
+        <div *ngIf="treatment === 'optionnal'">
+          <h5>Les recommandations conseillent de proposer un traitement au patient.</h5>
+          <ion-buttons class="button-treatment-container">
+            <ion-button id="open-modal-treatment" color="violet" shape="round" fill="solid" class="button-treatment">Voir infos traitement</ion-button>
+          </ion-buttons>
+          <app-modal-treatment></app-modal-treatment>
+        </div>
+        
+        <div *ngIf="treatment === 'no'">
+          <h5 class="app-mb-sm">Pas d'indication de traitement</h5>
+          <span>Rythme de surveillance&nbsp;:</span>
+          <div *ngIf="agHbe === 'pos'">
+            <ul class="app-mt-sm">
+              <li>ALAT tous les 3&nbsp;mois et ADN tous les 6-12&nbsp;mois</li>
+              <li>Évaluation non invasive de la fibrose tous les ans</li>
+            </ul>
+          </div>
+          <div *ngIf="agHbe === 'neg' && adnVhb === 'lt2000'">
+            <ul>
+              <li>ALAT et ADN tous les 6-12&nbsp;mois</li>
+              <li>Évaluation de la fibrose par méthode non invasive tous les 3&nbsp;ans</li>
+            </ul>
+          </div>
+          <div *ngIf="agHbe === 'neg' && adnVhb !== 'lt2000'">
+            <ul>
+              <li>ALAT tous les 3&nbsp;mois pendant 1&nbsp;an puis tous les 6&nbsp;mois, ADN tous les 6&nbsp;mois.</li>
+              <li>Évaluation de la fibrose par méthode non invasive tous les 3&nbsp;ans</li>
+            </ul>
+          </div>
         </div>
 
-        <div *ngIf="treatment === 'ininterpretable'">
-          <span>Fibroscan ininterpretable. On fait quoi alors ??</span>
+        <div *ngIf="treatment === 'not-defined'">
+          <h5>La présence de fibrose peut changer l'indication de traitement, une biopsie hépatique doit être discutée</h5>
         </div>
 
-        <div *ngIf="surveyance">
-          <span>SURVEILLANCE</span>
-        </div>
 
-        <div *ngIf="!surveyance">
-          <span>pas de surveillance particuliere</span>
+        <br /><br />
+      
+        <div *ngIf="!!resultPageB">
+          <b class="app-mb-sm">Score PAGE&nbsp;B&nbsp;: ⩾10</b><br />
+          <span>Indication à réaliser une échographie abdominale et dosage de l'Alpha-foetoprotéine tous les 6&nbsp;mois.</span>
+        </div>
+        
+        <div *ngIf="!resultPageB">
+          <b class="app-mb-sm">Score PAGE B&nbsp;: &lt;10</b><br />
+          <span>Pas d'indication particulière.</span>
         </div>
 
       </ion-col>

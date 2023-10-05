@@ -35,3 +35,31 @@ ion-card {
 .margin-top {
   margin-top: 20px;
 }
+
+@media (min-width: 576px) {
+  .result-container {
+    margin: 10px 30px 30px 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .button-treatment-container {
+    justify-content: center;
+  }
+}
+
+.button-treatment {
+  margin-top: 10px;
+  text-transform: none;
+  height: 45px;
+  width: 250px;
+}
+
+.fibroscan-result {
+  font-style: italic;
+}
+
+h5 {
+  margin-top: 5px;
+  font-weight: bold;
+}
