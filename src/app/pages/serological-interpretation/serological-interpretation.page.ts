@@ -24,6 +24,10 @@ export class SerologicalInterpretationPage implements OnInit {
     this.displayResult = false;
   }
 
+  goToAcuteHepatitisB() {
+    this.navCtrl.navigateForward('acute-hepatitis-b');
+  }
+
   goToVhbResolved() {
     this.navCtrl.navigateForward('inactive-or-recovered-carrier');
   }
