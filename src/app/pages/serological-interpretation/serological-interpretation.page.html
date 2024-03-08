@@ -68,16 +68,20 @@
               <li class="app-mb-sm">
                 Très probable Hépatite aiguë si Ac&nbsp;HBc&nbsp;+ type&nbsp;IgM et transaminases très élevées mais des réactivations virales&nbsp;B peuvent avoir ce profil. À discuter avec virologue.
                 <br/>
-                Si tableau évocateur d'hépatite B aigüe, <a class="link-button color-violet" (click)="goToHome()">cf chapitre hépatite B chronique</a>. 
+                Si tableau évocateur d'hépatite B aigüe, <a class="link-button color-indigo" (click)="goToAcuteHepatitisB()">cf chapitre hépatite B aigüe</a>. 
               </li>
               <li>Hépatite chronique si ce profil persiste >&nbsp;6&nbsp;mois avec bilan hépatique normal ou subnormal.  Bilan d'hépatite chronique à faire <a class="link-button color-violet" (click)="goToHome()">(cf chapitre hépatite B chronique)</a>.</li>
             </ul>
           </div>
 
           <div *ngIf="agHbs && !acAntiHbs && !acAntiHbc">
-            <b>Cas rare : probable début d'hépatite&nbsp;B aiguë.</b>
+            <b>Cas rare&nbsp;: probable début d'hépatite&nbsp;B aiguë.</b> Recontrôler la sérologie +&nbsp;Ac&nbsp;HbC type&nbsp;IgM +&nbsp;bilan hépatique
             <br/><br/>
-            Recontrôler la sérologie +&nbsp;Ac&nbsp;HbC type&nbsp;IgM +&nbsp;bilan hépatique
+            Ne pas méconnaître :
+            <ul>
+              <li class="app-mb-sm">Vaccination récente (détection Ag vaccinaux)</li>
+              <li class="app-mb-sm">Faux positif (exceptionnel)</li>
+            </ul>
           </div>
 
           <div *ngIf="!agHbs && acAntiHbs && acAntiHbc">
