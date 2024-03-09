@@ -136,12 +136,11 @@ export class OtherSituationPage implements OnInit {
     );
     
     this.pageBCompleted = (!!this.age && !!this.sexe && !!this.platelets) ||
-    this.age === 'btw16-29' ||
-    (this.age === 'btw30-39' && this.sexe === 'F') ||
-    (this.age === 'btw40-49' && !!this.sexe) ||
-    (this.age === 'btw50-59' && !!this.sexe) ||
-    (this.age === 'btw60-69' && this.sexe === 'M') ||
-    this.age === '70more';
+      (this.age === 'btw16-29' && this.sexe === 'F') ||
+      (this.age === 'btw40-49' && this.sexe === 'M') ||
+      (this.age === 'btw50-59' && this.sexe === 'M') ||
+      (this.age === 'btw60-69' && this.sexe === 'M') ||
+      this.age === '70more';
     
     this.displayResult = this.fibroseCompleted && this.pageBCompleted;
     
@@ -197,11 +196,16 @@ export class OtherSituationPage implements OnInit {
 
   computePageB () {
     return this.age === '70more' ||
-      (this.age === 'btw60-69' && this.sexe === 'M') ||
-      (this.age === 'btw60-69' && this.sexe === 'F' && this.platelets === 'lt100') ||
-      (this.age === 'btw50-59' && this.sexe === 'M') ||
-      (this.age === 'btw40-49' && this.sexe === 'M') ||
-      (this.age === 'btw30-39' && this.sexe === 'M' && this.platelets === 'lt100');
+      (this.age === 'btw60-69' && !(this.sexe === 'F' && this.platelets === 'gt200')) ||
+      (this.age === 'btw50-59' && !(this.sexe === 'F' && this.platelets === 'gt200')) ||
+      (this.age === 'btw40-49' && !(this.sexe === 'F' && this.platelets === 'gt200')) ||
+
+      (this.age === 'btw30-39' && this.sexe === 'M' && this.platelets === 'lt100') ||
+      (this.age === 'btw30-39' && this.sexe === 'M' && this.platelets === 'btw100-200') ||
+      (this.age === 'btw30-39' && this.sexe === 'F' && this.platelets === 'lt100') ||
+      
+      (this.age === 'btw16-29' && this.sexe === 'M' && this.platelets === 'lt100') ||
+      (this.age === 'btw16-29' && this.sexe === 'M' && this.platelets === 'btw100-200');
   }
 
   reset () {
