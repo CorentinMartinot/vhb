@@ -38,4 +38,8 @@ export class MedicalManagementDetailPage implements OnInit {
     });
   }
 
+  clickLink() {
+    window.open('https://raw.githubusercontent.com/CorentinMartinot/vhb/main/src/assets/docs/Fiche-RCP-He%CC%81patite-D_AFEF.pdf', '_blank');
+  }
+
 }
