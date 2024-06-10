@@ -9,7 +9,7 @@
         <ion-card [disabled]="displayResult" class="ion-no-margin">
           <ion-list>
             <ion-item button (click)="agHbs=!agHbs">
-              <ion-label>Ag HbS</ion-label>
+              <ion-label>Ag HBs</ion-label>
               <ion-row slot="end" class="ion-align-items-center">
                 <ion-label>-</ion-label>
                 <ion-toggle [checked]="agHbs" color="cyan" class="ion-padding-end"></ion-toggle>
@@ -17,7 +17,7 @@
               </ion-row>
             </ion-item>
             <ion-item button (click)="acAntiHbs=!acAntiHbs">
-              <ion-label>Ac anti-HbS</ion-label>
+              <ion-label>Ac anti-HBs</ion-label>
               <ion-row slot="end" class="ion-align-items-center">
                 <ion-label>-</ion-label>
                 <ion-toggle [checked]="acAntiHbs" color="cyan" class="ion-padding-end"></ion-toggle>
@@ -25,7 +25,7 @@
               </ion-row>
             </ion-item>
             <ion-item button (click)="acAntiHbc=!acAntiHbc">
-              <ion-label>Ac anti-HbC</ion-label>
+              <ion-label>Ac anti-HBc</ion-label>
               <ion-row slot="end" class="ion-align-items-center">
                 <ion-label>-</ion-label>
                 <ion-toggle [checked]="acAntiHbc" color="cyan" class="ion-padding-end"></ion-toggle>
@@ -75,7 +75,7 @@
           </div>
 
           <div *ngIf="agHbs && !acAntiHbs && !acAntiHbc">
-            <b>Cas rare&nbsp;: probable début d'hépatite&nbsp;B aiguë.</b> Recontrôler la sérologie +&nbsp;Ac&nbsp;HbC type&nbsp;IgM +&nbsp;bilan hépatique
+            <b>Cas rare&nbsp;: probable début d'hépatite&nbsp;B aiguë.</b> Recontrôler la sérologie +&nbsp;Ac&nbsp;HBc type&nbsp;IgM +&nbsp;bilan hépatique
             <br/><br/>
             Ne pas méconnaître :
             <ul>
@@ -153,11 +153,11 @@
               </li>
               <br/>
               <li>
-                pour les nouveau-nés de mère antigène Hbs&nbsp;+&nbsp;; HBVAXPRO&nbsp;5µg® ou ENGERIX&nbsp;B&nbsp;10µg® en 3&nbsp;injections (naissance, M1, M6) + IG&nbsp;anti-Hbs à la naissance (site différent de celui du vaccin)
+                pour les nouveau-nés de mère antigène HBs&nbsp;+&nbsp;; HBVAXPRO&nbsp;5µg® ou ENGERIX&nbsp;B&nbsp;10µg® en 3&nbsp;injections (naissance, M1, M6) + IG&nbsp;anti-HBs à la naissance (site différent de celui du vaccin)
               </li>
               <br/>
               <li>
-                prématurés &lt;32&nbsp;semaines et/ou poids de naissance &lt;2kg&nbsp;; schéma en 4&nbsp;injections (naissance, M1, M2, M6) + IG&nbsp;anti-Hbs à la naissance (site différent de celui du vaccin) + contrôle sérologique recommandé à partir de 9&nbsp;mois de vie (Ag&nbsp;Hbs + Ac&nbsp;anti-Hbs)
+                prématurés &lt;32&nbsp;semaines et/ou poids de naissance &lt;2kg&nbsp;; schéma en 4&nbsp;injections (naissance, M1, M2, M6) + IG&nbsp;anti-HBs à la naissance (site différent de celui du vaccin) + contrôle sérologique recommandé à partir de 9&nbsp;mois de vie (Ag&nbsp;HBs + Ac&nbsp;anti-HBs)
               </li>
               <br/>
               <li>
