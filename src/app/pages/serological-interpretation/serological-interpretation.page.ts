@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -12,9 +13,14 @@ export class SerologicalInterpretationPage implements OnInit {
   acAntiHbc: boolean = false;
   displayResult: boolean = false;
 
-  constructor(private navCtrl: NavController) {}
+  constructor(private activatedRoute: ActivatedRoute, private navCtrl: NavController) {}
 
   ngOnInit() {
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params && params['display-result']) {
+        this.displayResult = params['display-result'];
+      }
+    });
   }
 
   resetToggles() {

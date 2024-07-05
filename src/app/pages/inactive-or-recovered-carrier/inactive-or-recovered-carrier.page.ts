@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-inactive-or-recovered-carrier',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InactiveOrRecoveredCarrierPage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
   }
 
+  goToNaiveSerology() {
+    this.navCtrl.navigateForward('serological-interpretation?display-result=${true}');
+  }
 }
