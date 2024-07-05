@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';;
+import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-acute-hepatitis-b',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';;
 })
 export class AcuteHepatitisBPage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController) {}
 
   ngOnInit() {
+  }
+
+  goToHome() {
+    this.navCtrl.navigateForward('home?extent-vhb-chronicle=${true}');
   }
 
 }

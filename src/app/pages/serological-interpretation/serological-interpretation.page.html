@@ -63,14 +63,15 @@
           </div>
 
           <div *ngIf="agHbs && !acAntiHbs && acAntiHbc">
-            Cas complexe, à interpréter en fonction du contexte&nbsp;: 
+            Il faut doser les IgM anti&nbsp;HBc&nbsp;:
             <ul>
               <li class="app-mb-sm">
-                Très probable Hépatite aiguë si Ac&nbsp;HBc&nbsp;+ type&nbsp;IgM et transaminases très élevées mais des réactivations virales&nbsp;B peuvent avoir ce profil. À discuter avec virologue.
-                <br/>
-                Si tableau évocateur d'hépatite B aigüe, <a class="link-button color-indigo" (click)="goToAcuteHepatitisB()">cf chapitre hépatite B aigüe</a>. 
+                IgM anti&nbsp;HBc positif&nbsp;: probable hépatite&nbsp;B aigue (<a class="link-button color-indigo" (click)="goToAcuteHepatitisB()">cf chapitre hépatite B aigüe</a>) mais réactivation virale&nbsp;B possible pouvant nécessiter l'introduction rapide d'un traitement antiviral (profil à discuter avec un virologue).
               </li>
-              <li>Hépatite chronique si ce profil persiste >&nbsp;6&nbsp;mois avec bilan hépatique normal ou subnormal.  Bilan d'hépatite chronique à faire <a class="link-button color-violet" (click)="goToHome()">(cf chapitre hépatite B chronique)</a>.</li>
+              <br>
+              <li>
+                IgM anti HBc négatif : Très probable portage chronique de l'antigène HBs, confirmé si Ag&nbsp;HBs toujours positif au-delà de 6&nbsp;mois (<a class="link-button color-violet" (click)="goToHome()">cf chapitre hépatite B chronique</a>).
+              </li>
             </ul>
           </div>
 
@@ -161,7 +162,7 @@
               </li>
               <br/>
               <li>
-                pour les insuffisants rénaux chroniques dialysés et les immunodéprimés&nbsp;; 2&nbsp;doses d'ENGERIX&nbsp;B&nbsp;20µg® en 4&nbsp;injections (M0, M1, M2 et M6)
+                pour les insuffisants rénaux chroniques dialysés, les cirrhotiques et les immunodéprimés&nbsp;; 2&nbsp;doses d'ENGERIX&nbsp;B&nbsp;20µg® en 4&nbsp;injections (M0, M1, M2 et M6) soit 8 doses.
               </li>
               <br/>
             </ul>

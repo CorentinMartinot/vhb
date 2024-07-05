@@ -13,7 +13,7 @@ export class OtherSituationPage implements OnInit {
   biopsieOptions = [{ label: '< F2', value: 'ltf2'}, { label: '⩾ F2', value: 'gtf2' }, { label: 'biopsie non realisée', value: 'nobiopsie' }];
   fibroscanOptions = [{ label: '< 6 kPa', value: 'lt6'}, { label: '6 ⩽ _ < 9 kPa', value: 'btw6-9'}, { label: '⩾ 9 kPa', value: 'gt9' }];
   alatMoreSpecificOptions = [{ label: '2N < _ < 5N', value: 'btw2n-5n' }, { label: '⩾ 5N', value: 'gt5n' }];
-  ageOptions = [{ label: '16 - 29 ans', value: 'btw16-29' }, { label: '30 - 39 ans', value: 'btw30-39' }, { label: '40 - 49 ans', value: 'btw40-49' }, { label: '50 - 59 ans', value: 'btw50-59' }, { label: '60 - 69 ans', value: 'btw60-69' }, { label: '60 et plus', value: '70more' }];
+  ageOptions = [{ label: '16 - 29 ans', value: 'btw16-29' }, { label: '30 - 39 ans', value: 'btw30-39' }, { label: '40 - 49 ans', value: 'btw40-49' }, { label: '50 - 59 ans', value: 'btw50-59' }, { label: '60 - 69 ans', value: 'btw60-69' }, { label: '70 et plus', value: '70more' }];
   sexeOptions = [{ label: 'Homme', value: 'M' }, { label: 'Femme', value: 'F' }];
   plateletsOptions = [{ label: '< 100 g/L', value: 'lt100' }, { label: '100 - 199 g/L', value: 'btw100-200' }, { label: '⩾ 200 g/L', value: 'gt200' }];
 

@@ -84,7 +84,7 @@
         <div *ngIf="!!fibroscanResult" class="fibroscan-result">
           Interprétation du fibroscan&nbsp;: 
             <span *ngIf="fibroscanResult === 'yes'">Patient atteint de fibrose</span>
-            <span *ngIf="fibroscanResult === 'no'">Pas de fibrose</span>
+            <span *ngIf="fibroscanResult === 'no'">Pas de fibrose significative.</span>
             <span *ngIf="fibroscanResult === 'uninterpretable-fibroscan-btw6-9'">Valeur en zone grise, on ne peut conclure au degré de fibrose</span>
             <span *ngIf="fibroscanResult === 'uninterpretable-alat-gt5n'">La valeur du fibroscan n'est pas interprétable en cas de cytolyse importante</span>
         </div>
@@ -142,7 +142,7 @@
         
         <div *ngIf="!resultPageB">
           <b class="app-mb-sm">Score PAGE B&nbsp;: &lt;10</b><br />
-          <span>Pas d'indication particulière.</span>
+          <span>Pas d'intérêt au dépistage du CHC (hors antécédent familial au premier degré de CHC) car risque de CHC proche de 0 à 5 ans.</span>
         </div>
 
       </ion-col>

@@ -18,7 +18,7 @@ export class ModalPageBComponent implements OnInit {
   displayResult = false;
   result: boolean | undefined = undefined;
 
-  ageOptions = [{ label: '16 - 29 ans', value: 'btw16-29' }, { label: '30 - 39 ans', value: 'btw30-39' }, { label: '40 - 49 ans', value: 'btw40-49' }, { label: '50 - 59 ans', value: 'btw50-59' }, { label: '60 - 69 ans', value: 'btw60-69' }, { label: '60 et plus', value: '70more' }];
+  ageOptions = [{ label: '16 - 29 ans', value: 'btw16-29' }, { label: '30 - 39 ans', value: 'btw30-39' }, { label: '40 - 49 ans', value: 'btw40-49' }, { label: '50 - 59 ans', value: 'btw50-59' }, { label: '60 - 69 ans', value: 'btw60-69' }, { label: '70 et plus', value: '70more' }];
   sexeOptions = [{ label: 'Homme', value: 'M' }, { label: 'Femme', value: 'F' }];
   plateletsOptions = [{ label: '< 100 g/L', value: 'lt100' }, { label: '100 - 199 g/L', value: 'btw100-200' }, { label: '> 200 g/L', value: 'gt200' }];
 
