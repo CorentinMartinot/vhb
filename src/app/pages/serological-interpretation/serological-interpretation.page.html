@@ -57,7 +57,7 @@
         <ion-col>
 
           <div *ngIf="agHbs && acAntiHbs">
-            <b>Erreur ou séroconversion HBs en cours.</b>
+            <b>Possible faux positif.</b>
             <br/><br/>
             À recontrôler dans un autre laboratoire avec charge virale.
           </div>
@@ -76,7 +76,7 @@
           </div>
 
           <div *ngIf="agHbs && !acAntiHbs && !acAntiHbc">
-            <b>Cas rare&nbsp;: probable début d'hépatite&nbsp;B aiguë.</b> Recontrôler la sérologie +&nbsp;Ac&nbsp;HBc type&nbsp;IgM +&nbsp;bilan hépatique
+            <b>Cas rare&nbsp;: possible début d'hépatite&nbsp;B aiguë.</b> Recontrôler la sérologie +&nbsp;Ac&nbsp;HBc type&nbsp;IgM
             <br/><br/>
             Ne pas méconnaître :
             <ul>
@@ -86,9 +86,9 @@
           </div>
 
           <div *ngIf="!agHbs && acAntiHbs && acAntiHbc">
-            <b>Hépatite résolue.</b>
+            <b>Guérison fonctionnelle.</b>
             <br/><br/>
-            Pas de surveillance ou de traitement mais attention aux situations à risque de réactivation possible <a class="link-button color-nepal" (click)="goToVhbResolved()">(cf chapitre hépatite B résolue)</a>.
+            Attention aux situations à risque de réactivation possible <a class="link-button color-nepal" (click)="goToVhbResolved()">(cf chapitre guérison fonctionnelle)</a>.
           </div>
 
 
@@ -118,11 +118,11 @@
           </div>
 
           <div *ngIf="!agHbs && !acAntiHbs && acAntiHbc">
-            <b>Antécédent de contact avec le VHB.</b> Probable hépatite résolue.
+            Probable guérison fonctionnelle.
             <br/><br/>
-            Faire contrôle de la sérologie dans 2ème laboratoire et réaliser un dosage de l'ADN VHB pour éliminer hépatite&nbsp;B occulte.
+            Eliminer hépatite B occulte en faisant un dosage de l'ADN VHB.
             <br/>
-            Si situation d'hépatite résolue confirmée, pas de surveillance ou traitement mais attention aux situations à risque de réactivation possible <a class="link-button color-nepal" (click)="goToVhbResolved()">(cf chapitre hépatite B résolue)</a>.
+            Attention aux situations à risque de réactivation possible <a class="link-button color-nepal" (click)="goToVhbResolved()">(cf chapitre guérison fonctionnelle)</a>.
           </div>
 
           <div *ngIf="!agHbs && !acAntiHbs && !acAntiHbc">

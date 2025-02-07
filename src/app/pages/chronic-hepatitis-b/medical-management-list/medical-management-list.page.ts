@@ -17,11 +17,28 @@ import {
   styleUrls: ['./medical-management-list.page.scss'],
 })
 export class MedicalManagementListPage implements OnInit {
+  CIRRHOSE = CIRRHOSE;
+
+  onClick(situation: string) {
+    this.navCtrl.navigateForward(situation);
+  }
 
   situationList = [
     { 
+      name: 'Antécédent familial de cirrhose ou de CHC',
+      onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: FAMILY_HISTORY_OF_CIRRHOSIS } }),
+    },
+    { 
+      name: 'Manifestation extra-hépatique du VHB',
+      onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: EXTRAHEPATIC_HBV } }),
+    },
+    { 
       name: 'Femme enceinte',
       onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: PREGNANT } }),
+    },
+        { 
+      name: 'Professionnel de santé',
+      onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: CARE_STAFF } }),
     },
     { 
       name: 'Co - Infection VIH',
@@ -34,26 +51,6 @@ export class MedicalManagementListPage implements OnInit {
     { 
       name: 'Co - Infection VHD',
       onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: CO_VHD } }),
-    },
-    { 
-      name: 'Professionnel de santé',
-      onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: CARE_STAFF } }),
-    },
-    { 
-      name: 'Antécédent familial de cirrhose ou de CHC',
-      onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: FAMILY_HISTORY_OF_CIRRHOSIS } }),
-    },
-    { 
-      name: 'Manifestation extra-hépatique du VHB',
-      onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: EXTRAHEPATIC_HBV } }),
-    },
-    { 
-      name: 'Cirrhose',
-      onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: CIRRHOSE } }),
-    },
-    {
-      name: 'Aucune des situations ci-dessus',
-      onClick: () => this.navCtrl.navigateForward('/other-situation'),
     },
   ]
 

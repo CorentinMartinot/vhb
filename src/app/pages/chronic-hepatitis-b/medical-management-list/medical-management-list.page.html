@@ -8,6 +8,13 @@
         <ion-col size-sm="8" offset-sm="2" size-md="5" offset-md="3.5">
           <ion-row class="ion-justify-content-center">
             <ion-list class="situation-list">
+              <ion-item button (click)="onClick('other-situation')" detail="true" lines="none" class="ion-margin-bottom button">
+                <ion-text>Situation générale (hors cas particulier)</ion-text>
+              </ion-item>
+              <ion-text class="text-bold">Cas particuliers :<br><br></ion-text>
+              <ion-item button (click)="onClick(CIRRHOSE)" detail="true" lines="none" class="ion-margin-bottom button">
+                <ion-text>Cirrhose</ion-text>
+              </ion-item>
               <ion-item button *ngFor="let situation of situationList" (click)="situation.onClick()" detail="true" 
                 lines="none" class="ion-margin-bottom button">
                 <ion-text>{{ situation.name }}</ion-text>
