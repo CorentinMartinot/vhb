@@ -42,7 +42,11 @@ const routes: Routes = [
   {
     path: 'about',
     loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+  },  {
+    path: 'cirrhose',
+    loadChildren: () => import('./pages/chronic-hepatitis-b/cirrhose/cirrhose.module').then( m => m.CirrhosePageModule)
   },
+
 
 
 

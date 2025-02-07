@@ -17,16 +17,13 @@ import {
   styleUrls: ['./medical-management-list.page.scss'],
 })
 export class MedicalManagementListPage implements OnInit {
+  CIRRHOSE = CIRRHOSE;
 
-  onClickGeneral() {
-    this.navCtrl.navigateForward('/other-situation')
+  onClick(situation: string) {
+    this.navCtrl.navigateForward(situation);
   }
 
   situationList = [
-    { 
-      name: 'Cirrhose',
-      onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: CIRRHOSE } }),
-    },
     { 
       name: 'Antécédent familial de cirrhose ou de CHC',
       onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: FAMILY_HISTORY_OF_CIRRHOSIS } }),
