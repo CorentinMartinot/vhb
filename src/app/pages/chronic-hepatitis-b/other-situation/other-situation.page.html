@@ -27,20 +27,9 @@
         </ion-card>
         <ion-card *ngIf="alat" class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="displayResult">
           <div class="card-header">
-            <ion-label class="card-title">fibrose</ion-label>
+            <ion-label class="card-title">fibroscan</ion-label>
           </div>
-          <div class="sub-card">
-            <div class="card-sub-title">biopsie</div>
-            <radio-area (change)="setBiopsie($event)" [options]="biopsieOptions" [selectedValue]="biopsie"></radio-area>
-          </div>
-          <div *ngIf="noBiopsie" class="sub-card margin-top">
-            <div class="card-sub-title">fibroscan</div>
-            <radio-area (change)="setFibroscan($event)" [options]="fibroscanOptions" [selectedValue]="fibroscan"></radio-area>
-          </div>
-          <div *ngIf="noBiopsie && showAlatMoreSpecific" class="sub-card margin-top">
-            <div class="card-sub-title">Précision sur le taux ALAT</div>
-            <radio-area (change)="setAlatMoreSpecific($event)" [options]="alatMoreSpecificOptions" [selectedValue]="alatMoreSpecific"></radio-area>
-          </div>
+          <radio-area (change)="setFibroscan($event)" [options]="fibroscanOptions" [selectedValue]="fibroscan"></radio-area>
         </ion-card>
         <ng-container *ngIf="fibroseCompleted">
           <ion-card class="ion-no-padding ion-no-margin ion-margin-bottom" [disabled]="displayResult">
@@ -85,8 +74,7 @@
           Interprétation du fibroscan&nbsp;: 
             <span *ngIf="fibroscanResult === 'yes'">Patient atteint de fibrose</span>
             <span *ngIf="fibroscanResult === 'no'">Pas de fibrose significative.</span>
-            <span *ngIf="fibroscanResult === 'uninterpretable-fibroscan-btw6-9'">Valeur en zone grise, on ne peut conclure au degré de fibrose</span>
-            <span *ngIf="fibroscanResult === 'uninterpretable-alat-gt5n'">La valeur du fibroscan n'est pas interprétable en cas de cytolyse importante</span>
+            <span *ngIf="fibroscanResult === 'uninterpretable-fibroscan'">Valeur non-interprétable</span>
         </div>
         
         <div *ngIf="treatment === 'yes'">
@@ -97,39 +85,47 @@
           <app-modal-treatment title="Traitements autre situtation"></app-modal-treatment>
         </div>
 
-        <div *ngIf="treatment === 'optionnal'">
-          <h5>Les recommandations conseillent de proposer un traitement au patient.</h5>
+        <div *ngIf="treatment === 'no'">
+          <h5 class="app-mb-sm">Pas d'indication de traitement</h5>
+          <span>Rythme de surveillance&nbsp;:</span>
+          <div *ngIf="agHbe === 'neg' && adnVhb === 'lt2000'">
+            <ul class="app-mt-sm">
+              <li>ALAT et ADN VHB tous les 6 à 12 mois</li>
+              <li>réévaluation de la fibrose tous les 3 ans</li>
+            </ul>
+          </div>
+          <div *ngIf="agHbe === 'neg' && adnVhb !== 'lt2000'">
+            <ul>
+              <li>ALAT tous les 3 mois pendant un an, puis tous les 6 mois</li>
+              <li>ADN VHB tous les 6 mois</li>
+              <li>réévaluation de la fibrose tous les 3 ans</li>
+            </ul>
+          </div>
+          <div *ngIf="agHbe === 'pos'">
+            <ul>
+              <li>ALAT tous les 3 mois</li>
+              <li>ADN VHB et Ag HBe tous les 6 à 12 mois</li>
+              <li>réévaluation de la fibrose tous les 12 mois</li>
+            </ul>
+          </div>
+        </div>
+
+        <div *ngIf="treatment === 'no-conclusion-prescribe-pbh'">
+          <h5>Indication à une PBH, qui incidera sur l'indication d'un traitement</h5>
           <ion-buttons class="button-treatment-container">
             <ion-button id="open-modal-treatment" color="violet" shape="round" fill="solid" class="button-treatment">Voir infos traitement</ion-button>
           </ion-buttons>
           <app-modal-treatment></app-modal-treatment>
         </div>
-        
-        <div *ngIf="treatment === 'no'">
-          <h5 class="app-mb-sm">Pas d'indication de traitement</h5>
-          <span>Rythme de surveillance&nbsp;:</span>
-          <div *ngIf="agHbe === 'pos'">
-            <ul class="app-mt-sm">
-              <li>ALAT tous les 3&nbsp;mois et ADN tous les 6-12&nbsp;mois</li>
-              <li>Évaluation non invasive de la fibrose tous les ans</li>
-            </ul>
-          </div>
-          <div *ngIf="agHbe === 'neg' && adnVhb === 'lt2000'">
-            <ul>
-              <li>ALAT et ADN tous les 6-12&nbsp;mois</li>
-              <li>Évaluation de la fibrose par méthode non invasive tous les 3&nbsp;ans</li>
-            </ul>
-          </div>
-          <div *ngIf="agHbe === 'neg' && adnVhb !== 'lt2000'">
-            <ul>
-              <li>ALAT tous les 3&nbsp;mois pendant 1&nbsp;an puis tous les 6&nbsp;mois, ADN tous les 6&nbsp;mois.</li>
-              <li>Évaluation de la fibrose par méthode non invasive tous les 3&nbsp;ans</li>
-            </ul>
-          </div>
-        </div>
 
-        <div *ngIf="treatment === 'not-defined'">
-          <h5>La présence de fibrose peut changer l'indication de traitement, une biopsie hépatique doit être discutée</h5>
+        <div *ngIf="!!discuseTreatment || !!reviewCytolyse">
+          <span>Précisions&nbsp;:</span>
+          <ul>
+            <li *ngIf="!!reviewCytolyse">bilan de cytolyse à réaliser avec sérologie VHD</li>
+            <li *ngIf="reviewCytolyse === 'should-not'">l'hépatite B chronique <ion-text class="bold-text">n'est probablement pas</ion-text> la cause de la cytolyse</li>
+            <li *ngIf="reviewCytolyse === 'maybe'">l'hépatite B chronique <ion-text class="bold-text">peut être</ion-text> la cause de la cytolyse</li>
+            <li *ngIf="!!discuseTreatment">{{discuseTreatment}}</li>
+          </ul>
         </div>
 
 

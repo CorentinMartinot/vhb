@@ -50,6 +50,7 @@ ion-card {
 
 .button-treatment {
   margin-top: 10px;
+  margin-bottom: 10px;
   text-transform: none;
   height: 45px;
   width: 250px;
@@ -57,9 +58,14 @@ ion-card {
 
 .fibroscan-result {
   font-style: italic;
+  margin-bottom: 18px;
 }
 
 h5 {
   margin-top: 5px;
+  font-weight: bold;
+}
+
+.bold-text {
   font-weight: bold;
 }
