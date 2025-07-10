@@ -7,6 +7,8 @@
   <ion-grid>
     <ion-row class="md-content">
       <ion-col>
+           
+        <!-- Special case for situation === CIRROSE : own specific page -->
       
         <div *ngIf="situation === PREGNANT">
           <ion-title class="ion-margin-top ion-no-padding">Femme enceinte</ion-title>
@@ -19,7 +21,7 @@
               Si patiente déjà traitée par Tenofovir&nbsp;; poursuivre le traitement. Si autre traitement, switch pour Tenofovir.
             </li>
             <li class="app-mb-sm">
-              Si le taux d'ADN VHB&nbsp;>&nbsp;200.000&nbsp;IU/mL&nbsp;; commencer un traitement par Ténofovir entre la 24 et 28ème semaine de grossesse et continuer jusqu'à 12&nbsp;semaines après l'accouchement.
+              Si le taux d'ADN VHB&nbsp;>&nbsp;200.000&nbsp;IU/mL à 6&nbsp;mois de grossesse: commencer un traitement par Ténofovir entre la 24 et 28ème semaine de grossesse et continuer jusqu'à 12&nbsp;semaines après l'accouchement, puis suivi en hépatologie.
             </li>
             <li class="app-mb-sm">
               Sérovaccination à la naissance de l'enfant&nbsp;: 3&nbsp;doses de vaccin. 1&nbsp;dose à la naissance (dans les 12h) associée à l'administration d'immunoglobulines spécifiques, puis à 1&nbsp;mois et 6&nbsp;mois. (ainsi qu'à 2&nbsp;mois en cas de prématurité &lt;32&nbsp;SA ou d'un poids inférieur à 2kg).
@@ -138,6 +140,23 @@
             <li>
               situations à risque de transmission = contact potentiel entre la peau du professionnel de santé et des instruments tranchants, 
               des aiguilles ou des structures anatomiques pointues dans le corps humain (os, dents).
+            </li>
+          </ul>
+          <ion-buttons class="button-treatment-container">
+            <ion-button id="open-modal-treatment" color="violet" shape="round" fill="solid" class="button-treatment">Voir infos traitement</ion-button>
+          </ion-buttons>
+          <app-modal-treatment title="Traitements professionnel de santé"></app-modal-treatment>
+        </div>
+
+        <div *ngIf="situation === RISK_BEHAVIOR">
+          <ion-title class="ion-margin-top ion-no-padding ion-margin-bottom">UDIV et comportement sexuel à risque</ion-title>
+          <ul>
+            <li>
+              Patients usagers de drogue intraveineuse et comportement sexuel à risque.
+            </li>
+            <br>
+            <li>
+              Patients à risque de transmission porteurs d'un VHB chronique avec ADN VHB positif&nbsp;: traitement antiviral à proposer.
             </li>
           </ul>
           <ion-buttons class="button-treatment-container">

@@ -8,6 +8,7 @@ import {
   CARE_STAFF,
   FAMILY_HISTORY_OF_CIRRHOSIS,
   EXTRAHEPATIC_HBV,
+  RISK_BEHAVIOR,
 } from 'src/app/helpers/constants';
 
 @Component({
@@ -23,6 +24,7 @@ export class MedicalManagementDetailPage implements OnInit {
   CARE_STAFF = CARE_STAFF;
   FAMILY_HISTORY_OF_CIRRHOSIS = FAMILY_HISTORY_OF_CIRRHOSIS;
   EXTRAHEPATIC_HBV = EXTRAHEPATIC_HBV;
+  RISK_BEHAVIOR = RISK_BEHAVIOR;
 
   situation = '';
 

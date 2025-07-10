@@ -9,6 +9,7 @@ import {
   FAMILY_HISTORY_OF_CIRRHOSIS,
   EXTRAHEPATIC_HBV,
   CIRRHOSE,
+  RISK_BEHAVIOR,
 } from 'src/app/helpers/constants';
 
 @Component({
@@ -24,6 +25,7 @@ export class MedicalManagementListPage implements OnInit {
   }
 
   situationList = [
+    // Special case for CIRROSE : own specific page
     { 
       name: 'Antécédent familial de cirrhose ou de CHC',
       onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: FAMILY_HISTORY_OF_CIRRHOSIS } }),
@@ -36,9 +38,13 @@ export class MedicalManagementListPage implements OnInit {
       name: 'Femme enceinte',
       onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: PREGNANT } }),
     },
-        { 
+    { 
       name: 'Professionnel de santé',
       onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: CARE_STAFF } }),
+    },
+    { 
+      name: 'UDIV et comportement sexuel à risque',
+      onClick: () => this.navCtrl.navigateForward('/medical-management-detail', { state: { situation: RISK_BEHAVIOR } }),
     },
     { 
       name: 'Co - Infection VIH',
