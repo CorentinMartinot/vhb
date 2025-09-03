@@ -70,75 +70,90 @@
     <ion-row class="result-container">
       <ion-col>
 
-        <div *ngIf="!!fibroscanResult" class="fibroscan-result">
-          Interprétation du fibroscan&nbsp;: 
-            <span *ngIf="fibroscanResult === 'yes'">Patient atteint de fibrose</span>
-            <span *ngIf="fibroscanResult === 'no'">Pas de fibrose significative.</span>
-            <span *ngIf="fibroscanResult === 'uninterpretable-fibroscan'">Valeur non-interprétable</span>
+        <div *ngIf="!!fibroscanResult" class="app-mb-lg">
+          <span class="res-sub-title">Interprétation du fibroscan&nbsp;:  </span>
+          <span *ngIf="fibroscanResult === 'yes'"><b>Patient atteint de fibrose</b></span>
+          <span *ngIf="fibroscanResult === 'no'"><b>Pas de fibrose significative</b></span>
+          <span *ngIf="fibroscanResult === 'grey-zone'"><b>Zone grise</b></span>
+          <span *ngIf="fibroscanResult === 'uninterpretable-fibroscan'"><b>Valeur non-interprétable</b></span>
+
+            <div class="app-mt-xs" *ngIf="
+              (fibroscanResult === 'grey-zone' || fibroscanResult === 'uninterpretable-fibroscan') &&
+              (treatment === 'yes' || treatment === 'no')
+              "><i>La présence ou non d'une fibrose significative ne modifie pas la prise en charge.</i></div>
         </div>
         
-        <div *ngIf="treatment === 'yes'">
-          <h5>Patient à traiter.</h5>
-          <ion-buttons class="button-treatment-container">
-            <ion-button id="open-modal-treatment" color="violet" shape="round" fill="solid" class="button-treatment">Voir infos traitement</ion-button>
-          </ion-buttons>
-          <app-modal-treatment title="Traitements autre situtation"></app-modal-treatment>
-        </div>
-
-        <div *ngIf="treatment === 'no'">
-          <h5 class="app-mb-sm">Pas d'indication de traitement</h5>
-          <span>Rythme de surveillance&nbsp;:</span>
-          <div *ngIf="agHbe === 'neg' && adnVhb === 'lt2000'">
-            <ul class="app-mt-sm">
-              <li>ALAT et ADN VHB tous les 6 à 12 mois</li>
-              <li>réévaluation de la fibrose tous les 3 ans</li>
-            </ul>
+        <div class="app-mb-lg">
+          <div class="app-mb-xs">
+            <span class="res-sub-title">Traitement :  </span>
+            <span *ngIf="treatment === 'yes'"><b>Patient à traiter.</b></span>
+            <span *ngIf="treatment === 'no'"><b>Pas d'indication de traitement.</b></span>
+            <span *ngIf="treatment === 'no-provided-that'"><b>Pas d'indication de traitement</b>, sous reserve que la valeur du fibroscan est ininterprétable.</span>
+            <span *ngIf="treatment === 'no-discuss'"><b>Pas d'indication de traitement</b>, mais à discuter : surtout <b>si le dépistage du CHC est indiqué</b>, pour limiter le risque de survenu de CHC.</span>
+            <span *ngIf="treatment === 'lack-conclusion-discuss-pbh'"><b>Une biopsie hépatique doit être discutée</b> selon la balance bénéfice-risque.</span>
+            <span *ngIf="treatment === 'lack-conclusion-discuss-pbh-insist'"><b>Une biopsie hépatique doit être discutée</b> selon la balance bénéfice-risque, <b>surtout si le dépistage du CHC est indiqué</b>, pour limiter le risque de survenu de CHC.</span>
           </div>
-          <div *ngIf="agHbe === 'neg' && adnVhb !== 'lt2000'">
-            <ul>
-              <li>ALAT tous les 3 mois pendant un an, puis tous les 6 mois</li>
-              <li>ADN VHB tous les 6 mois</li>
-              <li>réévaluation de la fibrose tous les 3 ans</li>
-            </ul>
+
+          <div *ngIf="!!treatment && treatment !== 'no' && treatment !== 'no-provided-that'">
+            <div *ngIf="treatment === 'lack-conclusion-discuss-pbh' || treatment === 'lack-conclusion-discuss-pbh-insist'">
+              <i>La présence d'une fibrose significative est une indication à un traitement.</i>
+            </div>
+
+            <ion-buttons class="button-treatment-container">
+              <ion-button id="open-modal-treatment" color="violet" shape="round" fill="solid" class="button-treatment">Voir infos traitement</ion-button>
+            </ion-buttons>
+            <app-modal-treatment title="Traitements autre situtation"></app-modal-treatment>
           </div>
-          <div *ngIf="agHbe === 'pos'">
-            <ul>
-              <li>ALAT tous les 3 mois</li>
-              <li>ADN VHB et Ag HBe tous les 6 à 12 mois</li>
-              <li>réévaluation de la fibrose tous les 12 mois</li>
-            </ul>
+
+          <div *ngIf="treatment === 'no' || treatment === 'no-discuss'">
+            <div class="res-sub-title app-mt-lg">Rythme de surveillance&nbsp;:</div>
+            <div *ngIf="agHbe === 'neg' && adnVhb === 'lt2000'">
+              <ul class="app-mt-sm">
+                <li>ALAT et ADN VHB tous les 6 à 12 mois</li>
+                <li>réévaluation de la fibrose tous les 3 ans</li>
+              </ul>
+            </div>
+            <div *ngIf="agHbe === 'neg' && adnVhb !== 'lt2000'">
+              <ul>
+                <li>ALAT tous les 3 mois pendant un an, puis tous les 6 mois</li>
+                <li>ADN VHB tous les 6 mois</li>
+                <li>réévaluation de la fibrose tous les 3 ans</li>
+              </ul>
+            </div>
+            <div *ngIf="agHbe === 'pos'">
+              <ul>
+                <li>ALAT tous les 3 mois</li>
+                <li>ADN VHB et Ag HBe tous les 6 à 12 mois</li>
+                <li>réévaluation de la fibrose tous les 12 mois</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div *ngIf="treatment === 'no-conclusion-prescribe-pbh'">
-          <h5>Indication à une PBH, qui incidera sur l'indication d'un traitement</h5>
-          <ion-buttons class="button-treatment-container">
-            <ion-button id="open-modal-treatment" color="violet" shape="round" fill="solid" class="button-treatment">Voir infos traitement</ion-button>
-          </ion-buttons>
-          <app-modal-treatment></app-modal-treatment>
-        </div>
+        <div *ngIf="!!reviewCytolyse">
+          <div class="app-mb-xs">
+            <span class="res-sub-title">Autres : </span>
+            <b>Indication à réaliser un bilan de cytolyse </b>avec sérologie VHD.
+          </div>
+          <i *ngIf="reviewCytolyse === 'should-not'">L'hépatite B chronique n'est probablement pas la cause de la cytolyse.</i>
+          <i *ngIf="reviewCytolyse === 'maybe'">L'hépatite B chronique peut être la cause de la cytolyse.</i>
+      </div>
 
-        <div *ngIf="!!discuseTreatment || !!reviewCytolyse">
-          <span>Précisions&nbsp;:</span>
-          <ul>
-            <li *ngIf="!!reviewCytolyse">bilan de cytolyse à réaliser avec sérologie VHD</li>
-            <li *ngIf="reviewCytolyse === 'should-not'">l'hépatite B chronique <ion-text class="bold-text">n'est probablement pas</ion-text> la cause de la cytolyse</li>
-            <li *ngIf="reviewCytolyse === 'maybe'">l'hépatite B chronique <ion-text class="bold-text">peut être</ion-text> la cause de la cytolyse</li>
-            <li *ngIf="!!discuseTreatment">{{discuseTreatment}}</li>
-          </ul>
-        </div>
-
-
-        <br /><br />
-      
+        <br />
         <div *ngIf="!!resultPageB">
-          <b class="app-mb-sm">Score PAGE&nbsp;B&nbsp;: ⩾10</b><br />
-          <span>Indication à réaliser une échographie abdominale et dosage de l'Alpha-foetoprotéine tous les 6&nbsp;mois.</span>
+          <div class="app-mb-xs">
+            <span class="res-sub-title">Score PAGE&nbsp;B&nbsp;:  </span>
+            <b>⩾10</b>
+          </div>
+          Indication à réaliser une <b> échographie abdominale </b> et <b>dosage de l'Alpha-foetoprotéine </b> tous les 6&nbsp;mois.
         </div>
         
         <div *ngIf="!resultPageB">
-          <b class="app-mb-sm">Score PAGE B&nbsp;: &lt;10</b><br />
-          <span>Pas d'intérêt au dépistage du CHC (hors antécédent familial au premier degré de CHC) car risque de CHC proche de 0 à 5 ans.</span>
+          <div class="app-mb-xs">
+            <span class="res-sub-title">Score PAGE&nbsp;B&nbsp;:  </span>
+            <b>&lt;10</b>
+          </div>
+          Pas d'intérêt au dépistage du CHC (hors antécédent familial au premier degré de CHC) car risque de CHC proche de 0 à 5 ans.
         </div>
 
       </ion-col>

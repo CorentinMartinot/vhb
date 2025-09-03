@@ -30,7 +30,6 @@ export class OtherSituationPage implements OnInit {
   pageBCompleted = false;
   displayResult = false;
   treatment = '';
-  discuseTreatment = '';
   reviewCytolyse = '';
   resultPageB: boolean | undefined = undefined;
 
@@ -118,24 +117,31 @@ export class OtherSituationPage implements OnInit {
     if (this.displayResult) {
       this.fibroscanResult = this.computeFibroscan();
       this.treatment = this.computeTreatment();
-      this.discuseTreatment = this.getDiscuseTreatment();
       this.reviewCytolyse = this.getReviewCytolyse();
       this.resultPageB = this.computePageB();
     }
   }
 
   computeFibroscan () {
+    if (this.alat === 'gt5n') return 'uninterpretable-fibroscan';
     if (this.fibroscan === 'lt6') return 'no';
     if (this.fibroscan === 'btw9-12' && this.alat === 'normal') return 'yes';
-    if (this.fibroscan === 'gt12' && this.alat !== 'gt5n') return 'yes';
+    if (this.fibroscan === 'gt12') return 'yes';
 
-    return 'uninterpretable-fibroscan';
+    return 'grey-zone';
   }
   
   computeTreatment () {
     if (this.agHbe === 'neg') {
       if (this.fibroscan === 'lt6') {
-        if (this.alat === 'normal' || this.adnVhb === 'lt2000') return 'no';
+        if (this.alat ==='normal') {
+          if (this.adnVhb === 'btw20000-1M' || this.adnVhb === 'gt1M') return 'no-discuss';
+          return 'no';
+        }
+        if (this.adnVhb === 'lt2000') {
+          if (this.alat === 'gt5n') return 'no-provided-that';
+          return 'no';
+        }
         return 'yes';
       }
       if (this.fibroscan === 'btw6-9') {
@@ -151,14 +157,33 @@ export class OtherSituationPage implements OnInit {
 
     if (this.agHbe === 'pos') {
       if (this.fibroscan === 'lt6') {
-        if (this.alat === 'btw2n-5n' || this.alat === 'gt5n') {
-          if (this.adnVhb === 'btw20000-1M' || this.adnVhb === 'gt1M') return 'yes'
+        if (this.adnVhb === 'lt2000' || this.adnVhb === 'btw2000-20000') {
+          if (this.alat === 'gt5n') return 'no-provided-that';
+          return 'no';
         }
-        return 'no';
+
+        if (this.adnVhb === 'btw20000-1M') {
+          if (this.alat === 'normal' || this.alat === 'btwn-2n') return 'no-discuss';
+          return 'yes';
+        }
+
+        if (this.adnVhb === 'gt1M') {
+          if (this.alat === 'normal' || this.alat === 'btwn-2n') {
+            if (this.age ===  'btw16-29') return 'no-discuss';
+          }
+          return 'yes';
+        }
       }
       if (this.fibroscan === 'btw6-9') {
-        if (this.alat === 'btw2n-5n' || this.alat === 'gt5n') {
-          if (this.adnVhb === 'btw20000-1M' || this.adnVhb === 'gt1M') return 'yes'
+        if (this.adnVhb === 'btw20000-1M') {
+          if (this.alat === 'normal' || this.alat === 'btwn-2n') return 'lack-conclusion-discuss-pbh-insist';
+          return 'yes';
+        }
+        if (this.adnVhb === 'gt1M') {
+          if (this.alat === 'normal' || this.alat === 'btwn-2n') {
+            if (this.age ===  'btw16-29') return 'lack-conclusion-discuss-pbh-insist';
+          }
+          return 'yes';
         }
       }
       if (this.fibroscan === 'btw9-12') {
@@ -170,27 +195,13 @@ export class OtherSituationPage implements OnInit {
         if (this.alat !== 'gt5n' || this.adnVhb === 'btw20000-1M' || this.adnVhb === 'gt1M') return 'yes';
       } 
     }
-    return 'no-conclusion-prescribe-pbh';
+    return 'lack-conclusion-discuss-pbh';
   }
 
   getReviewCytolyse() {
     if (this.alat !== 'normal') {
       if (this.adnVhb === 'lt2000' || this.adnVhb === 'btw2000-20000') return 'should-not';
       return 'maybe';
-    }
-
-    return '';
-  }
-
-  getDiscuseTreatment() {
-    if (this.agHbe === 'neg' && this.fibroscan === 'lt6' && this.alat === 'normal'
-      && (this.adnVhb === 'btw20000-1M' || this.adnVhb === 'gt1M')) {
-      return "Traitement à discuter, surtout si dépistage du CHC indiqué pour limiter le risque de survenu de CHC";
-    }
-    if (this.agHbe === 'pos' && (this.fibroscan === 'lt6' || this.fibroscan === 'btw6-9') 
-      && (this.alat === 'normal' || this.alat === 'btwn-2n')) {
-      if (this.adnVhb === 'btw20000-1M') return "Traitement à discuter, surtout si dépistage du CHC indiqué pour limiter le risque de survenu de CHC";
-      if (this.adnVhb === 'gt1M') return "Traitement à proposer si patient > 30ans"
     }
 
     return '';
@@ -224,7 +235,6 @@ export class OtherSituationPage implements OnInit {
     this.treatment = '';
     this.resultPageB = undefined;
     this.fibroscanResult = '';
-    this.discuseTreatment = '';
     this.reviewCytolyse = '';
   }
 }

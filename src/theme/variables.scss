@@ -468,8 +468,20 @@
   // }
 // }
 
+.app-mb-xs {
+  margin-bottom: 4px;
+}
+
 .app-mb-sm {
   margin-bottom: 6px;
+}
+
+.app-mb-lg {
+  margin-bottom: 18px;
+}
+
+.app-mt-xs {
+  margin-top: 4px;
 }
 
 .app-mt-sm {
@@ -477,6 +489,10 @@
 }
 
 .app-mt-lg {
+  margin-top: 18px;
+}
+
+.app-mt-xl {
   margin-top: 30px;
 }
 
