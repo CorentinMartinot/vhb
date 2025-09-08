@@ -1,8 +1,8 @@
 {
   "name": "vhb",
-  "version": "1.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "version": "1.0.3",
+  "author": "Corentin Martinot",
+  "homepage": "https://angh.net/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
