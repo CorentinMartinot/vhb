@@ -1,0 +1,33 @@
+<ion-modal [isOpen]="isOpen" [backdropDismiss]="false">
+  <ng-template>
+    <ion-header class="ion-no-border">
+      <ion-toolbar>
+        <ion-title>Avertissement</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <div class="container" style="margin-top: 2rem;">
+        <h5>
+            Cette application est destinée aux <b>professionnels de santé uniquement.</b> <br>
+            Si vous n'en faites pas partie, nous vous recommandons de <b>ne pas l'utiliser</b>.
+        </h5>
+        <h5>
+            Pour un diagnostic ou un conseil personnalisé, veuillez <b>consulter un professionnel de santé</b> qualifié.
+        </h5>
+        <h5>
+            Par ailleurs, les informations fournies par cette application sont uniquement informatives et <b>ne constituent 
+            pas un avis médical.</b> 
+        </h5>
+      </div>
+    </ion-content>
+
+    <ion-footer style="box-shadow: none;">
+      <ion-toolbar>
+        <ion-buttons class="ion-justify-content-center">
+          <ion-button (click)="approve()" color="violet" shape="round" fill="solid" class="ok-button">J'ai compris</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-footer>
+  </ng-template>
+</ion-modal>

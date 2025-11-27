@@ -11,7 +11,7 @@ import { HomeBackgroundSvgComponent } from './home-background-svg/home-backgroun
 import { ModalPageBComponent } from './modal-page-b/modal-page-b.component';
 import { ImageComponent } from './image/image.component';
 import { ModalTreatmentComponent } from './modal-treatment/modal-treatment.component';
-
+import { ModalDisclaimerComponent } from './modal-disclaimer/modal-disclaimer.component';
 
 
 @NgModule({
@@ -24,6 +24,7 @@ import { ModalTreatmentComponent } from './modal-treatment/modal-treatment.compo
         ModalPageBComponent,
         ImageComponent,
         ModalTreatmentComponent,
+        ModalDisclaimerComponent,
     ],
     imports: [
         CommonModule,
@@ -39,6 +40,7 @@ import { ModalTreatmentComponent } from './modal-treatment/modal-treatment.compo
         ModalPageBComponent,
         ImageComponent,
         ModalTreatmentComponent,
+        ModalDisclaimerComponent,
     ],
     entryComponents: [
     ],
